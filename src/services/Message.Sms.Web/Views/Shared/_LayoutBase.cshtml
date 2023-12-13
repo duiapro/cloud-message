@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover" />
+    <title>@ViewData["Title"] - Message.Sms.Web</title>
+    <link rel="shortcut icon" href="~/images/favicon.png" type="image/png">
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- BOXICONS -->
+    <!-- BOXICONS -->
+    <link href='~/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Plugin -->
+    <link rel="stylesheet" href="~/libs/owl.carousel/assets/owl.carousel.min.css">
+    <!-- APP CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link href="~/css/icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/grid.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+</head>
+
+<body class="sidebar-expand">
+
+    <!-- End Main Header -->
+    <!-- MAIN CONTENT -->
+    @RenderBody()
+
+    <!-- END MAIN CONTENT -->
+
+    <div class="overlay"></div>
+    <!-- SCRIPT -->
+    <!-- APEX CHART -->
+
+    <script src="~/libs/jquery/jquery.min.js"></script>
+    <script src="~/libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/libs/moment/min/moment.min.js"></script>
+    <script src="~/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/libs/peity/jquery.peity.min.js"></script>
+    <script src="~/libs/chart.js/Chart.bundle.min.js"></script>
+    <script src="~/libs/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/libs/apexcharts/apexcharts.js"></script>
+    <script src="~/libs/simplebar/simplebar.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery.unobtrusive-ajax.js"></script>
+    <link href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    <!-- APP JS -->
+    <script src="~/js/main.js"></script>
+    <script src="~/js/dashboard.js"></script>
+    <script src="~/js/shortcode.js"></script>
+    <script src="~/js/pages/dashboard.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script type="text/javascript">
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+        var ajax = {
+            remake: function (e) {
+                let message = `<form asp-action="Create" data-ajax="true"
+                                          data-ajax-method="post"
+                                          data-ajax-failure="message.error"
+                                          data-ajax-begin="ajax.begin(this)"
+                                          data-ajax-complete="ajax.complete(this)"
+                                          data-ajax-success="message.success">
+                                          <div> todo input </div>
+                                          <div class="submit-section text-center">
+                                            <button class="btn btn-primary submit-btn">Submit</button>
+                                        </div>
+                                    </form>`;
+                return message;
+            },
+            begin: function (e) {
+                if (e != undefined) {
+                    let submitBtn = $(e).find('.submit-btn');
+                    if (submitBtn.length > 0) {
+                        submitBtn.attr('disabled', true);
+                        submitBtn.addClass('btn-secondary')
+                    }
+                }
+            },
+            complete: function (e) {
+                if (e != undefined) {
+                    let submitBtn = $(e).find('.submit-btn');
+                    if (submitBtn.length > 0) {
+                        setTimeout(function () {
+                            submitBtn.attr('disabled', false);
+                            submitBtn.removeClass('btn-secondary')
+                        }, 1000)
+                    }
+                }
+            },
+        };
+        var message = {
+            error: function (e) {
+                console.log(e)
+                if (e.responseText != undefined && e.responseText != '') {
+                    var message = e.responseText.split('System.Exception:')[1].split('\r\n')[0]
+                    toastr.error(message, "Error");
+                }
+                else {
+                    toastr.error(e, "Error");
+                }
+            },
+            success: function (e) {
+                console.log(e)
+                toastr.success(e, "Success");
+            },
+            info: function (e) {
+                console.log(e)
+                toastr.info(e, "info");
+            },
+        };
+    </script>
+</body>
+</html>

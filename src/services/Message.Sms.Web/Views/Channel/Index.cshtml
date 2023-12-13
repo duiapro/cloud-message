@@ -1,0 +1,338 @@
+﻿@using Message.Sms.Web.Models.ViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="main-content client list">
+    <div class="row">
+        <div class="col-12">
+            <div class="box card-box">
+                <div class="icon-box bg-color-1">
+                    <div class="icon bg-icon-1">
+                        <i class="bx bxs-bell bx-tada"></i>
+                    </div>
+                    <div class="content">
+                        <h5 class="title-box">Notification</h5>
+                        <p class="color-1 mb-0 pt-4">5 Unread notification</p>
+                    </div>
+                </div>
+                <div class="icon-box bg-color-2">
+                    <div class="icon bg-icon-2">
+                        <i class='bx bxs-message-rounded'></i>
+                    </div>
+                    <div class="content click-c">
+                        <h5 class="title-box">Message</h5>
+                        <p class="color-2 mb-0 pt-4">5 Unread notification</p>
+                    </div>
+                    <div class="notification-list card">
+                        <div class="top box-header">
+                            <h5>Notification</h5>
+
+                        </div>
+                        <div class="pd-1r">
+                            <div class="divider"></div>
+                        </div>
+
+                        <div class="box-body">
+                            <ul class="list">
+                                <li class="d-flex no-seen">
+                                    <div class="img-mess"><img class="mr-14" src="./images/avatar/avt-1.png" alt="avt"></div>
+                                    <div class="info">
+                                        <a href="#" class="font-w600 mb-0 color-primary">Elizabeth Holland</a>
+                                        <p class="pb-0 mb-0 line-h14 mt-6">Proin ac quam et lectus vestibulum</p>
+                                    </div>
+                                </li>
+
+                                <li class="d-flex">
+                                    <div class="img-mess"><img class="mr-14" src="./images/avatar/avt-1.png" alt="avt"></div>
+                                    <div class="info">
+                                        <a href="#" class="font-w600 mb-0 color-primary">Elizabeth Holland</a>
+                                        <p class="pb-0 mb-0 line-h14 mt-6">Proin ac quam et lectus vestibulum</p>
+                                    </div>
+                                </li>
+
+                            </ul>
+                            <div class="btn-view">
+                                <a class="font-w600 h5" href="message.html">View All</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="icon-box bg-color-3">
+                    <a class="create d-flex" href="calendar.html">
+                        <div class="icon bg-icon-3">
+                            <i class="bx bx-calendar"></i>
+                        </div>
+                        <div class="content">
+                            <h5 class="title-box">Calendar</h5>
+                            <p class="color-3 mb-0 pt-4">5 Unread notification</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="icon-box bg-color-4">
+                    <a class="create d-flex" href="#" data-toggle="modal" data-target="#add_project">
+                        <div class="icon bg-white">
+                            <i class="bx bx-plus"></i>
+                        </div>
+                        <div class="content d-flex align-items-center">
+                            <h5 class="color-white">Create New Channel</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="box">
+                <div class="box-body d-flex justify-content-between pt-0 pb-0">
+                    <form asp-action="Index" method="get">
+                        <div class="search-form d-flex">
+                            <input type="text" placeholder="Channel Name" value="@ViewBag.SearchString" name="SearchString" class="form-control">
+                            <select class="form-control" id="inputState">
+                                <option selected>Select Company Name</option>
+                            </select>
+                            <button type="submit" class="search d-flex"><i class="fas fa-search"></i>Search</button>
+                        </div>
+                    </form>
+                    <div class="list-action">
+                        <a class="list active" href="#" onclick="liststyle()"><i class='bx bx-menu'></i></a>
+                        <a href="#" class="list-board" onclick="listboard()"><i class='bx bxs-dashboard'></i></a>
+                        <a href="#" class="add" data-toggle="modal" data-target="#add_client">Add Client<i class="fas fa-plus-circle"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        @foreach (var item in (ViewData["ChannelData"] as List<Message.Sms.Web.Repositories.Entity.Channel>)!)
+        {
+            <div class="col-3 col-md-6 col-sm-12 mb-25">
+                <div class="box client">
+                    <div class="dropdown">
+                        <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bx bx-dots-horizontal-rounded"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item delete-client" onclick="removeClient('@item.KeyId')" href="#" data-toggle="modal" data-target="#delete_client"><i class="bx bx-trash"></i> Delete</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_client"><i class="bx bx-edit mr-5"></i>Edit</a>
+                        </div>
+                    </div>
+                    <div class="box-body pt-5 pb-0">
+                        <div class="img-box">
+                            <img src="@item.Icon" style="width:100px" alt="">
+                            <div class="pulse-css"></div>
+                        </div>
+                        <a href="client-details.html"><h5 class="mt-17">@item.Name</h5></a>
+                        <p class="fs-14 font-w400 font-main"><span class="text-clo-primary font-w500 pl-4">@item.Description</span></p>
+                        <ul class="info">
+                            <li class="fs-14"><i class="bx bxs-phone"></i>Code：@item.Code</li>
+                            <li class="fs-14"><i class="bx bxs-phone"></i>Price：@Math.Round(item.Price, 2)</li>
+                            <li class="fs-14"><i class="bx bxs-envelope"></i>CostPrice：@Math.Round(item.CostPrice, 2)</li>
+                        </ul>
+                        <div class="group-btn d-flex justify-content-between">
+                            <a class="bg-btn-pri color-white" href="/channel/message/@item.KeyId">Message</a>
+                            <a class="bg-btn-sec color-main" href="user-profile.html">View Profile</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+
+    <div id="add_project" class="modal custom-modal fade" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Channel</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form asp-action="Create" data-ajax="true" data-ajax-method="post" data-ajax-success="success" method="post">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Channel Name</label>
+                                    <input name="Name" class="form-control" value="" type="text">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Channel Code</label>
+                                    <input name="Code" class="form-control" value="" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Price</label>
+                                    <input name="Price" placeholder="$1" class="form-control" value="" type="text">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>CostPrice</label>
+                                    <input name="CostPrice" placeholder="$0.1" class="form-control" value="" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea name="Description" rows="4" class="form-control" placeholder="Enter your message here"></textarea>
+                        </div>
+                        <div class="submit-section">
+                            <button class="btn btn-primary submit-btn">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="add_client" class="modal custom-modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Channel</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form asp-action="Create" data-ajax="true" enctype="multipart/form-data"
+                          data-ajax-method="post"
+                          data-ajax-failure="message.error"
+                          data-ajax-begin="ajax.begin(this)"
+                          data-ajax-complete="ajax.complete(this)"
+                          data-ajax-success="addClientSucess">
+                        <div class="form-group">
+                            <label>Client Company</label>
+                            <select class="form-control select">
+                                <option>Company Name</option>
+                                <option>Company Name</option>
+                                <option>Company Name</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Upload Avata</label>
+                            <input class="form-control" id="Icon" name="Icon" accept="image/gif, image/jpeg, image/png, image/jpg" type="file">
+                        </div>
+                        <div class="form-group">
+                            <label>Client Name</label>
+                            <input name="Name" id="Name" data-val-required="The Name field is required." data-val="true" class="form-control" value="" type="text">
+                            <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Name"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Client Code</label>
+                            <input name="Code" class="form-control" data-val-required="The Code field is required." data-val="true" value="" type="text">
+                            <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Code"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input name="Price" type="number" placeholder="￥1" data-val-required="The Price field is required." data-val="true" class="form-control" value="0">
+                            <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Price"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>CostPrice</label>
+                            <input name="CostPrice" placeholder="￥1" data-val-required="The Price field is required." data-val="true" type="number" class="form-control" value="0.1">
+                            <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="CostPrice"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea name="Description" rows="4" class="form-control" placeholder="Enter your message here"></textarea>
+                        </div>
+
+                        <div class="submit-section text-center">
+                            <button class="btn btn-primary submit-btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal custom-modal fade" id="delete_client" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="form-header">
+                        <h3>Delete Channel</h3>
+                        <p>Are you sure want to delete?</p>
+                    </div>
+                    <div class="modal-btn delete-action">
+                        <form asp-action="delete" data-ajax="true"
+                              data-ajax-method="post"
+                              data-ajax-failure="message.error"
+                              data-ajax-begin="ajax.begin(this)"
+                              data-ajax-complete="ajax.complete(this)"
+                              data-ajax-success="addClientSucess">
+                            <div class="row">
+                                <div class="col-6 mb-0">
+                                    <input type="hidden" name="KeyId" id="delete-client-id" />
+                                    <button type="submit" asp-action="Delete" style="width:100%" id="delete-client-btn" class="btn btn-primary continue-btn">Delete</button>
+                                </div>
+                                <div class="col-6 mb-0">
+                                    <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="edit_client" class="modal custom-modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Channel</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label>Client Name</label>
+                            <input type="text" class="form-control" value="Tom Schneider">
+                        </div>
+                        <div class="form-group">
+                            <label>Client Company</label>
+                            <select class="form-control select">
+                                <option>Company Name</option>
+                                <option>Company Name</option>
+                                <option>Company Name</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Client Phone</label>
+                            <input type="text" class="form-control" value="(589)505-4521">
+                        </div>
+                        <div class="form-group">
+                            <label>Client Email</label>
+                            <input type="text" class="form-control" value="tom.name@mail.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Upload Files</label>
+                            <input class="form-control" type="file">
+                        </div>
+                        <div class="submit-section text-center">
+                            <button class="btn btn-primary submit-btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/pages/clients.js"></script>
+<script type="text/javascript">
+    function addClientSucess(e) {
+        message.success();
+        location.reload();
+    }
+    function removeClient(id) {
+        $('#delete-client-id').val(id)
+    }
+</script>

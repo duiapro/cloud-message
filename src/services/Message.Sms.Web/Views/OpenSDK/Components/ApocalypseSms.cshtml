@@ -1,0 +1,68 @@
+﻿@using Message.Sms.Web.OpenSDK
+@using Message.Sms.Web.OpenSDK.ApiService
+@inject Message.Sms.Web.Repositories.AppDbContext _context
+@inject ApocalypseSmsApiClient _apocalypseSmsApiClient
+@using Microsoft.EntityFrameworkCore
+@{
+    var apiAuthoritys = await _context.ApiAuthoritys.FirstOrDefaultAsync(item => item.Type == ApocalypseSmsApiClient.GetServiceType) ?? new();
+    var balance = await _apocalypseSmsApiClient.GetWalletAsync();
+}
+<div class="box">
+    <div class="alert alert-warning" role="alert">
+        Main business domestic card !
+    </div>
+    <div class="bd-callout bd-callout-warning">
+        <h5 id="conveying-meaning-to-assistive-technologies">Official website</h5>
+        <p>
+            <a href="https://web.tqsms.xyz">https://web.tqsms.xyz</a> <code></code>
+        </p>
+    </div>
+    @if (!string.IsNullOrEmpty(apiAuthoritys.Authority))
+    {
+        <div class="bd-callout bd-callout-warning">
+            <h5 id="conveying-meaning-to-assistive-technologies">Account Info</h5>
+
+            <p>
+                Balance：<code>￥@(balance?.balances) </code><span title="look over" class="badge badge-primary">look over</span>
+                <br />
+                Token：<code>@apiAuthoritys.Authority</code>
+            </p>
+        </div>
+    }
+
+    <form asp-action="SavaApocalypseSmsAccount" asp-controller="OpenSDK" data-ajax="true"
+          data-ajax-method="post"
+          data-ajax-failure="message.error"
+          data-ajax-begin="ajax.begin(this)"
+          data-ajax-complete="ajax.complete(this)"
+          data-ajax-success="sucess">
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-12 mb-20">
+                    <div class="form-group">
+                        <label class="form-label">Account</label>
+                        <input class="form-control" name="Account" value="@apiAuthoritys.Account" placeholder="account">
+                        <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Account"></span>
+                    </div>
+                </div>
+                <div class="form-group mb-20">
+                    <div class="form-group">
+                        <label class="form-label">PassWord</label>
+                        <input class="form-control" value="@apiAuthoritys.PassWord" type="password" name="PassWord" placeholder="password">
+                        <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="PassWord"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gr-btn">
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    function sucess(e) {
+        message.success();
+        setTimeout("location.reload();", 1000)
+    }
+</script>

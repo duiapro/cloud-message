@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Message.Sms.Web.props" />
+</Project>

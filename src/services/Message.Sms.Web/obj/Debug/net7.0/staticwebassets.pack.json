@@ -1,0 +1,1101 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Message.Sms.Web.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Message.Sms.Web.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\css\\boxicons.min.css",
+      "PackagePath": "staticwebassets\\css\\boxicons.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\css\\fontawesome.css",
+      "PackagePath": "staticwebassets\\css\\fontawesome.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\css\\grid.css",
+      "PackagePath": "staticwebassets\\css\\grid.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\css\\icomoon.css",
+      "PackagePath": "staticwebassets\\css\\icomoon.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\css\\icons.min.css",
+      "PackagePath": "staticwebassets\\css\\icons.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\css\\responsive.css",
+      "PackagePath": "staticwebassets\\css\\responsive.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\boxicons.eot",
+      "PackagePath": "staticwebassets\\fonts\\boxicons.eot"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\boxicons.html",
+      "PackagePath": "staticwebassets\\fonts\\boxicons.html"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\boxicons.ttf",
+      "PackagePath": "staticwebassets\\fonts\\boxicons.ttf"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\boxicons.woff",
+      "PackagePath": "staticwebassets\\fonts\\boxicons.woff"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\boxicons.woff2",
+      "PackagePath": "staticwebassets\\fonts\\boxicons.woff2"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\boxiconsd41d.svg",
+      "PackagePath": "staticwebassets\\fonts\\boxiconsd41d.svg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\fonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-brands-400.html",
+      "PackagePath": "staticwebassets\\fonts\\fa-brands-400.html"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-brands-400.svg",
+      "PackagePath": "staticwebassets\\fonts\\fa-brands-400.svg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\fonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\fonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-brands-400d41d.eot",
+      "PackagePath": "staticwebassets\\fonts\\fa-brands-400d41d.eot"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\fonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-regular-400.html",
+      "PackagePath": "staticwebassets\\fonts\\fa-regular-400.html"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-regular-400.svg",
+      "PackagePath": "staticwebassets\\fonts\\fa-regular-400.svg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\fonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\fonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-regular-400d41d.eot",
+      "PackagePath": "staticwebassets\\fonts\\fa-regular-400d41d.eot"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\fonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-solid-900.html",
+      "PackagePath": "staticwebassets\\fonts\\fa-solid-900.html"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-solid-900.svg",
+      "PackagePath": "staticwebassets\\fonts\\fa-solid-900.svg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\fonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\fonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\fa-solid-900d41d.eot",
+      "PackagePath": "staticwebassets\\fonts\\fa-solid-900d41d.eot"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\icomoon.eot",
+      "PackagePath": "staticwebassets\\fonts\\icomoon.eot"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\icomoon.svg",
+      "PackagePath": "staticwebassets\\fonts\\icomoon.svg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\icomoon.ttf",
+      "PackagePath": "staticwebassets\\fonts\\icomoon.ttf"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\fonts\\icomoon.woff",
+      "PackagePath": "staticwebassets\\fonts\\icomoon.woff"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\557c89e8-fd5f-461c-ba34-f76be45cd6af.png",
+      "PackagePath": "staticwebassets\\images\\557c89e8-fd5f-461c-ba34-f76be45cd6af.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\Logo-dark.png",
+      "PackagePath": "staticwebassets\\images\\Logo-dark.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\1.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\1.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\1.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\1.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\2.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\2.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\3.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\3.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\4.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\4.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\5.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\5.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\5.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\5.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\6.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\6.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\7.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\7.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\8.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\8.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\avt-1.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\avt-1.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\avt-mess.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\avt-mess.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\cmt-01.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\cmt-01.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\cmt-02.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\cmt-02.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\cmt-03.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\cmt-03.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\cmt-04.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\cmt-04.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\message-01.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\message-01.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\message-02.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\message-02.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\message-03.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\message-03.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\message-04.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\message-04.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\message-1.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\message-1.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\message-2.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\message-2.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\message-3.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\message-3.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\message-4.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\message-4.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\message-5.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\message-5.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\message-6.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\message-6.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\message-7.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\message-7.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\sms.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\sms.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\team-1.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\team-1.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\team-2.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\team-2.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\team-3.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\team-3.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\team-4.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\team-4.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\team-5.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\team-5.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\user-1.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\user-1.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\user-2.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\user-2.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\user-3.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\user-3.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\user-4.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\user-4.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\user-5.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\user-5.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\user-6.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\user-6.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\avatar\\xindiantu.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\xindiantu.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\bg\\Mask Group 6.png",
+      "PackagePath": "staticwebassets\\images\\bg\\Mask Group 6.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\bg\\bg-manage.png",
+      "PackagePath": "staticwebassets\\images\\bg\\bg-manage.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\bg\\ruby.png",
+      "PackagePath": "staticwebassets\\images\\bg\\ruby.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\client\\1.png",
+      "PackagePath": "staticwebassets\\images\\client\\1.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\client\\10.png",
+      "PackagePath": "staticwebassets\\images\\client\\10.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\client\\11.png",
+      "PackagePath": "staticwebassets\\images\\client\\11.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\client\\12.png",
+      "PackagePath": "staticwebassets\\images\\client\\12.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\client\\2.png",
+      "PackagePath": "staticwebassets\\images\\client\\2.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\client\\3.png",
+      "PackagePath": "staticwebassets\\images\\client\\3.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\client\\4.png",
+      "PackagePath": "staticwebassets\\images\\client\\4.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\client\\5.png",
+      "PackagePath": "staticwebassets\\images\\client\\5.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\client\\6.png",
+      "PackagePath": "staticwebassets\\images\\client\\6.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\client\\7.png",
+      "PackagePath": "staticwebassets\\images\\client\\7.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\client\\8.png",
+      "PackagePath": "staticwebassets\\images\\client\\8.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\client\\9.png",
+      "PackagePath": "staticwebassets\\images\\client\\9.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\favicon.png",
+      "PackagePath": "staticwebassets\\images\\favicon.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\flags\\cn.jpg",
+      "PackagePath": "staticwebassets\\images\\flags\\cn.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\flags\\germany.jpg",
+      "PackagePath": "staticwebassets\\images\\flags\\germany.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\flags\\italy.jpg",
+      "PackagePath": "staticwebassets\\images\\flags\\italy.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\flags\\russia.jpg",
+      "PackagePath": "staticwebassets\\images\\flags\\russia.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\flags\\spain.jpg",
+      "PackagePath": "staticwebassets\\images\\flags\\spain.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\flags\\us.jpg",
+      "PackagePath": "staticwebassets\\images\\flags\\us.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\icon\\angular.png",
+      "PackagePath": "staticwebassets\\images\\icon\\angular.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\icon\\experience.png",
+      "PackagePath": "staticwebassets\\images\\icon\\experience.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\icon\\html-2.png",
+      "PackagePath": "staticwebassets\\images\\icon\\html-2.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\icon\\html.png",
+      "PackagePath": "staticwebassets\\images\\icon\\html.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\icon\\marketing.png",
+      "PackagePath": "staticwebassets\\images\\icon\\marketing.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\product\\1.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\1.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\product\\2.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\2.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\product\\3.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\3.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\product\\4.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\4.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\product\\5.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\5.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\product\\6.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\6.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\product\\7.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\7.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\product\\project-01.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\project-01.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\product\\project-02.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\project-02.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\product\\project-03.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\project-03.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\product\\project-04.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\project-04.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\1.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\1.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\1.png",
+      "PackagePath": "staticwebassets\\images\\profile\\1.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\2.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\2.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\3.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\3.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\4.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\4.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\5.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\5.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\6.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\6.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\7.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\7.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\8.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\8.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\9.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\9.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\client-1.png",
+      "PackagePath": "staticwebassets\\images\\profile\\client-1.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\cover.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\cover.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\pic1.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\pic1.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\profile.png",
+      "PackagePath": "staticwebassets\\images\\profile\\profile.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\small\\pic1.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\small\\pic1.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\small\\pic10.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\small\\pic10.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\small\\pic2.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\small\\pic2.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\small\\pic3.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\small\\pic3.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\small\\pic4.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\small\\pic4.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\small\\pic5.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\small\\pic5.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\small\\pic6.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\small\\pic6.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\small\\pic7.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\small\\pic7.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\small\\pic8.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\small\\pic8.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\small\\pic9.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\small\\pic9.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\user-profile.png",
+      "PackagePath": "staticwebassets\\images\\profile\\user-profile.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\to-do-list\\project-1.png",
+      "PackagePath": "staticwebassets\\images\\to-do-list\\project-1.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\to-do-list\\project-2.png",
+      "PackagePath": "staticwebassets\\images\\to-do-list\\project-2.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\to-do-list\\project-3.png",
+      "PackagePath": "staticwebassets\\images\\to-do-list\\project-3.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\to-do-list\\project-4.png",
+      "PackagePath": "staticwebassets\\images\\to-do-list\\project-4.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\to-do-list\\project-5.png",
+      "PackagePath": "staticwebassets\\images\\to-do-list\\project-5.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\js\\countto.js",
+      "PackagePath": "staticwebassets\\js\\countto.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\js\\dashboard.js",
+      "PackagePath": "staticwebassets\\js\\dashboard.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\js\\pages\\apexchart.js",
+      "PackagePath": "staticwebassets\\js\\pages\\apexchart.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\js\\pages\\calendar.js",
+      "PackagePath": "staticwebassets\\js\\pages\\calendar.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\js\\pages\\chart-circle.js",
+      "PackagePath": "staticwebassets\\js\\pages\\chart-circle.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\js\\pages\\clients.js",
+      "PackagePath": "staticwebassets\\js\\pages\\clients.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\js\\pages\\dashboard.js",
+      "PackagePath": "staticwebassets\\js\\pages\\dashboard.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\js\\pages\\datepicker.js",
+      "PackagePath": "staticwebassets\\js\\pages\\datepicker.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\js\\pages\\fullcalendar.js",
+      "PackagePath": "staticwebassets\\js\\pages\\fullcalendar.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\js\\pages\\project.js",
+      "PackagePath": "staticwebassets\\js\\pages\\project.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\js\\script.js",
+      "PackagePath": "staticwebassets\\js\\script.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\js\\shortcode.js",
+      "PackagePath": "staticwebassets\\js\\shortcode.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\jquery.unobtrusive-ajax.js",
+      "PackagePath": "staticwebassets\\lib\\jquery.unobtrusive-ajax.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\apexcharts\\apexcharts.js",
+      "PackagePath": "staticwebassets\\libs\\apexcharts\\apexcharts.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\bootstrap-datepicker\\css\\bootstrap-datepicker.min.css",
+      "PackagePath": "staticwebassets\\libs\\bootstrap-datepicker\\css\\bootstrap-datepicker.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\bootstrap-datepicker\\css\\bootstrap-datetimepicker.min.css",
+      "PackagePath": "staticwebassets\\libs\\bootstrap-datepicker\\css\\bootstrap-datetimepicker.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\bootstrap-datepicker\\js\\bootstrap-datepicker.min.js",
+      "PackagePath": "staticwebassets\\libs\\bootstrap-datepicker\\js\\bootstrap-datepicker.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\bootstrap-datepicker\\js\\bootstrap-datetimepicker.min.js",
+      "PackagePath": "staticwebassets\\libs\\bootstrap-datepicker\\js\\bootstrap-datetimepicker.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\libs\\bootstrap\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\bootstrap\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\libs\\bootstrap\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\bootstrap\\popper.min.js",
+      "PackagePath": "staticwebassets\\libs\\bootstrap\\popper.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\chart.js\\Chart.bundle.min.js",
+      "PackagePath": "staticwebassets\\libs\\chart.js\\Chart.bundle.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\circle-progress\\circle-progress.min.js",
+      "PackagePath": "staticwebassets\\libs\\circle-progress\\circle-progress.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\datatable\\css\\dataTables.bootstrap5.css",
+      "PackagePath": "staticwebassets\\libs\\datatable\\css\\dataTables.bootstrap5.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\datatables.net-responsive\\js\\dataTables.responsive.min.js",
+      "PackagePath": "staticwebassets\\libs\\datatables.net-responsive\\js\\dataTables.responsive.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\date-picker\\datepicker.css",
+      "PackagePath": "staticwebassets\\libs\\date-picker\\datepicker.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\date-picker\\datepicker.js",
+      "PackagePath": "staticwebassets\\libs\\date-picker\\datepicker.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\date-picker\\jquery-ui.css",
+      "PackagePath": "staticwebassets\\libs\\date-picker\\jquery-ui.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\date-picker\\jquery-ui.js",
+      "PackagePath": "staticwebassets\\libs\\date-picker\\jquery-ui.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\flatpickr\\flatpickr.min.css",
+      "PackagePath": "staticwebassets\\libs\\flatpickr\\flatpickr.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\flatpickr\\flatpickr.min.js",
+      "PackagePath": "staticwebassets\\libs\\flatpickr\\flatpickr.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\fullcalendar\\css\\main.min.css",
+      "PackagePath": "staticwebassets\\libs\\fullcalendar\\css\\main.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\fullcalendar\\js\\main.min.js",
+      "PackagePath": "staticwebassets\\libs\\fullcalendar\\js\\main.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\jquery\\jquery-ui.min.js",
+      "PackagePath": "staticwebassets\\libs\\jquery\\jquery-ui.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\jquery\\jquery.min.js",
+      "PackagePath": "staticwebassets\\libs\\jquery\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\moment\\min\\moment.min.js",
+      "PackagePath": "staticwebassets\\libs\\moment\\min\\moment.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\owl.carousel\\assets\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\libs\\owl.carousel\\assets\\owl.carousel.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\owl.carousel\\assets\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\libs\\owl.carousel\\assets\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\owl.carousel\\assets\\owl.video.play.png",
+      "PackagePath": "staticwebassets\\libs\\owl.carousel\\assets\\owl.video.play.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\owl.carousel\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\libs\\owl.carousel\\owl.carousel.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\password\\pass-addon.init.js",
+      "PackagePath": "staticwebassets\\libs\\password\\pass-addon.init.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\peity\\jquery.peity.min.js",
+      "PackagePath": "staticwebassets\\libs\\peity\\jquery.peity.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\pg-calendar-master\\fonts\\pignose.calendarab26.eot",
+      "PackagePath": "staticwebassets\\libs\\pg-calendar-master\\fonts\\pignose.calendarab26.eot"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\pg-calendar-master\\fonts\\pignose.calendarab26.svg",
+      "PackagePath": "staticwebassets\\libs\\pg-calendar-master\\fonts\\pignose.calendarab26.svg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\pg-calendar-master\\fonts\\pignose.calendarab26.ttf",
+      "PackagePath": "staticwebassets\\libs\\pg-calendar-master\\fonts\\pignose.calendarab26.ttf"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\pg-calendar-master\\fonts\\pignose.calendarab26.woff",
+      "PackagePath": "staticwebassets\\libs\\pg-calendar-master\\fonts\\pignose.calendarab26.woff"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\pg-calendar-master\\pignose.calendar.css",
+      "PackagePath": "staticwebassets\\libs\\pg-calendar-master\\pignose.calendar.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\pg-calendar-master\\pignose.calendar.full.min.js",
+      "PackagePath": "staticwebassets\\libs\\pg-calendar-master\\pignose.calendar.full.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\rating\\css\\rating-themes.css",
+      "PackagePath": "staticwebassets\\libs\\rating\\css\\rating-themes.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\rating\\css\\ratings.css",
+      "PackagePath": "staticwebassets\\libs\\rating\\css\\ratings.css"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\rating\\js\\custom-ratings.js",
+      "PackagePath": "staticwebassets\\libs\\rating\\js\\custom-ratings.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\rating\\js\\jquery.barrating.js",
+      "PackagePath": "staticwebassets\\libs\\rating\\js\\jquery.barrating.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\libs\\simplebar\\simplebar.min.js",
+      "PackagePath": "staticwebassets\\libs\\simplebar\\simplebar.min.js"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\0a89ca92-f7b5-4d9b-a60a-ce206fb5316c.png",
+      "PackagePath": "staticwebassets\\upload\\images\\0a89ca92-f7b5-4d9b-a60a-ce206fb5316c.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\36474e5d-e0a9-417d-bbbd-d925e4136309.jpg",
+      "PackagePath": "staticwebassets\\upload\\images\\36474e5d-e0a9-417d-bbbd-d925e4136309.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\6c68e7f5-e745-46b0-b6fc-20023cce32c5.png",
+      "PackagePath": "staticwebassets\\upload\\images\\6c68e7f5-e745-46b0-b6fc-20023cce32c5.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\8f2e8799-85e2-47d7-af58-d26765aac326.jpg",
+      "PackagePath": "staticwebassets\\upload\\images\\8f2e8799-85e2-47d7-af58-d26765aac326.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\953c9067-b31a-4225-904a-2802f48a5b50.png",
+      "PackagePath": "staticwebassets\\upload\\images\\953c9067-b31a-4225-904a-2802f48a5b50.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\9e8a3e3f-e34e-4567-bebb-34fd5a095343.png",
+      "PackagePath": "staticwebassets\\upload\\images\\9e8a3e3f-e34e-4567-bebb-34fd5a095343.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\d4a28f12-805d-477f-995f-96d71eae2cca.jpg",
+      "PackagePath": "staticwebassets\\upload\\images\\d4a28f12-805d-477f-995f-96d71eae2cca.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\f6953291-058c-4813-ba73-534f225c2568.jpg",
+      "PackagePath": "staticwebassets\\upload\\images\\f6953291-058c-4813-ba73-534f225c2568.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Message.Sms.Web.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.Message.Sms.Web.props",
+      "PackagePath": "build\\Message.Sms.Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.Message.Sms.Web.props",
+      "PackagePath": "buildMultiTargeting\\Message.Sms.Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.Message.Sms.Web.props",
+      "PackagePath": "buildTransitive\\Message.Sms.Web.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
