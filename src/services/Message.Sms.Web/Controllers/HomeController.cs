@@ -1,3 +1,4 @@
+using Message.Sms.Web.Infrastructure;
 using Message.Sms.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -13,6 +14,7 @@ namespace Message.Sms.Web.Controllers
             _logger = logger;
         }
 
+        [AuthFilter]
         public IActionResult Index()
         {
             return View();

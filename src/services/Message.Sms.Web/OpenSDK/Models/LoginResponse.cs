@@ -1,6 +1,11 @@
 ﻿namespace Message.Sms.Web.OpenSDK.Models;
 
-public class LoginResposne
+public class LoginResponse
 {
-    public string Token { get; set; }
+    public LoginResponse(string apiKey)
+    {
+        ApiKey = apiKey;
+    }
+
+    public string ApiKey { get; set; }
 }

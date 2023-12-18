@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6623751A-65F3-4A1B-9232-14B8569F4782}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message.Sms.Web", "src\services\Message.Sms.Web\Message.Sms.Web.csproj", "{C34144CF-7B70-406D-9B10-C776007D7733}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Message.Sms.Web", "src\services\Message.Sms.Web\Message.Sms.Web.csproj", "{C34144CF-7B70-406D-9B10-C776007D7733}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{2F273B4F-689E-491B-A223-FB8231C97327}"
 EndProject

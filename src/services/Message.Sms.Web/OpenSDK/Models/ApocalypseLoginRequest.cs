@@ -1,6 +1,5 @@
 ﻿namespace Message.Sms.Web.OpenSDK.Models;
 
-public class ApocalypseLoginRequest
-{
-    
-}
+// public record class ApocalypseLoginRequest(string username, string password) : RequestBase
+// {
+// }

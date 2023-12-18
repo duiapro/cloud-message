@@ -1,10 +1,13 @@
-﻿using Message.Sms.Web.Models.ViewModel;
+﻿using Message.Sms.Web.Infrastructure;
+using Message.Sms.Web.Models.ViewModel;
 using Message.Sms.Web.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Message.Sms.Web.Areas.User.Controllers
 {
+    [AuthFilter(false)]
     public class DefaultController : AreasControllerBase
     {
         private readonly AppDbContext _dbContext;
@@ -33,6 +36,7 @@ namespace Message.Sms.Web.Areas.User.Controllers
                 var user = await _dbContext.Users.AsNoTracking().FirstOrDefaultAsync(user => user.UserMobile == model.Mobile);
                 if (user is not null && model.Password == user.PassWork)
                 {
+                    base.AppUsers.Set(new(user.KeyId, user.UserName, user.UserMobile, user.Balance, user.IsVip, user.Discount, user.IsAdmin));
                     return Redirect("/Home/Index");
                 }
                 else if (user is null)

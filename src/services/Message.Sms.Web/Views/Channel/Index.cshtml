@@ -1,4 +1,5 @@
 ﻿@using Message.Sms.Web.Models.ViewModel
+@using Message.Sms.Web.Repositories.Entity
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -92,8 +93,19 @@
                     <form asp-action="Index" method="get">
                         <div class="search-form d-flex">
                             <input type="text" placeholder="Channel Name" value="@ViewBag.SearchString" name="SearchString" class="form-control">
-                            <select class="form-control" id="inputState">
-                                <option selected>Select Company Name</option>
+                            <select name="serviceProviderId" class="form-control">
+                                <option value="">Select ServiceProvider</option>
+                                @foreach (var item in (ViewData["ApiServiceProviderId"] as List<ApiServiceProvider>)!)
+                                {
+                                    if (ViewBag.ServiceProviderId == item.KeyId)
+                                    {
+                                        <option value="@item.KeyId" selected>@item.Remark</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.KeyId">@item.Remark</option>
+                                    }
+                                }
                             </select>
                             <button type="submit" class="search d-flex"><i class="fas fa-search"></i>Search</button>
                         </div>
@@ -209,11 +221,12 @@
                           data-ajax-complete="ajax.complete(this)"
                           data-ajax-success="addClientSucess">
                         <div class="form-group">
-                            <label>Client Company</label>
-                            <select class="form-control select">
-                                <option>Company Name</option>
-                                <option>Company Name</option>
-                                <option>Company Name</option>
+                            <label>ApiServiceProvider</label>
+                            <select name="ApiServiceProviderId" class="form-control select">
+                                @foreach (var item in (ViewData["ApiServiceProviderId"] as List<ApiServiceProvider>)!)
+                                {
+                                    <option value="@item.KeyId">@item.Remark</option>
+                                }
                             </select>
                         </div>
                         <div class="form-group">

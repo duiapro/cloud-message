@@ -1,11 +1,19 @@
 ﻿@using Message.Sms.Web.OpenSDK
 @using Message.Sms.Web.OpenSDK.ApiService
 @inject Message.Sms.Web.Repositories.AppDbContext _context
-@inject ApocalypseSmsApiClient _apocalypseSmsApiClient
+@inject SmsApiClientAdapter _apiClientAdapter
 @using Microsoft.EntityFrameworkCore
 @{
-    var apiAuthoritys = await _context.ApiAuthoritys.FirstOrDefaultAsync(item => item.Type == ApocalypseSmsApiClient.GetServiceType) ?? new();
-    var balance = await _apocalypseSmsApiClient.GetWalletAsync();
+    dynamic balance = new { };
+    var apiAuthoritys = await _context.ApiServiceProviders.FirstOrDefaultAsync(item => item.Type == ApocalypseSmsApiClient.GetServiceType);
+    if (apiAuthoritys is null)
+    {
+        apiAuthoritys = new();
+    }
+    else
+    {
+        balance = await _apiClientAdapter.GetApocalypseSmsApiClient.GetWalletAsync();
+    }
 }
 <div class="box">
     <div class="alert alert-warning" role="alert">
@@ -38,6 +46,13 @@
           data-ajax-success="sucess">
         <div class="box-body">
             <div class="row">
+                <div class="col-md-12 mb-20">
+                    <div class="form-group">
+                        <label class="form-label">ServiceProvider Name</label>
+                        <input class="form-control" name="Remark" value="@apiAuthoritys.Remark" placeholder="name">
+                        <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Remark"></span>
+                    </div>
+                </div>
                 <div class="col-md-12 mb-20">
                     <div class="form-group">
                         <label class="form-label">Account</label>

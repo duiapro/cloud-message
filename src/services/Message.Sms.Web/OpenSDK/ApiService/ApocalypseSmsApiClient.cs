@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Message.Sms.Web.OpenSDK.ApiService
 {
-    public class ApocalypseSmsApiClient : SmsApiClientBase
+    public class ApocalypseSmsApiClient : SmsApiClientBase, ISmsApiClient
     {
         private readonly HttpClient _httpClient;
 
@@ -11,32 +11,43 @@ namespace Message.Sms.Web.OpenSDK.ApiService
 
         public static readonly string GetServiceType = nameof(ApocalypseSmsApiClient);
 
-        public ApocalypseSmsApiClient(IHttpClientFactory httpClientFactory, ApiClientTokenManage tokenManage) : base(tokenManage)
+        public ApocalypseSmsApiClient(IHttpClientFactory httpClientFactory, ApiClientTokenManage tokenManage) : base(
+            tokenManage)
         {
             _httpClient = httpClientFactory.CreateClient(nameof(ApocalypseSmsApiClient));
         }
 
-        public async Task<dynamic> LoginAsync(string username, string password)
+        public async Task<LoginResponse> LoginAsync(RequestBase? request = null)
         {
-            var response = await _httpClient.GetAsync($"/api/login?username={username}&password={password}");
-            return ConvertResult<dynamic>(await response.Content.ReadAsStringAsync());
+            var parameter = request?.ToParameter();
+            var response = await _httpClient.GetAsync($"/api/login?{parameter}");
+            var apiResult = ConvertResult<dynamic>(await response.Content.ReadAsStringAsync());
+            return new(apiResult.token);
         }
 
-        public async Task<dynamic> GetWalletAsync(string token = "")
+        public async Task<WalletResponse> GetWalletAsync(RequestBase? request = null)
         {
-            var response = await _httpClient.GetAsync($"/api/getWallet?token={this.GetToken(token)}");
-            return ConvertResult<dynamic>(await response.Content.ReadAsStringAsync());
+            var response = await _httpClient.GetAsync($"/api/getWallet?token={this.GetToken(request?.ApiKey)}");
+            var result = ConvertResult<dynamic>(await response.Content.ReadAsStringAsync());
+            return new(result.balances);
         }
 
-        public async Task<dynamic> GetPhoneAsync(string channelId, string phoneNum, string operators, string scope, string token = "")
+        //(string channelId, string phoneNum, string operators, string scope,string token = "")
+        public async Task<PhoneResponse> GetPhoneAsync(RequestBase? request = null)
         {
-            var response = await _httpClient.GetAsync($"/api/getPhone?token={this.GetToken(token)}&channelId={channelId}&phoneNum={phoneNum}&operators={operators}&scope={scope}");
-            return ConvertResult<dynamic>(await response.Content.ReadAsStringAsync());
+            var parameter = (request as object)?.ToParameter();
+            var response = await _httpClient.GetAsync(
+                $"/api/getPhone?token={this.GetToken(request?.ApiKey)}&{parameter}");
+            var result = ConvertResult<PhoneResponse>(await response.Content.ReadAsStringAsync());
+            return result;
         }
 
-        public async Task<dynamic> GetPhoneCodeAsync(string channelId, string phoneNum, string token = "")
+        //(string channelId, string phoneNum, string token = "")
+        public async Task<dynamic> GetPhoneCodeAsync(RequestBase? request = null)
         {
-            var response = await _httpClient.GetAsync($"/api/getCode?token={this.GetToken(token)}&channelId={channelId}&phoneNum={phoneNum}");
+            var parameter = request?.ToParameter();
+            var response = await _httpClient.GetAsync(
+                $"/api/getCode?token={this.GetToken(request?.ApiKey)}&{parameter}");
             return ConvertResult<dynamic>(await response.Content.ReadAsStringAsync());
         }
 
@@ -47,11 +58,8 @@ namespace Message.Sms.Web.OpenSDK.ApiService
             {
                 return result.Data;
             }
-            else
-            {
-                throw new Exception(result?.Msg.ToString());
-            }
+
+            throw new Exception(result?.Msg.ToString());
         }
     }
-
 }

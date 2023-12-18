@@ -8,6 +8,9 @@ namespace Message.Sms.Web.Models.ViewModel
         [Required, MaxLength(50)]
         public string Code { get; set; }
 
+        [Required]
+        public Guid ApiServiceProviderId { get; set; }
+
         [Required, MaxLength(50)]
         public string Name { get; set; }
 

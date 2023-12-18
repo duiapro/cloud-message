@@ -2,5 +2,5 @@
 
 public class PhoneResponse
 {
-    
+    public string Mobile { get; set; }
 }

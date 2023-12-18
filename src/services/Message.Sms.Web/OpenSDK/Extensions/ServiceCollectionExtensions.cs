@@ -16,13 +16,11 @@ namespace Message.Sms.Web.OpenSDK
                 }
             }
 
-            services.AddHttpClient(nameof(ApocalypseSmsApiClient), httpcline =>
-            {
-                httpcline.BaseAddress = new Uri(serviceUrl);
-            });
-
+            services.AddHttpClient(nameof(ApocalypseSmsApiClient),
+                httpclient => { httpclient.BaseAddress = new Uri(serviceUrl); });
             services.AddSingleton<ApiClientTokenManage>();
-            services.AddSingleton<ApocalypseSmsApiClient>();
+            services.AddSingleton<ISmsApiClient, ApocalypseSmsApiClient>();
+            services.AddSingleton<SmsApiClientAdapter>();
 
             return services;
         }

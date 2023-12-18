@@ -2,8 +2,8 @@
 
 namespace Message.Sms.Web.Repositories.Entity
 {
-    [Table("apiAuthority")]
-    public class ApiAuthority : EntityBase
+    [Table("api_serviceprovider")]
+    public class ApiServiceProvider : EntityBase
     {
         public string Type { get; set; } = string.Empty;
 
@@ -15,11 +15,15 @@ namespace Message.Sms.Web.Repositories.Entity
 
         public string Remark { get; set; } = string.Empty;
 
-        public ApiAuthority()
+        private List<Channel> _channels = new List<Channel>();
+
+        public IReadOnlyCollection<Channel> Channels => _channels;
+
+        public ApiServiceProvider()
         {
         }
 
-        public ApiAuthority(string type, string account, string passWord, string authority, string remark)
+        public ApiServiceProvider(string type, string account, string passWord, string authority, string remark)
         {
             Type = type;
             Account = account;

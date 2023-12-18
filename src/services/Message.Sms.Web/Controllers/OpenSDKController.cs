@@ -6,21 +6,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Configuration;
 using Message.Sms.Web.OpenSDK.ApiService;
+using Message.Sms.Web.OpenSDK.Models.Request;
 
 namespace Message.Sms.Web.Controllers
 {
     public class OpenSDKController : Controller
     {
         private readonly AppDbContext _dbContext;
-        private readonly ApocalypseSmsApiClient _smsApiClient;
         private readonly ApiClientTokenManage _apiClientTokenManage;
+        private readonly SmsApiClientAdapter _smsApiClientAdapter;
 
-        public OpenSDKController(AppDbContext dbContext, ApocalypseSmsApiClient smsApiClient,
-            ApiClientTokenManage apiClientTokenManage)
+        public OpenSDKController(AppDbContext dbContext,
+            ApiClientTokenManage apiClientTokenManage, SmsApiClientAdapter smsApiClientAdapter)
         {
             _dbContext = dbContext;
-            _smsApiClient = smsApiClient;
             _apiClientTokenManage = apiClientTokenManage;
+            _smsApiClientAdapter = smsApiClientAdapter;
         }
 
         public IActionResult Index()
@@ -36,18 +37,23 @@ namespace Message.Sms.Web.Controllers
             {
                 async Task<string> LoginAsync(string username, string password)
                 {
-                    var result = await _smsApiClient.LoginAsync(model.Account, model.PassWord);
-                    return result.token;
+                    var result =
+                        await _smsApiClientAdapter.GetApocalypseSmsApiClient.LoginAsync(
+                            new ApocalypseLoginRequest(username, password));
+                    return result.ApiKey;
                 }
 
-                var apiAuthoritys = await _dbContext.ApiAuthoritys.FirstOrDefaultAsync(item => item.Type == nameof(ApocalypseSmsApiClient));
+                var apiAuthoritys =
+                    await _dbContext.ApiServiceProviders.FirstOrDefaultAsync(item =>
+                        item.Type == ApocalypseSmsApiClient.GetServiceType);
                 if (apiAuthoritys is null)
                 {
-                    apiAuthoritys = new ApiAuthority()
+                    apiAuthoritys = new ApiServiceProvider()
                     {
-                        Type = nameof(ApocalypseSmsApiClient),
+                        Type = ApocalypseSmsApiClient.GetServiceType,
                         Account = model.Account,
                         PassWord = model.PassWord,
+                        Remark = model.Remark,
                         Authority = await LoginAsync(model.Account, model.PassWord)
                     };
 
@@ -55,14 +61,18 @@ namespace Message.Sms.Web.Controllers
                 }
                 else
                 {
-                    if (apiAuthoritys.Account != model.Account && apiAuthoritys.PassWord != model.PassWord && string.IsNullOrEmpty(apiAuthoritys.Authority))
+                    apiAuthoritys.Remark = model.Remark;
+                    if (apiAuthoritys.Account != model.Account || apiAuthoritys.PassWord != model.PassWord ||
+                        string.IsNullOrEmpty(apiAuthoritys.Authority))
                     {
                         apiAuthoritys.Authority = await LoginAsync(model.Account, model.PassWord);
                     }
+
+                    _dbContext.Update(apiAuthoritys);
                 }
 
                 //设置缓存
-                _apiClientTokenManage.SetToken(nameof(ApocalypseSmsApiClient), apiAuthoritys.Authority);
+                _apiClientTokenManage.SetToken(ApocalypseSmsApiClient.GetServiceType, apiAuthoritys.Authority);
 
                 await _dbContext.SaveChangesAsync();
             }

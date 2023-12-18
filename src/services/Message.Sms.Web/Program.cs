@@ -17,9 +17,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
             option.EnableRetryOnFailure();
         })
     .EnableDetailedErrors();
-}, ServiceLifetime.Scoped);
+});
 builder.Services.AddHostedService<TokenCacheHostedService>();
-
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<AppUsers>();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromHours(24);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -40,8 +48,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthorization();
+app.UseSession();
 app.MapAreaControllerRoute("user_route", "User", "client/{controller=Home}/{action=Index}/{keyId?}");
 app.MapControllerRoute(name: "areas", pattern: "{area:exists}/{controller=Home}/{action=Index}/{keyId?}"/*, defaults: new { area = "User" }*/);
 app.MapControllerRoute(name: "default", pattern: "{controller=Channel}/{action=Index}/{keyId?}", "/client");

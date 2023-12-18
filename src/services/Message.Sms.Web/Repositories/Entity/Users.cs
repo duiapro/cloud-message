@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Message.Sms.Web.Repositories.Entity
@@ -6,40 +7,23 @@ namespace Message.Sms.Web.Repositories.Entity
     [Table("users")]
     public class Users : EntityBase
     {
-        /// <summary>
-        /// 用户名称
-        /// </summary>
         [Required]
         [MaxLength(50)]
         public string UserName { get; set; }
 
-        /// <summary>
-        /// 用户手机号
-        /// </summary>
         [Required]
         [MaxLength(15)]
         public string UserMobile { get; set; }
 
-        /// <summary>
-        /// 用户密码
-        /// </summary>
         [Required]
         [MaxLength(15)]
         public string PassWork { get; set; }
 
-        /// <summary>
-        /// 余额
-        /// </summary>
         public decimal Balance { get; set; }
 
-        /// <summary>
-        /// 是否是VIP
-        /// </summary>
         public bool IsVip { get; set; }
 
-        /// <summary>
-        /// 折扣
-        /// </summary>
+        [Precision(18, 2)]
         public decimal Discount { get; set; } = 1;
 
         /// <summary>

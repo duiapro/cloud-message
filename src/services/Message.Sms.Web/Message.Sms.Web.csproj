@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
@@ -33,6 +33,7 @@
 	  <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
 	  <None Include="Views\_ViewImports.cshtml" />
 	  <None Include="Views\_ViewStart.cshtml" />
+	  <None Include="wwwroot\error.html" />
 	  <None Include="wwwroot\js\site.js" />
 	  <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
 	  <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />

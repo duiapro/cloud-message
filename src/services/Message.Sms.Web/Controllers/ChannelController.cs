@@ -17,15 +17,21 @@ namespace Message.Sms.Web.Controllers
             _dbContext = dbContext;
         }
 
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, Guid? serviceProviderId)
         {
             System.Linq.Expressions.Expression<Func<Channel, bool>> filter = channel => true;
             if (!string.IsNullOrEmpty(searchString))
             {
                 filter = channel => channel.Name.Contains(searchString);
             }
+            if (serviceProviderId.HasValue)
+            {
+                filter = channel => channel.ApiServiceProviderId == serviceProviderId;
+            }
             ViewBag.SearchString = searchString ?? string.Empty;
+            ViewBag.ServiceProviderId = serviceProviderId;
             ViewData["ChannelData"] = await _dbContext.Channels.Where(filter).ToListAsync();
+            ViewData["ApiServiceProviderId"] = await _dbContext.ApiServiceProviders.ToListAsync();
 
             return View();
         }
@@ -47,13 +53,19 @@ namespace Message.Sms.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task Create(CreateChannelViewModel model)
         {
-            if (_dbContext.Channels.Any(channel => channel.Code == model.Code))
+            if (!_dbContext.ApiServiceProviders.Any(provider => provider.KeyId == model.ApiServiceProviderId))
+            {
+                throw new Exception("ServiceProviders not exists.");
+            }
+
+            if (_dbContext.Channels.Any(channel => channel.ApiServiceProviderId == model.ApiServiceProviderId && channel.Code == model.Code))
             {
                 throw new Exception("Code already exists.");
             }
 
             var icon = await UploadHelper.ImageAsync(model.Icon);
-            await _dbContext.Channels.AddAsync(new(model.Code, model.Name, icon, model.Price, model.CostPrice, model.Description));
+            await _dbContext.Channels.AddAsync(new(model.ApiServiceProviderId, model.Code, model.Name, icon,
+                model.Price, model.CostPrice, model.Description));
             await _dbContext.SaveChangesAsync();
         }
 

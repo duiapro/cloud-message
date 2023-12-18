@@ -1,6 +1,6 @@
 ﻿namespace Message.Sms.Web.OpenSDK.Models;
 
-public class RequestBase
+public abstract class RequestBase
 {
-    
+    public string? ApiKey { get; set; } = string.Empty;
 }

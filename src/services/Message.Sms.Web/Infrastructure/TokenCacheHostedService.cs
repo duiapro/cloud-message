@@ -21,7 +21,7 @@ namespace Message.Sms.Web.Infrastructure
             using (var scope = scopeFactory.CreateScope())
             {
                 var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-                var apiAuthoritys = await dbContext.ApiAuthoritys.ToListAsync();
+                var apiAuthoritys = await dbContext.ApiServiceProviders.ToListAsync();
                 foreach (var item in apiAuthoritys)
                 {
                     await Console.Out.WriteLineAsync($"add token: {item.Type} value:{item.Authority}");

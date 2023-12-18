@@ -18,5 +18,17 @@ namespace Message.Sms.Web.Repositories.Entity
         [Required]
         [MaxLength(15)]
         public string Mobile { get; set; }
+
+        public UsersUseMobileHistory(Guid userId, Guid channelId, string channelName, string mobile)
+        {
+            UserId = userId;
+            ChannelId = channelId;
+            ChannelName = channelName;
+            Mobile = mobile;
+        }
+
+        public UsersUseMobileHistory()
+        {
+        }
     }
 }
