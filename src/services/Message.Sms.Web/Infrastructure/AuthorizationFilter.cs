@@ -28,18 +28,14 @@ namespace Message.Sms.Web.Infrastructure
                 {
                     context.Result = new RedirectResult("/user/default/login", false);
                 }
-                else
+                else if (IsAdmin)
                 {
-                    if (IsAdmin)
+                    var appUsers = context.HttpContext.RequestServices.GetService<AppUsers>();
+                    if (appUsers?.IsAdmin == false)
                     {
+                        //throw new Exception("sb, do you have permission?");
                         context.HttpContext.Response.Redirect("/error.html?message=sb, do you have permission?", false);
-                        //var appUsers = context.HttpContext.RequestServices.GetService<AppUsers>();
-                        //if (appUsers?.IsAdmin == false)
-                        //{
-                        //    throw new Exception("sb, do you have permission?");
-                        //}
                     }
-
                     //context.HttpContext.Response.Redirect("/user", false);
                 }
             }

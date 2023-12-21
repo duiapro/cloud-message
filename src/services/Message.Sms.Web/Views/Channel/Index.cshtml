@@ -129,7 +129,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item delete-client" onclick="removeClient('@item.KeyId')" href="#" data-toggle="modal" data-target="#delete_client"><i class="bx bx-trash"></i> Delete</a>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_client"><i class="bx bx-edit mr-5"></i>Edit</a>
+                            <a class="dropdown-item" href="#" onclick="updateClient('@item.KeyId')" data-toggle="modal" data-target="#edit_client"><i class="bx bx-edit mr-5"></i>Edit</a>
                         </div>
                     </div>
                     <div class="box-body pt-5 pb-0">
@@ -297,47 +297,67 @@
             </div>
         </div>
     </div>
-    <div id="edit_client" class="modal custom-modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Edit Channel</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label>Client Name</label>
-                            <input type="text" class="form-control" value="Tom Schneider">
-                        </div>
-                        <div class="form-group">
-                            <label>Client Company</label>
-                            <select class="form-control select">
-                                <option>Company Name</option>
-                                <option>Company Name</option>
-                                <option>Company Name</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Client Phone</label>
-                            <input type="text" class="form-control" value="(589)505-4521">
-                        </div>
-                        <div class="form-group">
-                            <label>Client Email</label>
-                            <input type="text" class="form-control" value="tom.name@mail.com">
-                        </div>
-                        <div class="form-group">
-                            <label>Upload Files</label>
-                            <input class="form-control" type="file">
-                        </div>
-                        <div class="submit-section text-center">
-                            <button class="btn btn-primary submit-btn">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+    @* <div id="edit_client" class="modal custom-modal fade" role="dialog">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h4 class="modal-title">Edit Channel</h4>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
     </div>
+    <div class="modal-body">
+    <form asp-action="Update" data-ajax="true" enctype="multipart/form-data"
+    data-ajax-method="post"
+    data-ajax-failure="message.error"
+    data-ajax-begin="ajax.begin(this)"
+    data-ajax-complete="ajax.complete(this)"
+    data-ajax-success="addClientSucess">
+    <div class="form-group">
+    <label>ApiServiceProvider</label>
+    <select name="ApiServiceProviderId" class="form-control select">
+    @foreach (var item in (ViewData["ApiServiceProviderId"] as List<ApiServiceProvider>)!)
+    {
+    <option selected value="@item.KeyId">@item.Remark</option>
+    }
+    </select>
+    </div>
+    <div class="form-group">
+    <label>Upload Avata</label>
+    <input class="form-control" id="Icon" value="" name="Icon" accept="image/gif, image/jpeg, image/png, image/jpg" type="file">
+    </div>
+    <div class="form-group">
+    <label>Client Name</label>
+    <input name="Name" id="Name" data-val-required="The Name field is required." data-val="true" class="form-control" value="" type="text">
+    <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Name"></span>
+    </div>
+    <div class="form-group">
+    <label>Client Code</label>
+    <input name="Code" class="form-control" data-val-required="The Code field is required." data-val="true" value="" type="text">
+    <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Code"></span>
+    </div>
+    <div class="form-group">
+    <label>Price</label>
+    <input name="Price" type="number" placeholder="￥1" data-val-required="The Price field is required." data-val="true" class="form-control" value="0">
+    <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Price"></span>
+    </div>
+    <div class="form-group">
+    <label>CostPrice</label>
+    <input name="CostPrice" placeholder="￥1" data-val-required="The Price field is required." data-val="true" type="number" class="form-control" value="0.1">
+    <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="CostPrice"></span>
+    </div>
+    <div class="form-group">
+    <label>Description</label>
+    <textarea name="Description" rows="4" class="form-control" placeholder="Enter your message here"></textarea>
+    </div>
+
+    <div class="submit-section text-center">
+    <button class="btn btn-primary submit-btn">Submit</button>
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div> *@
+    <div id="edit_container"></div>
 </div>
 <script src="~/js/pages/clients.js"></script>
 <script type="text/javascript">
@@ -347,5 +367,8 @@
     }
     function removeClient(id) {
         $('#delete-client-id').val(id)
+    }
+    function updateClient(id) {
+        $.get(`/channel/UpdatePartialView?keyId=${id}`, (e) => $('#edit_container').html(e))
     }
 </script>

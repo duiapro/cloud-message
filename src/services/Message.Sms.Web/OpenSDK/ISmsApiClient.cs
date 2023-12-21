@@ -10,5 +10,5 @@ public interface ISmsApiClient
     
     Task<PhoneResponse> GetPhoneAsync(RequestBase? request = null);
     
-    Task<dynamic> GetPhoneCodeAsync(RequestBase? request = null);
+    Task<PhoneCodeResponse> GetPhoneCodeAsync(RequestBase? request = null);
 }

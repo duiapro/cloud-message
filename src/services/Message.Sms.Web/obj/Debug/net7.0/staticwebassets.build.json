@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "n8qrwpySzmI6HK23AHzStsCZAFYlZEVcneTjwNctjKA=",
+  "Hash": "/KPFZikd4oiek4HAKs2dNhqmlV0Mr2a2+Rtou4DvCM8=",
   "Source": "Message.Sms.Web",
   "BasePath": "_content/Message.Sms.Web",
   "Mode": "Default",
@@ -224,6 +224,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
+    },
+    {
+      "Identity": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\error.html",
+      "SourceId": "Message.Sms.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\",
+      "BasePath": "_content/Message.Sms.Web",
+      "RelativePath": "error.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\error.html"
     },
     {
       "Identity": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\favicon.ico",

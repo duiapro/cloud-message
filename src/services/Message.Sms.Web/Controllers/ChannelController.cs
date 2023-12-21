@@ -5,10 +5,12 @@ using Message.Sms.Web.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Drawing;
+using Message.Sms.Web.Infrastructure;
 
 namespace Message.Sms.Web.Controllers
 {
-    public class ChannelController : Controller
+    //[AuthFilter]
+    public class ChannelController : ControllerBase
     {
         private readonly AppDbContext _dbContext;
 
@@ -48,6 +50,11 @@ namespace Message.Sms.Web.Controllers
             return View();
         }
 
+        public async Task<IActionResult> UpdatePartialView(Guid keyId)
+        {
+            ViewData["ApiServiceProviderId"] = await _dbContext.ApiServiceProviders.ToListAsync();
+            return PartialView("./Component/_Update", await _dbContext.Channels.FindAsync(keyId));
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -100,8 +107,9 @@ namespace Message.Sms.Web.Controllers
                 channel.Description = model.Description;
                 if (model.Icon != null)
                 {
-                    channel.Icon = await UploadHelper.ImageAsync(model.Icon);
+                    channel.Icon = await UploadHelper.ImageAsync(model.Icon) ?? string.Empty;
                 }
+                _dbContext.Update(channel);
                 await _dbContext.SaveChangesAsync();
             }
             else

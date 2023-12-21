@@ -109,6 +109,42 @@ namespace Message.Sms.Web.Migrations
                     b.ToTable("channel");
                 });
 
+            modelBuilder.Entity("Message.Sms.Web.Repositories.Entity.RechargeCard", b =>
+                {
+                    b.Property<Guid>("KeyId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<Guid>("Code")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Remark")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("UpdateTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("KeyId");
+
+                    b.ToTable("recharge_card");
+                });
+
             modelBuilder.Entity("Message.Sms.Web.Repositories.Entity.Users", b =>
                 {
                     b.Property<Guid>("KeyId")
@@ -154,11 +190,48 @@ namespace Message.Sms.Web.Migrations
                     b.ToTable("users");
                 });
 
+            modelBuilder.Entity("Message.Sms.Web.Repositories.Entity.UsersRechargeLogs", b =>
+                {
+                    b.Property<Guid>("KeyId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<decimal>("AfterBalance")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<decimal>("BeforeBalance")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<Guid>("Code")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("UpdateTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid>("UsersRechargeKeyId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("KeyId");
+
+                    b.ToTable("users_recharge_logs");
+                });
+
             modelBuilder.Entity("Message.Sms.Web.Repositories.Entity.UsersSmsCodeLogs", b =>
                 {
                     b.Property<Guid>("KeyId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
+
+                    b.Property<string>("ApiServiceProviderType")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<Guid>("ChannelId")
                         .HasColumnType("char(36)");
@@ -198,6 +271,11 @@ namespace Message.Sms.Web.Migrations
                     b.Property<Guid>("KeyId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
+
+                    b.Property<string>("ApiServiceProviderType")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<Guid>("ChannelId")
                         .HasColumnType("char(36)");

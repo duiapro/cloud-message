@@ -28,8 +28,8 @@ namespace Message.Sms.Web.OpenSDK.ApiService
         public async Task<WalletResponse> GetWalletAsync(RequestBase? request = null)
         {
             var response = await _httpClient.GetAsync($"/api/getWallet?token={this.GetToken(request?.ApiKey)}");
-            var result = ConvertResult<dynamic>(await response.Content.ReadAsStringAsync());
-            return new(result.balances);
+            var result = ConvertResult<WalletResponse>(await response.Content.ReadAsStringAsync());
+            return result;
         }
 
         //(string channelId, string phoneNum, string operators, string scope,string token = "")
@@ -43,12 +43,13 @@ namespace Message.Sms.Web.OpenSDK.ApiService
         }
 
         //(string channelId, string phoneNum, string token = "")
-        public async Task<dynamic> GetPhoneCodeAsync(RequestBase? request = null)
+        public async Task<PhoneCodeResponse> GetPhoneCodeAsync(RequestBase? request = null)
         {
             var parameter = request?.ToParameter();
             var response = await _httpClient.GetAsync(
                 $"/api/getCode?token={this.GetToken(request?.ApiKey)}&{parameter}");
-            return ConvertResult<dynamic>(await response.Content.ReadAsStringAsync());
+            var result = ConvertResult<dynamic>(await response.Content.ReadAsStringAsync());
+            return new(result.code, result.modle);
         }
 
         private static T ConvertResult<T>(string value)

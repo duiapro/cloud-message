@@ -1,0 +1,261 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var users = (ViewData["RechargeCard"] as List<Message.Sms.Web.Repositories.Entity.RechargeCard>)!;
+}
+
+
+<div class="main-content user">
+    <div class="row">
+        <div class="col-12 col-xl-12">
+            <div class="box">
+                <div class="box-body pb-30">
+                    <form asp-action="Index" method="get">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-8 mb-0">
+                                <div class="row">
+                                    <div class="col-md-12 col-xl-4 mb-0">
+                                        <div class="form-group">
+                                            <label class="form-label">From:</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class='bx bx-calendar'></i>
+                                                    </div>
+                                                </div>
+                                                <input name="startDate" value="@ViewBag.StartDate" class="form-control" placeholder="YYYY/MM/DD" type="date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-xl-4 mb-0">
+                                        <div class="form-group">
+                                            <label class="form-label">To:</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class='bx bx-calendar'></i>
+                                                    </div>
+                                                </div>
+                                                <input name="entDate" value="@ViewBag.EntDate" class="form-control" placeholder="YYYY/MM/DD" type="date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-xl-4 mb-0">
+                                        <div class="form-group">
+                                            <label class="form-label">Select ActiveStatus:</label>
+                                            <select name="isActive" class="form-control custom-select select2 select2-hidden-accessible">
+                                                <option value="">All</option>
+                                                <option value="true">True</option>
+                                                <option value="false">False</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-xl-2 mb-0">
+                                <div class="form-group mt-32">
+                                    <button type="submit" class="btn bg-primary btn-block color-white">
+                                        <i class="fas fa-search"></i> Search
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-xl-1 mb-0">
+                                <div class="form-group mt-32">
+                                    <a href="#" class="btn bg-primary btn-block color-white" data-toggle="modal" data-target="#add">
+                                        <i class="fas fa-plus-circle"></i> Add
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <div id="task-profile_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                            <!-- <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="dataTables_length" id="task-profile_length"><label>Show <select name="task-profile_length" aria-controls="task-profile" class="form-select form-select-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div id="task-profile_filter" class="dataTables_filter"><label><input type="search" class="form-control form-control-sm" placeholder="Search..." aria-controls="task-profile"></label></div>
+                                </div>
+                            </div> -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="table table-vcenter text-nowrap table-bordered dataTable no-footer" id="task-profile" role="grid">
+                                        <thead>
+                                            <tr class="top">
+                                                <th class="border-bottom-0 text-center sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 26.6562px;">No</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 222.312px;">Code</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 84.8281px;">Amount</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 87.9844px;">StartTime</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 87.9844px;">EndTime</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 71.875px;">IsActive</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 110.719px;">Createtime</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 110.719px;">Remark</th>
+                                                <th class="border-bottom-0 sorting_disabled fs-14 font-w500" rowspan="1" colspan="1" style="width: 145.391px;">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                int index = ViewBag.PageIndex == 1 ? 1 : ViewBag.PageIndex * 10;
+                                            }
+                                            @foreach (var item in users)
+                                            {
+                                                <tr class="odd">
+                                                    <td class="text-center">@(index++)</td>
+                                                    <td>
+                                                        <a href="#" class="d-flex ">
+                                                            <span>@item.Code</span>
+                                                        </a>
+                                                    </td>
+                                                    <td>@Math.Round(item.Amount, 2)</td>
+                                                    <td>@item.StartTime.ToString("yyyy/MM/dd")</td>
+                                                    <td>@item.EndTime.ToString("yyyy/MM/dd")</td>
+                                                    <td>
+                                                        <span class="badge badge-@(item.IsActive ? "success" : "warning")-light">@item.IsActive</span>
+                                                    </td>
+                                                    <td>@item.CreateTime</td>
+                                                    <td>@item.Remark</td>
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                <i class='bx bx-dots-horizontal-rounded'></i>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a class="dropdown-item" onclick="remove('@item.KeyId')" href="#" data-toggle="modal" data-target="#delete"><i class="bx bx-trash"></i> Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-5">
+                                    <div class="dataTables_info" id="task-profile_info" role="status" aria-live="polite">Showing @ViewBag.Skip to @ViewBag.SkipLast of @ViewBag.TotalCount entries</div>
+                                </div>
+                                <div class="col-sm-12 col-md-7">
+                                    <div class="dataTables_paginate paging_simple_numbers" id="task-profile_paginate">
+                                        <form asp-action="Index" method="get" id="page-form">
+                                            <ul class="pagination">
+                                                <input type="hidden" id="pageIndex" name="pageIndex" />
+                                                <li onclick="option.page(@(ViewBag.PageIndex - 1))" class="paginate_button page-item previous @(ViewBag.PageIndex <= 1 ? "disabled" : "")" id="task-profile_previous">
+                                                    <a href="#" aria-controls="task-profile" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                                                </li>
+                                                <li class="paginate_button page-item active">
+                                                    <a href="#" aria-controls="task-profile" data-dt-idx="1" tabindex="0" class="page-link">@ViewBag.PageIndex</a>
+                                                </li>
+                                                @if (users.Count > 0)
+                                                {
+                                                    <li onclick="option.page(@(ViewBag.PageIndex + 1))" class="paginate_button page-item next disabled" id="task-profile_next">
+                                                        <a href="#" aria-controls="task-profile" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="add" class="modal custom-modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Card</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Create" data-ajax="true" enctype="multipart/form-data"
+                      data-ajax-method="post"
+                      data-ajax-failure="message.error"
+                      data-ajax-begin="ajax.begin(this)"
+                      data-ajax-complete="ajax.complete(this)"
+                      data-ajax-success="options.successrefreshesPage">
+                    <div class="form-group">
+                        <label>Number</label>
+                        <input name="Number" id="Number" value="1" min="0" data-val-required="The Number field is required." data-val="true" class="form-control" type="number">
+                        <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount</label>
+                        <input name="Amount" id="Amount" value="0" min="0" data-val-required="The Number field is required." data-val="true" class="form-control" type="number">
+                        <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Amount"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Start Date</label>
+                        <input name="StartTime" class="form-control " type="date">
+                    </div>
+                    <div class="form-group">
+                        <label>End Date</label>
+                        <input name="EndTime" class="form-control " type="date">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="Remark" rows="4" class="form-control" placeholder="remark"></textarea>
+                    </div>
+                    <div class="submit-section text-center">
+                        <button class="btn btn-primary submit-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal custom-modal fade" id="delete" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-header">
+                    <h3>Delete Channel</h3>
+                    <p>Are you sure want to delete?</p>
+                </div>
+                <div class="modal-btn delete-action">
+                    <form asp-action="delete" data-ajax="true"
+                          data-ajax-method="post"
+                          data-ajax-failure="message.error"
+                          data-ajax-begin="ajax.begin(this)"
+                          data-ajax-complete="ajax.complete(this)"
+                          data-ajax-success="options.successrefreshesPage">
+                        <div class="row">
+                            <div class="col-6 mb-0">
+                                <input type="hidden" name="KeyId" id="delete-keyId" />
+                                <button type="submit" asp-action="Delete" style="width:100%" id="delete-client-btn" class="btn btn-primary continue-btn">Delete</button>
+                            </div>
+                            <div class="col-6 mb-0">
+                                <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function remove(id) {
+        console.log(id)
+        $('#delete-keyId').val(id)
+    }
+    var option = {
+        page: function (pageIndex) {
+            if (pageIndex <= 0) {
+                return;
+            }
+            $('#pageIndex').val(pageIndex);
+            $('#page-form').submit()
+        },
+    };
+
+</script>

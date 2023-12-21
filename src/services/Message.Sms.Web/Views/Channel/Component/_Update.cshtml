@@ -1,0 +1,65 @@
+﻿@using Message.Sms.Web.Repositories.Entity
+@model Message.Sms.Web.Repositories.Entity.Channel
+<div id="edit_client" class="modal custom-modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Channel</h4>
+                <button type="button" onclick="$('#edit_client').modal('hide')" class="close" aria-label="Close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <form data-ajax="true" enctype="multipart/form-data" data-ajax-method="post" data-ajax-failure="message.error" data-ajax-begin="ajax.begin(this)" data-ajax-complete="ajax.complete(this)" data-ajax-success="addClientSucess" action="/Channel/Update" method="post" novalidate="novalidate">
+                    <div class="form-group">
+                        <label>ApiServiceProvider</label>
+                        <select name="ApiServiceProviderId" class="form-control select">
+                            @foreach (var item in (ViewData["ApiServiceProviderId"] as List<ApiServiceProvider>)!)
+                            {
+                                <option selected value="@item.KeyId">@item.Remark</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Upload Avata</label>
+                        <input class="form-control" id="Icon" value="@Model.Icon" name="Icon" accept="image/gif, image/jpeg, image/png, image/jpg" type="file">
+                    </div>
+                    <div class="form-group">
+                        <label>Client Name</label>
+                        <input name="Name" id="Name" value="@Model.Name" data-val-required="The Name field is required." data-val="true" class="form-control" type="text">
+                        <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Client Code</label>
+                        <input name="Code" value="@Model.Code" class="form-control" data-val-required="The Code field is required." data-val="true" type="text">
+                        <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Code"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input name="Price" type="number" value="@Model.Price" placeholder="￥1" data-val-required="The Price field is required." data-val="true" class="form-control">
+                        <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Price"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>CostPrice</label>
+                        <input name="CostPrice" value="@Model.CostPrice" placeholder="￥1" data-val-required="The Price field is required." data-val="true" type="number" class="form-control">
+                        <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="CostPrice"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="Description" rows="4" class="form-control" placeholder="Enter your message here">@Model.Description</textarea>
+                    </div>
+
+                    <div class="submit-section text-center">
+                        <button class="btn btn-primary submit-btn">Submit</button>
+                    </div>
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="ApiServiceProviderId" value="@Model.ApiServiceProviderId" />
+                    <input type="hidden" name="KeyId" value="@Model.KeyId" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#edit_client').modal('show');
+    })
+</script>

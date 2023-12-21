@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="~/css/grid.css">
     <link rel="stylesheet" href="~/css/style.css">
     <link rel="stylesheet" href="~/css/responsive.css">
+    <link href="~/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="~/libs/date-picker/datepicker.css" rel="stylesheet" />
 </head>
 
 <body class="sidebar-expand">
@@ -48,6 +50,9 @@
     <script src="~/lib/jquery.unobtrusive-ajax.js"></script>
     <link href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="~/libs/bootstrap-datepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/libs/date-picker/datepicker.js"></script>
+    <script src="~/js/pages/datepicker.js"></script>
     <!-- APP JS -->
     <script src="~/js/main.js"></script>
     <script src="~/js/dashboard.js"></script>
@@ -75,16 +80,16 @@
         var ajax = {
             remake: function (e) {
                 let message = `<form asp-action="Create" data-ajax="true"
-                                          data-ajax-method="post"
-                                          data-ajax-failure="message.error"
-                                          data-ajax-begin="ajax.begin(this)"
-                                          data-ajax-complete="ajax.complete(this)"
-                                          data-ajax-success="message.success">
-                                          <div> todo input </div>
-                                          <div class="submit-section text-center">
-                                            <button class="btn btn-primary submit-btn">Submit</button>
-                                        </div>
-                                    </form>`;
+                                                          data-ajax-method="post"
+                                                          data-ajax-failure="message.error"
+                                                          data-ajax-begin="ajax.begin(this)"
+                                                          data-ajax-complete="ajax.complete(this)"
+                                                          data-ajax-success="message.success">
+                                                          <div> todo input </div>
+                                                          <div class="submit-section text-center">
+                                                            <button class="btn btn-primary submit-btn">Submit</button>
+                                                        </div>
+                                                    </form>`;
                 return message;
             },
             begin: function (e) {
@@ -127,6 +132,12 @@
                 console.log(e)
                 toastr.info(e, "info");
             },
+        };
+        var options = {
+            successrefreshesPage: function () {
+                message.success();
+                setTimeout(function () { location.reload() }, 500)
+            }
         };
     </script>
 </body>

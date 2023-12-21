@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\error.html",
+      "PackagePath": "staticwebassets\\error.html"
+    },
+    {
       "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },

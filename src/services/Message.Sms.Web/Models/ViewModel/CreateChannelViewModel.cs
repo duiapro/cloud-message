@@ -14,7 +14,7 @@ namespace Message.Sms.Web.Models.ViewModel
         [Required, MaxLength(50)]
         public string Name { get; set; }
 
-        public IFormFile Icon { get; set; }
+        public IFormFile? Icon { get; set; }
 
         public decimal Price { get; set; }
 

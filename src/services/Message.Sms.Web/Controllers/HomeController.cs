@@ -5,6 +5,7 @@ using System.Diagnostics;
 
 namespace Message.Sms.Web.Controllers
 {
+    [AuthFilter]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -14,7 +15,6 @@ namespace Message.Sms.Web.Controllers
             _logger = logger;
         }
 
-        [AuthFilter]
         public IActionResult Index()
         {
             return View();

@@ -18,6 +18,8 @@ namespace Message.Sms.Web.Repositories
         public DbSet<UsersUseMobileHistory> UsersUseMobileHistorys { get; set; }
         public DbSet<UsersSmsCodeLogs> UsersSmsCodeLogs { get; set; }
         public DbSet<ApiServiceProvider> ApiServiceProviders { get; set; }
+        public DbSet<RechargeCard> RechargeCards { get; set; }
+        public DbSet<UsersRechargeLogs> UsersRechargeLogs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

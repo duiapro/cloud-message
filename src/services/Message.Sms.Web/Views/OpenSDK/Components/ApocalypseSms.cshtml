@@ -4,7 +4,7 @@
 @inject SmsApiClientAdapter _apiClientAdapter
 @using Microsoft.EntityFrameworkCore
 @{
-    dynamic balance = new { };
+    decimal balance = 0;
     var apiAuthoritys = await _context.ApiServiceProviders.FirstOrDefaultAsync(item => item.Type == ApocalypseSmsApiClient.GetServiceType);
     if (apiAuthoritys is null)
     {
@@ -12,7 +12,7 @@
     }
     else
     {
-        balance = await _apiClientAdapter.GetApocalypseSmsApiClient.GetWalletAsync();
+        balance = (await _apiClientAdapter.GetApocalypseSmsApiClient.GetWalletAsync()).Balances;
     }
 }
 <div class="box">
@@ -31,7 +31,7 @@
             <h5 id="conveying-meaning-to-assistive-technologies">Account Info</h5>
 
             <p>
-                Balance：<code>￥@(balance?.balances) </code><span title="look over" class="badge badge-primary">look over</span>
+                Balance：<code>￥@(Math.Round(balance,2)) </code><span title="look over" class="badge badge-primary">look over</span>
                 <br />
                 Token：<code>@apiAuthoritys.Authority</code>
             </p>
