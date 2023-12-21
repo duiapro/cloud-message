@@ -26,7 +26,7 @@ namespace Message.Sms.Web.Infrastructure
                 var user = context.HttpContext.Session.GetString(AppUsers.SESSION_KEY);
                 if (user == null)
                 {
-                    context.Result = new RedirectResult("/user/default/login", false);
+                    context.Result = new RedirectResult("/users/login", false);
                 }
                 else if (IsAdmin)
                 {

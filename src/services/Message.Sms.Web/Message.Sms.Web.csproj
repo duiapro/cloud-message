@@ -7,6 +7,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Areas\**" />
+	  <Content Remove="Areas\**" />
+	  <EmbeddedResource Remove="Areas\**" />
+	  <None Remove="Areas\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.2" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.2" />
@@ -18,11 +25,6 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
 		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.2" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Folder Include="Areas\User\Data\" />
-		<Folder Include="Areas\User\Models\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -77,6 +79,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Content Update="Views\Users\Login.cshtml">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Update="Views\Users\Register.cshtml">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
 		<Content Update="wwwroot\css\style.css">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>

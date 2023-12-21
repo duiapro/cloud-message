@@ -59,6 +59,7 @@ namespace Message.Sms.Web.Controllers
                 var user = await _dbContext.Users.AsNoTracking().FirstOrDefaultAsync(user => user.UserMobile == model.Mobile);
                 if (user is not null && model.Password == user.PassWork)
                 {
+                    base.AppUsers.Set(new(user.KeyId, user.UserName, user.UserMobile, user.Balance, user.IsVip, user.Discount, user.IsAdmin));
                     return Redirect("/Home/Index");
                 }
                 else if (user is null)
@@ -100,7 +101,5 @@ namespace Message.Sms.Web.Controllers
 
             return View(model);
         }
-
-
     }
 }
