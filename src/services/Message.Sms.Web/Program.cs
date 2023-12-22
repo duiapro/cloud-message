@@ -19,6 +19,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     .EnableDetailedErrors();
 });
 builder.Services.AddHostedService<TokenCacheHostedService>();
+builder.Services.AddMemoryCache();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<AppUsers>();
@@ -52,5 +53,5 @@ app.UseAuthorization();
 app.UseSession();
 //app.MapAreaControllerRoute("user_route", "User", "{controller=Home}/{action=Index}/{keyId?}");
 //app.MapControllerRoute(name: "areas", pattern: "{area:exists}/{controller=Home}/{action=Index}/{keyId?}"/*, defaults: new { area = "User" }*/);
-app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{keyId?}", "/client");
+app.MapControllerRoute(name: "default", pattern: "{controller=Project}/{action=Index}/{keyId?}", "/client");
 app.Run();

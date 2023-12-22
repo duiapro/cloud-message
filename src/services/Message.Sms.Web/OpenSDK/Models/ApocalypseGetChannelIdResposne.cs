@@ -2,5 +2,6 @@
 {
     public class ApocalypseGetChannelIdResposne
     {
+        public string ChannelId { get; set; }
     }
 }

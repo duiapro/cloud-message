@@ -2,19 +2,24 @@
 
 namespace Message.Sms.Web.OpenSDK.Models.Request
 {
-    public class ApocalypseGetGetChannelsRequest
+    public class ApocalypseGetGetChannelsRequest : RequestBase
     {
         public int keyword { get; set; } = 0;
 
-        public string channelIdList { get; set; }
+        public List<ApocalypseProjectChannelIdList> channelIdList { get; set; }
 
         public bool priceSort { get; set; } = false;
 
         public int page { get; set; } = 1;
 
-        public ApocalypseGetGetChannelsRequest(string channelIdList)
+        public ApocalypseGetGetChannelsRequest(List<ApocalypseProjectChannelIdList> channelIdList)
         {
             this.channelIdList = channelIdList;
+            this.keyword = channelIdList.GetHashCode();
+        }
+
+        public ApocalypseGetGetChannelsRequest()
+        {
         }
     }
 }

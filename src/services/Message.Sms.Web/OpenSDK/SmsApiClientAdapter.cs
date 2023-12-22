@@ -32,4 +32,9 @@ public class SmsApiClientAdapter
     public async Task<PhoneResponse> GetPhoneAsync(string type, RequestBase? request = null)
         => await Get(type).GetPhoneAsync(request);
 
+    public async Task<T> GetProjectAsync<T>(string type, string projectName) => await Get(type).GetProjectAsync<T>(projectName);
+
+    public async Task<T> GetChannelAsync<T>(string type, RequestBase? request) => await Get(type).GetChannelAsync<T>(request);
+
+    public async Task<ApocalypseGetChannelIdResposne> GetChannelIdAsync(string type, RequestBase? request) => await Get(type).GetChannelIdAsync(request);
 }

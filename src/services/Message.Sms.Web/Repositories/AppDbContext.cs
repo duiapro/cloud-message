@@ -14,6 +14,7 @@ namespace Message.Sms.Web.Repositories
         }
 
         public DbSet<Users> Users { get; set; }
+        public DbSet<Project> Projects { get; set; }
         public DbSet<Channel> Channels { get; set; }
         public DbSet<UsersUseMobileHistory> UsersUseMobileHistorys { get; set; }
         public DbSet<UsersSmsCodeLogs> UsersSmsCodeLogs { get; set; }

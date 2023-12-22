@@ -109,6 +109,51 @@ namespace Message.Sms.Web.Migrations
                     b.ToTable("channel");
                 });
 
+            modelBuilder.Entity("Message.Sms.Web.Repositories.Entity.Project", b =>
+                {
+                    b.Property<Guid>("KeyId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Grade")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Icon")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("ProjectName")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<int>("Sort")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("SubTitle")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<DateTime>("UpdateTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("KeyId");
+
+                    b.ToTable("project");
+                });
+
             modelBuilder.Entity("Message.Sms.Web.Repositories.Entity.RechargeCard", b =>
                 {
                     b.Property<Guid>("KeyId")

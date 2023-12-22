@@ -4,7 +4,7 @@
     {
         public string ChannelId { get; set; } = string.Empty;
         public string PhoneNum { get; set; } = string.Empty;
-
+        
         public ApocalypseGetPhoneCodeRequest()
         {
         }

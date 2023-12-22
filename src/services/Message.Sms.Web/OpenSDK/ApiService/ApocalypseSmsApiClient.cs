@@ -1,5 +1,10 @@
 ﻿using Message.Sms.Web.OpenSDK.Models;
 using Newtonsoft.Json;
+using System.Net.Http;
+using System.Reflection;
+using System.Reflection.Metadata;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Text;
 
 namespace Message.Sms.Web.OpenSDK.ApiService
 {
@@ -15,6 +20,7 @@ namespace Message.Sms.Web.OpenSDK.ApiService
             tokenManage)
         {
             _httpClient = httpClientFactory.CreateClient(nameof(ApocalypseSmsApiClient));
+            _httpClient.DefaultRequestHeaders.Add("x-token", this.GetToken());
         }
 
         public async Task<LoginResponse> LoginAsync(RequestBase? request = null)
@@ -61,6 +67,36 @@ namespace Message.Sms.Web.OpenSDK.ApiService
             }
 
             throw new Exception(result?.Msg.ToString());
+        }
+
+        public async Task<T> GetProjectAsync<T>(string projectName)
+        {
+            var url = $"/api/message/RegionCollect/searchProject";
+            var result = await this.GetWebClient().InvokeAsync<object, ApocalypseResponseBase<T>>(HttpMethod.Post, url,
+                new { search = projectName });
+            return result.Data;
+        }
+
+        public async Task<T> GetChannelAsync<T>(RequestBase? request = null)
+        {
+            var url = $"/api/message/RegionCollect/search";
+            var result = await this.GetWebClient(request?.ApiKey).InvokeAsync<object, ApocalypseResponseBase<T>>(HttpMethod.Post, url, request);
+            return result.Data;
+        }
+
+        public async Task<ApocalypseGetChannelIdResposne> GetChannelIdAsync(RequestBase? request = null)
+        {
+            var url = $"/api/message/RegionCollect/add";
+            var result = await this.GetWebClient(request?.ApiKey).InvokeAsync<object, ApocalypseResponseBase<ApocalypseGetChannelIdResposne>>(HttpMethod.Post, url, request);
+            return result.Data;
+        }
+
+        private HttpClient GetWebClient(string? apiKey = null)
+        {
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Add("x-token", this.GetToken(apiKey));
+            httpClient.BaseAddress = new Uri("https://web.tqsms.xyz");
+            return httpClient;
         }
     }
 }

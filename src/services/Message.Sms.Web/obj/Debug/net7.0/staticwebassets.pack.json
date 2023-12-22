@@ -1053,6 +1053,10 @@
       "PackagePath": "staticwebassets\\libs\\simplebar\\simplebar.min.js"
     },
     {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\00e0e732-846e-44b9-9157-95a431595ab7.png",
+      "PackagePath": "staticwebassets\\upload\\images\\00e0e732-846e-44b9-9157-95a431595ab7.png"
+    },
+    {
       "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\042ccc16-7165-4d30-b307-9e9cecdc2e7e.png",
       "PackagePath": "staticwebassets\\upload\\images\\042ccc16-7165-4d30-b307-9e9cecdc2e7e.png"
     },
@@ -1069,12 +1073,24 @@
       "PackagePath": "staticwebassets\\upload\\images\\36474e5d-e0a9-417d-bbbd-d925e4136309.jpg"
     },
     {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\4ee40e56-447e-481e-a24a-aca52740fbd9.png",
+      "PackagePath": "staticwebassets\\upload\\images\\4ee40e56-447e-481e-a24a-aca52740fbd9.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\51ae6278-23b2-4649-9cbf-8128a3bb0a0f.png",
+      "PackagePath": "staticwebassets\\upload\\images\\51ae6278-23b2-4649-9cbf-8128a3bb0a0f.png"
+    },
+    {
       "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\52a4eaa0-f0f8-4eb3-9083-181716417ab0.png",
       "PackagePath": "staticwebassets\\upload\\images\\52a4eaa0-f0f8-4eb3-9083-181716417ab0.png"
     },
     {
       "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\6c68e7f5-e745-46b0-b6fc-20023cce32c5.png",
       "PackagePath": "staticwebassets\\upload\\images\\6c68e7f5-e745-46b0-b6fc-20023cce32c5.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\73d22d09-0dd6-476f-81f2-631d261ce345.png",
+      "PackagePath": "staticwebassets\\upload\\images\\73d22d09-0dd6-476f-81f2-631d261ce345.png"
     },
     {
       "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\8f2e8799-85e2-47d7-af58-d26765aac326.jpg",
@@ -1091,6 +1107,10 @@
     {
       "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\9e8a3e3f-e34e-4567-bebb-34fd5a095343.png",
       "PackagePath": "staticwebassets\\upload\\images\\9e8a3e3f-e34e-4567-bebb-34fd5a095343.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\bd8a48e6-3663-4219-b0b5-238ce62e37a8.png",
+      "PackagePath": "staticwebassets\\upload\\images\\bd8a48e6-3663-4219-b0b5-238ce62e37a8.png"
     },
     {
       "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\d4a28f12-805d-477f-995f-96d71eae2cca.jpg",

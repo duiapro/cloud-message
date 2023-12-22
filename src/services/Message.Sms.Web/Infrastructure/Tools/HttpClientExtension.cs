@@ -42,7 +42,6 @@ public static class HttpClientExtension
         {
             Content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json")
         };
-
         var response = await httpClient.SendAsync(httpRequestMessage);
 
         return await ProcessResponseAsync<TValue>(response);
