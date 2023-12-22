@@ -1,0 +1,108 @@
+﻿@model Message.Sms.Web.Models.ViewModel.CreateProjectViewModel
+@using Message.Sms.Web.Models.ViewModel
+@using Message.Sms.Web.Repositories.Entity
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="main-content project">
+    <form asp-action="Create" enctype="multipart/form-data" data-ajax-method="post">
+        <div class="row">
+            <div class="col-12">
+                <div class="box">
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 mb-24">
+                                <div class="form-group">
+                                    <label class="form-label">ApiServiceProvider</label>
+                                    <select name="ApiServiceProviderId" class="form-control custom-select select2 select2-hidden-accessible">
+                                        @foreach (var item in (ViewData["ApiServiceProviderId"] as List<ApiServiceProvider>)!)
+                                        {
+                                            <option value="@item.KeyId">@item.Remark</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 mb-24">
+                                <div class="form-group">
+                                    <label class="form-label">Project Name</label>
+                                    <input asp-for="@Model.ProjectName" class="form-control" placeholder="Project Name" required>
+                                    <span asp-validation-for="ProjectName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 mb-24">
+                                <div class="form-group">
+                                    <label class="form-label">Sub Title</label>
+                                    <input asp-for="@Model.SubTitle" class="form-control" placeholder="Sub Title" required>
+                                    <span asp-validation-for="SubTitle" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 mb-24">
+                                <div class="form-group">
+                                    <label class="form-label">Sort</label>
+                                    <input asp-for="@Model.Sort" type="number" min="0" class="form-control" placeholder="0" required>
+                                    <span asp-validation-for="Sort" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 mb-24">
+                                <div class="form-group">
+                                    <label class="form-label">Project Priority:</label>
+                                    <select name="Grade" class="form-control custom-select select2 select2-hidden-accessible" aria-hidden="true">
+                                        <option value="1">High</option>
+                                        <option value="2">Medium</option>
+                                        <option value="3">Low</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-24">
+                            <label class="form-label">Description:</label>
+                            <textarea asp-for=Description class="form-control" name="text" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label class="form-label">Icon:</label>
+                                    <div class="input-group file-browser">
+                                        <input type="text" class="form-control border-end-0 browse-file" placeholder="choose" readonly="">
+                                        <label class="input-group-append mb-0">
+                                            <span class="btn ripple btn-light">
+                                                Browse
+                                                <input required type="file" asp-for=Icon name="Icon" accept="image/gif, image/jpeg, image/png, image/jpg" class="file-browserinput" style="display: none;">
+                                            </span>
+                                        </label>
+                                        <span asp-validation-for="Icon" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="custom-controls-stacked d-lg-flex align-items-center">
+                                    <label class="form-label mt-1 fs-18 font-w500 color-primary">Status :</label>
+                                    <label class="custom-control custom-radio success me-4">
+                                        <input type="radio" class="custom-control-input" checked asp-for="@Model.Status" value="true">
+                                        <span class="custom-control-label">Enable</span>
+                                    </label>
+                                    <label class="custom-control custom-radio success me-4">
+                                        <input type="radio" class="custom-control-input" asp-for="@Model.Status" value="false">
+                                        <span class="custom-control-label">Disable</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gr-btn mt-15">
+                        <a href="#" class="btn btn-danger btn-lg mr-15 fs-16">CLOSE</a>
+                        <button class="btn btn-primary btn-lg fs-16">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
