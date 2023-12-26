@@ -2,8 +2,8 @@
 
 namespace Message.Sms.Web.Repositories.Entity
 {
-    [Table("users_recharge_logs")]
-    public class UsersRechargeLogs : EntityBase
+    [Table("users_balance_bill")]
+    public class UsersBalanceBill : EntityBase
     {
         public Guid Code { get; set; }
 
