@@ -27,6 +27,9 @@ namespace Message.Sms.Web.Repositories.Entity
         [Required]
         public string Context { get; set; }
 
+        //1.start 2.runing 3.end
+        public int Status { get; set; }
+
         public virtual Users Users { get; set; }
 
         public UsersSmsCodeLogs(Guid userId, Guid channelId, string apiServiceProviderType, string mobile)
@@ -37,12 +40,19 @@ namespace Message.Sms.Web.Repositories.Entity
             Mobile = mobile;
             Code = string.Empty;
             Context = string.Empty;
+            Status = 1;
+        }
+
+        public void StartRuning()
+        {
+            Status = 2;
         }
 
         public void SetCode(string? code, string? context)
         {
             Code = code ?? string.Empty;
-            Context = code ?? string.Empty;
+            Context = context ?? string.Empty;
+            Status = 3;
         }
     }
 }

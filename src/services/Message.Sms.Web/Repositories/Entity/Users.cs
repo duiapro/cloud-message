@@ -7,37 +7,29 @@ namespace Message.Sms.Web.Repositories.Entity
     [Table("users")]
     public class Users : EntityBase
     {
-        [Required]
-        [MaxLength(50)]
-        public string UserName { get; set; }
+        [Required][MaxLength(50)] public string UserName { get; set; }
 
-        [Required]
-        [MaxLength(15)]
-        public string UserMobile { get; set; }
+        [Required][MaxLength(15)] public string UserMobile { get; set; }
 
-        [Required]
-        [MaxLength(15)]
-        public string PassWork { get; set; }
+        [Required][MaxLength(15)] public string PassWork { get; set; }
 
         public decimal Balance { get; set; }
 
         public bool IsVip { get; set; }
 
-        [Precision(18, 2)]
-        public decimal Discount { get; set; } = 1;
+        [Precision(18, 2)] public decimal Discount { get; set; } = 1;
 
-        /// <summary>
-        /// 是否是管理员
-        /// </summary>
         public bool IsAdmin { get; set; }
 
-        /// <summary>
-        /// 获取日志
-        /// </summary>
-        private List<UsersSmsCodeLogs> _codeLogs;
+        private List<UsersSmsCodeLogs> _codeLogs = new();
         public IReadOnlyCollection<UsersSmsCodeLogs>? CodeLogs => _codeLogs?.AsReadOnly();
 
-        public Users() { }
+        private List<UsersBalanceBill> _balanceBill = new();
+        public IReadOnlyCollection<UsersBalanceBill>? BalanceBill => _balanceBill?.AsReadOnly();
+
+        public Users()
+        {
+        }
 
         public Users(string userName, string userMobile, string passWork, bool isAdmin = false)
         {
@@ -48,6 +40,36 @@ namespace Message.Sms.Web.Repositories.Entity
             IsVip = false;
             Discount = 1;
             IsAdmin = isAdmin;
+        }
+
+        public (UsersBalanceBill, decimal) DeductBalance(decimal price, string title = "", string remake = "")
+        {
+            decimal beforeBalance = Balance;
+            Balance -= price;
+            decimal afterBalance = Balance;
+            var balanceBill = new UsersBalanceBill(this.KeyId, title, 2, price, beforeBalance, afterBalance, remake);
+            return (balanceBill, Balance);
+        }
+
+        public decimal RechargeBalance(decimal price, string title = "", string remake = "")
+        {
+            decimal beforeBalance = Balance;
+            Balance += price;
+            decimal afterBalance = Balance;
+            _balanceBill.Add(new(this.KeyId, title, 1, price, beforeBalance, afterBalance, remake));
+            return Balance;
+        }
+
+        public decimal DeductDiscountBalance(decimal salesAmount)
+        {
+            if (IsAdmin)
+                return this.DeductBalance(0).Item2; //admin user no verification balance
+
+            var discountPrice = (salesAmount * Discount);
+            if ((Balance - discountPrice) < 0)
+                throw new Exception("User verification balance is insufficient, please recharge.");
+
+            return this.DeductBalance(discountPrice).Item2;
         }
     }
 }

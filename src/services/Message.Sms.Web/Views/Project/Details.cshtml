@@ -52,7 +52,7 @@
                             <li class="fs-14"><i class="bx bxs-envelope"></i>CostPrice：@Math.Round(item.userMoney.Value, 2)</li>
                         </ul>
                         <div class="group-btn d-flex justify-content-between">
-                            <a class="bg-btn-pri color-white" href="/channel/message/">Message</a>
+                            <a class="bg-btn-pri color-white" href="/project/createChannel?keyId=@ViewBag.KeyId&channelId=@item.id">Message</a>
                             <a class="bg-btn-sec color-main" href="user-profile.html">View Profile</a>
                         </div>
                         @*<div class="group-btn d-flex justify-content-center">

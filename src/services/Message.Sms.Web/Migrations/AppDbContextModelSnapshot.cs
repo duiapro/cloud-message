@@ -115,6 +115,14 @@ namespace Message.Sms.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
+                    b.Property<Guid>("ApiServiceProviderId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("ApiServiceProviderType")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
+
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime(6)");
 
@@ -235,7 +243,7 @@ namespace Message.Sms.Web.Migrations
                     b.ToTable("users");
                 });
 
-            modelBuilder.Entity("Message.Sms.Web.Repositories.Entity.UsersRechargeLogs", b =>
+            modelBuilder.Entity("Message.Sms.Web.Repositories.Entity.UsersBalanceBill", b =>
                 {
                     b.Property<Guid>("KeyId")
                         .ValueGeneratedOnAdd()
@@ -250,21 +258,31 @@ namespace Message.Sms.Web.Migrations
                     b.Property<decimal>("BeforeBalance")
                         .HasColumnType("decimal(65,30)");
 
-                    b.Property<Guid>("Code")
-                        .HasColumnType("char(36)");
-
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Remake")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("UpdateTime")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<Guid>("UsersRechargeKeyId")
+                    b.Property<Guid>("UserKeyId")
                         .HasColumnType("char(36)");
 
                     b.HasKey("KeyId");
 
-                    b.ToTable("users_recharge_logs");
+                    b.HasIndex("UserKeyId");
+
+                    b.ToTable("users_balance_bill");
                 });
 
             modelBuilder.Entity("Message.Sms.Web.Repositories.Entity.UsersSmsCodeLogs", b =>
@@ -359,6 +377,17 @@ namespace Message.Sms.Web.Migrations
                     b.Navigation("ApiServiceProvider");
                 });
 
+            modelBuilder.Entity("Message.Sms.Web.Repositories.Entity.UsersBalanceBill", b =>
+                {
+                    b.HasOne("Message.Sms.Web.Repositories.Entity.Users", "Users")
+                        .WithMany("BalanceBill")
+                        .HasForeignKey("UserKeyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Users");
+                });
+
             modelBuilder.Entity("Message.Sms.Web.Repositories.Entity.UsersSmsCodeLogs", b =>
                 {
                     b.HasOne("Message.Sms.Web.Repositories.Entity.Users", "Users")
@@ -377,6 +406,8 @@ namespace Message.Sms.Web.Migrations
 
             modelBuilder.Entity("Message.Sms.Web.Repositories.Entity.Users", b =>
                 {
+                    b.Navigation("BalanceBill");
+
                     b.Navigation("CodeLogs");
                 });
 #pragma warning restore 612, 618

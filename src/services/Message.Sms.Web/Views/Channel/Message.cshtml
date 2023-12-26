@@ -294,9 +294,9 @@
                     <form asp-controller="sms" id="get-code-form" asp-action="GetCode" data-ajax="true"
                           data-ajax-method="post"
                           data-ajax-failure="message.error"
-                          data-ajax-begin="options.begin(this)"
+                          data-ajax-begin="thisOptions.begin(this)"
                           data-ajax-complete="ajax.complete(this)"
-                          data-ajax-success="options.success">
+                          data-ajax-success="thisOptions.success">
                         <div class="message-form-chat">
                             <!-- /.pin -->
                             <span class="message-text">
@@ -327,8 +327,8 @@
                             </div> -->
                             <!-- /.icon-right -->
                             <span class="btn-send">
-                                <input type="hidden" name="taskKeyId" value="@channel.KeyId" />
-                                <button style="background:#c1c0c3" onclick="options.onsubmit();return false;" id="get-mobile-code" disabled>Connect Close<i class="fas fa-paper-plane"></i></button>
+                                <input type="hidden" id="taskKeyId" name="taskKeyId" value="" />
+                                <button style="background:#c1c0c3" onclick="thisOptions.onsubmit();return false;" id="get-mobile-code" disabled>Connect Close<i class="fas fa-paper-plane"></i></button>
                             </span>
                             <!-- /.btn-send -->
                         </div>
@@ -348,6 +348,7 @@
         console.log(data.mobile)
         console.log(data.taskKeyId)
         if (data.mobile != '') {
+            message.success('获取成功')
             $('#this-mobile').html(data.mobile)
             $('#taskKeyId').val(data.taskKeyId)
             $('#avatar-status').removeAttr('style')
@@ -357,7 +358,7 @@
         }
     }
 
-    var options = {
+    var thisOptions = {
         getCodeNum: 1,
         intervalId: 0,
         get: function () { },
@@ -365,22 +366,22 @@
             ajax.begin(e)
         },
         getCode: function () {
-            if (options.getCodeNum > 3) {
-                clearInterval(options.intervalId);
+            if (thisOptions.getCodeNum > 3) {
+                clearInterval(thisOptions.intervalId);
                 console.log('停止')
                 messageOption.receive('It may be really gone if it is not obtained...');
                 return;
             }
             $('#get-code-form').submit();
-            console.log(options.getCodeNum)
-            options.getCodeNum++;
+            console.log(thisOptions.getCodeNum)
+            thisOptions.getCodeNum++;
         },
         success: function (e) {
-            if (e != undefined && e != '') {
+            if (e.status == 3) {
                 console.log('请求成功，取消任务')
-                clearInterval(options.intervalId);
+                clearInterval(thisOptions.intervalId);
                 $('.skill-progress').remove();
-                messageOption.receive(e);
+                messageOption.receive(e.context);
                 setTimeout(function () { messageOption.receive('The request is over, and the text message will be re -charged again..') }, 1000)
                 $('#get-mobile-code').removeAttr('style').attr('disabled', false).html('Connecting<i class="fas fa-paper-plane">');
             }
@@ -388,11 +389,12 @@
         onsubmit: function (e) {
             this.intervalId = setInterval(this.getCode, 3000);
             messageOption.send(`<p>Connection successful, please wait..</p><div class="progress skill-progress mt-15 mb-15" style="height:7px;">
-                                                         <div class="progress-bar progress-animated" style="animation-duration: 300s;width: 100%; height:7px;" role="progressbar">
-                                                         <span class="sr-only">78% Complete</span>
-                                                     </div>
-                                                                                                                </div>`, false);
+                                                             <div class="progress-bar progress-animated" style="animation-duration: 300s;width: 100%; height:7px;" role="progressbar">
+                                                             <span class="sr-only">78% Complete</span>
+                                                         </div>
+                                                                                                                    </div>`, false);
             $('#get-mobile-code').attr('disabled', true).css('background', '#c1c0c3').html('Connecting...<i class="fas fa-paper-plane">');
+            $.post('/sms/startGetCodeThread?taskKeyId=' + $('#taskKeyId').val())
         }
     };
 
@@ -402,22 +404,22 @@
                 context = `<p>${context}</p>`
             }
             var message = `<div class="message-${type}">
-                                                       <div class="message-pic">
-                                                         <img width="60px" src="/images/avatar/message-1.png" alt="">
-                                                           <div class="pulse-css-1"></div>
-                                                       </div>
-                                                       <div class="message-body">
-                                                           <div class="message-text">
-                                                                   ${context}
+                                                           <div class="message-pic">
+                                                             <img width="60px" src="/images/avatar/message-1.png" alt="">
+                                                               <div class="pulse-css-1"></div>
                                                            </div>
-                                                           <div class="message-meta">
-                                                               <p class="mt-10">${new Date()}</p>
+                                                           <div class="message-body">
+                                                               <div class="message-text">
+                                                                       ${context}
+                                                               </div>
+                                                               <div class="message-meta">
+                                                                   <p class="mt-10">${new Date()}</p>
+                                                               </div>
                                                            </div>
+                                                           <div class="clearfix"></div>
                                                        </div>
-                                                       <div class="clearfix"></div>
-                                                   </div>
-                                                   <!-- /.message-in -->
-                                                       <div class="clearfix"></div>`;
+                                                       <!-- /.message-in -->
+                                                           <div class="clearfix"></div>`;
             $('.message-box').append(message);
         },
         send: function (context, isP) { this.command('out', context, isP) },

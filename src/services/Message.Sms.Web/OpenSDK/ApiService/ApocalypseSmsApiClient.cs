@@ -51,6 +51,7 @@ namespace Message.Sms.Web.OpenSDK.ApiService
         //(string channelId, string phoneNum, string token = "")
         public async Task<PhoneCodeResponse> GetPhoneCodeAsync(RequestBase? request = null)
         {
+            return new("22007", "【申通快递】您的包裹已到和达御观邸4幢物业大厅快递超市，请凭22007领取，详询13625711772。");
             var parameter = request?.ToParameter();
             var response = await _httpClient.GetAsync(
                 $"/api/getCode?token={this.GetToken(request?.ApiKey)}&{parameter}");

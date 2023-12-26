@@ -59,7 +59,7 @@ namespace Message.Sms.Web.Controllers
             var modelCache = await _memoryCache.GetOrCreateAsync<List<ApocalypseGetChanneData>>(keyId.ToString(),
                 async (cacheEnty) =>
                 {
-                    cacheEnty.SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
+                    cacheEnty.SetAbsoluteExpiration(TimeSpan.FromHours(24));
 
                     var projects = await _dbContext.Projects.FindAsync(keyId);
                     if (projects is null)

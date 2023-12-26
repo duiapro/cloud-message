@@ -110,3 +110,54 @@ VALUES ('20231221062526_init', '7.0.2');
 
 COMMIT;
 
+START TRANSACTION;
+
+CREATE TABLE `project` (
+    `KeyId` char(36) COLLATE ascii_general_ci NOT NULL,
+    `ProjectName` varchar(20) CHARACTER SET utf8mb4 NOT NULL,
+    `SubTitle` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
+    `Sort` int NOT NULL,
+    `Grade` int NOT NULL,
+    `Icon` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    `Status` tinyint(1) NOT NULL,
+    `Description` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `CreateTime` datetime(6) NOT NULL,
+    `UpdateTime` datetime(6) NOT NULL,
+    CONSTRAINT `PK_project` PRIMARY KEY (`KeyId`)
+) CHARACTER SET=utf8mb4;
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20231222020923_init2', '7.0.2');
+
+COMMIT;
+
+START TRANSACTION;
+
+DROP TABLE `users_recharge_logs`;
+
+ALTER TABLE `project` ADD `ApiServiceProviderId` char(36) COLLATE ascii_general_ci NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000';
+
+ALTER TABLE `project` ADD `ApiServiceProviderType` varchar(30) CHARACTER SET utf8mb4 NOT NULL DEFAULT '';
+
+CREATE TABLE `users_balance_bill` (
+    `KeyId` char(36) COLLATE ascii_general_ci NOT NULL,
+    `UserKeyId` char(36) COLLATE ascii_general_ci NOT NULL,
+    `Title` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Type` int NOT NULL,
+    `Amount` decimal(65,30) NOT NULL,
+    `BeforeBalance` decimal(65,30) NOT NULL,
+    `AfterBalance` decimal(65,30) NOT NULL,
+    `Remake` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `CreateTime` datetime(6) NOT NULL,
+    `UpdateTime` datetime(6) NOT NULL,
+    CONSTRAINT `PK_users_balance_bill` PRIMARY KEY (`KeyId`),
+    CONSTRAINT `FK_users_balance_bill_users_UserKeyId` FOREIGN KEY (`UserKeyId`) REFERENCES `users` (`KeyId`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+
+CREATE INDEX `IX_users_balance_bill_UserKeyId` ON `users_balance_bill` (`UserKeyId`);
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20231225075230_init3', '7.0.2');
+
+COMMIT;
+

@@ -24,25 +24,74 @@ namespace Message.Sms.Web.Controllers
             System.Linq.Expressions.Expression<Func<Users, bool>> filter = channel => true;
             if (!string.IsNullOrEmpty(searchString))
             {
-                filter = channel => channel.UserName.Contains(searchString) || channel.UserMobile.Contains(searchString);
+                filter = channel =>
+                    channel.UserName.Contains(searchString) || channel.UserMobile.Contains(searchString);
             }
+
             var users = _dbContext.Users.Where(filter);
             var totalCount = await users.CountAsync();
-            var userData = await users.OrderByDescending(user => user.CreateTime).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToListAsync();
+            var userData = await users.OrderByDescending(user => user.CreateTime).Skip((pageIndex - 1) * pageSize)
+                .Take(pageSize).ToListAsync();
             ViewData["Users"] = userData;
             ViewBag.PageIndex = pageIndex;
             ViewBag.PageSize = pageSize;
             ViewBag.TotalCount = totalCount;
-            ViewBag.TotalPage = (totalCount + pageSize - 1) / pageSize; ;
+            ViewBag.TotalPage = (totalCount + pageSize - 1) / pageSize;
+            ;
             ViewBag.Skip = (pageIndex - 1) * pageSize;
             ViewBag.SkipLast = ViewBag.Skip + pageSize;
             ViewBag.SearchString = searchString ?? string.Empty;
             return View();
         }
 
-        public IActionResult Details()
+        public async Task<IActionResult> Details()
         {
-            return View();
+            var users = await _dbContext.Users.Where(user => user.KeyId == LoginUser.KeyId).FirstOrDefaultAsync();
+            var usersSmsCodeLogs = _dbContext.UsersSmsCodeLogs.Select(usersSmsCodeLogs =>
+                new { usersSmsCodeLogs.Status, usersSmsCodeLogs.Code, usersSmsCodeLogs.UserId });
+
+            ViewBag.RunningTask = await usersSmsCodeLogs.CountAsync(logs => logs.Status == 2);
+            ViewBag.Failed = await usersSmsCodeLogs.CountAsync(logs => logs.Status == 3 && logs.Code == string.Empty);
+            ViewBag.Complete = await usersSmsCodeLogs.CountAsync(logs => logs.Status == 3 && logs.Code != string.Empty);
+
+            return View(users);
+        }
+
+        public async Task<IActionResult> ConsumeBill(int pageIndex = 1, int pageSize = 20, string startDate = "",
+            string entDate = "", int? type = null)
+        {
+            pageIndex = pageIndex < 1 ? 1 : pageIndex;
+            System.Linq.Expressions.Expression<Func<UsersBalanceBill, bool>> filter = item => true;
+            if (type.HasValue)
+            {
+                filter = item =>item.Type==type;
+            }
+            if (!string.IsNullOrEmpty(startDate))
+            {
+                if (DateTime.TryParse(startDate, out var startDateTime))
+                    filter = item => item.CreateTime >= startDateTime;
+            }
+            if (!string.IsNullOrEmpty(entDate))
+            {
+                if (DateTime.TryParse(entDate, out var endDateTime))
+                    filter = item => item.CreateTime < endDateTime;
+            }
+            var usersBalanceBills = _dbContext.UsersBalanceBills.Where(filter);
+            var totalCount = await usersBalanceBills.CountAsync();
+            var data = await usersBalanceBills.OrderByDescending(user => user.CreateTime).Skip((pageIndex - 1) * pageSize)
+                .Take(pageSize).ToListAsync();
+            
+            ViewBag.PageIndex = pageIndex;
+            ViewBag.PageSize = pageSize;
+            ViewBag.TotalCount = totalCount;
+            ViewBag.TotalPage = (totalCount + pageSize - 1) / pageSize;
+            ViewBag.Skip = (pageIndex - 1) * pageSize;
+            ViewBag.SkipLast = ViewBag.Skip + pageSize;
+            ViewBag.Type = type;
+            ViewBag.StartDate = startDate;
+            ViewBag.EntDate = entDate;
+
+            return PartialView("./Component/_ConsumeBill", data);
         }
 
         public IActionResult Login()
@@ -56,10 +105,12 @@ namespace Message.Sms.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await _dbContext.Users.AsNoTracking().FirstOrDefaultAsync(user => user.UserMobile == model.Mobile);
+                var user = await _dbContext.Users.AsNoTracking()
+                    .FirstOrDefaultAsync(user => user.UserMobile == model.Mobile);
                 if (user is not null && model.Password == user.PassWork)
                 {
-                    base.AppUsers.Set(new(user.KeyId, user.UserName, user.UserMobile, user.Balance, user.IsVip, user.Discount, user.IsAdmin));
+                    base.AppUsers.Set(new(user.KeyId, user.UserName, user.UserMobile, user.Balance, user.IsVip,
+                        user.Discount, user.IsAdmin));
                     return Redirect("/Home/Index");
                 }
                 else if (user is null)

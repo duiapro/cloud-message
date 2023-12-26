@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="~/css/responsive.css">
     <link href="~/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" />
     <link href="~/libs/date-picker/datepicker.css" rel="stylesheet" />
+    <script src="~/libs/jquery/jquery.min.js"></script>
 </head>
 
 <body class="sidebar-expand">
@@ -36,14 +37,14 @@
     <!-- SCRIPT -->
     <!-- APEX CHART -->
 
-    <script src="~/libs/jquery/jquery.min.js"></script>
+    <script src="~/libs/jquery/jquery-ui.min.js"></script>
     <script src="~/libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/libs/circle-progress/circle-progress.min.js"></script>
     <script src="~/libs/moment/min/moment.min.js"></script>
     <script src="~/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/libs/peity/jquery.peity.min.js"></script>
     <script src="~/libs/chart.js/Chart.bundle.min.js"></script>
     <script src="~/libs/owl.carousel/owl.carousel.min.js"></script>
-    <script src="~/libs/apexcharts/apexcharts.js"></script>
     <script src="~/libs/simplebar/simplebar.min.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
@@ -52,11 +53,13 @@
     <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
     <script src="~/libs/bootstrap-datepicker/js/bootstrap-datetimepicker.min.js"></script>
     <script src="~/libs/date-picker/datepicker.js"></script>
+    <script src="~/libs/apexcharts/apexcharts.js"></script>
     <script src="~/js/pages/datepicker.js"></script>
     <!-- APP JS -->
     <script src="~/js/main.js"></script>
     <script src="~/js/dashboard.js"></script>
     <script src="~/js/shortcode.js"></script>
+    <script src="~/js/pages/chart-circle.js"></script>
     <script src="~/js/pages/dashboard.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
     <script type="text/javascript">
@@ -115,13 +118,16 @@
         };
         var message = {
             error: function (e) {
-                console.log(e)
-                if (e.responseText != undefined && e.responseText != '') {
-                    var message = e.responseText.split('System.Exception:')[1].split('\r\n')[0]
-                    toastr.error(message, "Error");
-                }
-                else {
-                    toastr.error(e, "Error");
+                if (e.status == 401) {
+                    toastr.error(e.responseText, "Error");
+                } else {
+                    if (e.responseText != undefined && e.responseText != '') {
+                        var message = e.responseText.split('System.Exception:')[1].split('\r\n')[0]
+                        toastr.error(message, "Error");
+                    }
+                    else {
+                        toastr.error(e, "Error");
+                    }
                 }
             },
             success: function (e) {

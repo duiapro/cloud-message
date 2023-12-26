@@ -6,6 +6,10 @@
         public string? Message { get; set; }
         public string? Context { get; set; }
 
+        public PhoneCodeResponse()
+        {
+        }
+
         public PhoneCodeResponse(string? code, string? context, string? message = "")
         {
             Code = code;
