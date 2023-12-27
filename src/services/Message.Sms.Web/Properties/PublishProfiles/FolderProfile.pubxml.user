@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\vsApp\cloud-message\src\services\Message.Sms.Web\bin\Release\net7.0\publish\</_PublishTargetUrl>
+    <History>True|2023-12-27T08:19:00.1706601Z;True|2023-12-27T16:05:23.5641324+08:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>
