@@ -1,0 +1,27 @@
+﻿<div id="rechargeBalance_modal" class="modal custom-modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Redeem Trip</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Create" data-ajax="true" enctype="multipart/form-data"
+                      data-ajax-method="post"
+                      data-ajax-failure="message.error"
+                      data-ajax-begin="ajax.begin(this)"
+                      data-ajax-complete="ajax.complete(this)"
+                      data-ajax-success="addClientSucess">
+                    <div class="form-group">
+                        <label>Card Password</label>
+                        <textarea name="CardPassword" rows="2" class="form-control" placeholder="Please enter card password"></textarea>
+                    </div>
+
+                    <div class="submit-section text-center">
+                        <button type="submit" class="btn btn-primary submit-btn" style="width:100%">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
