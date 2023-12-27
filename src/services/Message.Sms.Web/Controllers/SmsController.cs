@@ -154,7 +154,6 @@ namespace Message.Sms.Web.Controllers
                 $"{channel.Name}【{usersSmsCodeLogs.Mobile}】- Get the balance withheld with verification code");
 
             _dbContext.Update(user);
-            _dbContext.Add(balanceBill);
             _dbContext.Update(usersSmsCodeLogs);
             await _dbContext.SaveChangesAsync();
         }

@@ -107,9 +107,13 @@
                                                 <tr class="odd">
                                                     <td class="text-center">@(index++)</td>
                                                     <td>
-                                                        <a href="#" class="d-flex ">
-                                                            <span>@item.Code</span>
-                                                        </a>
+                                                        @if (item.IsActive)
+                                                        {
+                                                            <p class="font-weight-bolder"><del>@item.Code</del></p>
+                                                        }else
+                                                        {
+                                                            @item.Code
+                                                        }
                                                     </td>
                                                     <td>@Math.Round(item.Amount, 2)</td>
                                                     <td>@item.StartTime.ToString("yyyy/MM/dd")</td>

@@ -8,14 +8,14 @@
     <div class="row">
         <div class="col-9 col-xl-12">
             <div class="box card-box mb-20">
-                <div class="icon-box bg-color-1">
+                <div class="icon-box bg-color-1" data-toggle="modal" data-target="#rechargeBalance_modal">
                     <div class="icon bg-icon-1">
                         <i class='bx bxs-briefcase'></i>
                     </div>
                     <div class="content">
                         <h5 class="title-box fs-15 mt-2">Trip Balance</h5>
                         <div class="themesflat-counter fs-14 font-wb color-1">
-                            <span class="number" data-from="0" data-to="1225" data-speed="2500" data-inviewport="yes">￥ @Model.Balance</span>
+                            <spa class="number" data-from="0" data-to="1225" data-speed="2500" data-inviewport="yes">￥ @Model.Balance</spa>
                         </div>
                     </div>
                 </div>
@@ -200,6 +200,7 @@
             @*     </div> *@
             @* </div> *@
         </div>
+        <partial name="./Component/_RechargeBalance.cshtml" />
     </div>
 </div>
 <script type="text/javascript">

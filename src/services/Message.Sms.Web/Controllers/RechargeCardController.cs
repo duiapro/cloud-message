@@ -1,4 +1,5 @@
-﻿using Message.Sms.Web.Infrastructure.Tools;
+﻿using Message.Sms.Web.Infrastructure;
+using Message.Sms.Web.Infrastructure.Tools;
 using Message.Sms.Web.Models.ViewModel;
 using Message.Sms.Web.Repositories;
 using Message.Sms.Web.Repositories.Entity;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Message.Sms.Web.Controllers
 {
+    [AuthFilter]
     public class RechargeCardController : ControllerBase
     {
         private readonly AppDbContext _dbContext;

@@ -7,9 +7,11 @@ using Microsoft.EntityFrameworkCore;
 using NuGet.Configuration;
 using Message.Sms.Web.OpenSDK.ApiService;
 using Message.Sms.Web.OpenSDK.Models.Request;
+using Message.Sms.Web.Infrastructure;
 
 namespace Message.Sms.Web.Controllers
 {
+    [AuthFilter]
     public class OpenSDKController : Controller
     {
         private readonly AppDbContext _dbContext;

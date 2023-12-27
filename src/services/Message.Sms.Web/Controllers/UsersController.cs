@@ -1,4 +1,5 @@
-﻿using Message.Sms.Web.Models.ViewModel;
+﻿using Message.Sms.Web.Infrastructure;
+using Message.Sms.Web.Models.ViewModel;
 using Message.Sms.Web.Repositories;
 using Message.Sms.Web.Repositories.Entity;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +19,7 @@ namespace Message.Sms.Web.Controllers
             _dbContext = dbContext;
         }
 
+        [AuthFilter(IsAdmin = true)]
         public async Task<IActionResult> Index(int pageIndex = 1, int pageSize = 10, string searchString = "")
         {
             pageIndex = pageIndex < 1 ? 1 : pageIndex;
@@ -44,6 +46,7 @@ namespace Message.Sms.Web.Controllers
             return View();
         }
 
+        [AuthFilter(IsAdmin = false)]
         public async Task<IActionResult> Details()
         {
             var users = await _dbContext.Users.Where(user => user.KeyId == LoginUser.KeyId).FirstOrDefaultAsync();
@@ -64,23 +67,27 @@ namespace Message.Sms.Web.Controllers
             System.Linq.Expressions.Expression<Func<UsersBalanceBill, bool>> filter = item => true;
             if (type.HasValue)
             {
-                filter = item =>item.Type==type;
+                filter = item => item.Type == type;
             }
+
             if (!string.IsNullOrEmpty(startDate))
             {
                 if (DateTime.TryParse(startDate, out var startDateTime))
                     filter = item => item.CreateTime >= startDateTime;
             }
+
             if (!string.IsNullOrEmpty(entDate))
             {
                 if (DateTime.TryParse(entDate, out var endDateTime))
                     filter = item => item.CreateTime < endDateTime;
             }
+
             var usersBalanceBills = _dbContext.UsersBalanceBills.Where(filter);
             var totalCount = await usersBalanceBills.CountAsync();
-            var data = await usersBalanceBills.OrderByDescending(user => user.CreateTime).Skip((pageIndex - 1) * pageSize)
+            var data = await usersBalanceBills.OrderByDescending(user => user.CreateTime)
+                .Skip((pageIndex - 1) * pageSize)
                 .Take(pageSize).ToListAsync();
-            
+
             ViewBag.PageIndex = pageIndex;
             ViewBag.PageSize = pageSize;
             ViewBag.TotalCount = totalCount;
@@ -101,6 +108,34 @@ namespace Message.Sms.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        public async Task RechargeBalance(string cardPassword)
+        {
+            if (string.IsNullOrEmpty(cardPassword))
+            {
+                throw new Exception("cardPassword is not null.");
+            }
+
+            if (!Guid.TryParse(cardPassword, out var code))
+            {
+                throw new Exception("cardPassword error! ");
+            }
+
+            var rechargeCard = await _dbContext.RechargeCards.FirstOrDefaultAsync(card => card.Code == code);
+            _ = rechargeCard ?? throw new Exception("cardPassword does not exist! ");
+
+            var users = await _dbContext.Users.FirstOrDefaultAsync(users => users.KeyId == LoginUser.KeyId);
+            _ = users ?? throw new Exception("this login user error !");
+
+            users.RechargeBalance(rechargeCard.Amount, $"Card Password Recharge", $"use {cardPassword}");
+            rechargeCard.VerifyAndUse();
+
+            _dbContext.Update(users);
+            _dbContext.Update(rechargeCard);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(UserLoginViewModel model)
         {
             if (ModelState.IsValid)
@@ -111,7 +146,15 @@ namespace Message.Sms.Web.Controllers
                 {
                     base.AppUsers.Set(new(user.KeyId, user.UserName, user.UserMobile, user.Balance, user.IsVip,
                         user.Discount, user.IsAdmin));
-                    return Redirect("/Home/Index");
+                    if (user.IsAdmin)
+                    {
+                        return Redirect("/Home/Index");
+                    }
+                    else
+                    {
+                        return Redirect("/Users/Details");
+                    }
+                    
                 }
                 else if (user is null)
                 {
@@ -142,7 +185,7 @@ namespace Message.Sms.Web.Controllers
                 {
                     _dbContext.Users.Add(new(model.UserName, model.UserMobile, model.PassWork));
                     await _dbContext.SaveChangesAsync();
-                    return RedirectToRoute(nameof(Login));
+                    return Redirect("/users/Login");
                 }
                 else
                 {
@@ -151,6 +194,12 @@ namespace Message.Sms.Web.Controllers
             }
 
             return View(model);
+        }
+
+        public IActionResult Logout()
+        {
+            base.AppUsers.Clear();
+            return Redirect("/users/Login");
         }
     }
 }

@@ -57,6 +57,7 @@ namespace Message.Sms.Web.Controllers
         }
 
         [HttpPost]
+        [AuthFilter]
         [ValidateAntiForgeryToken]
         public async Task Create(CreateChannelViewModel model)
         {
@@ -78,6 +79,7 @@ namespace Message.Sms.Web.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [AuthFilter]
         public async Task DeleteAsync(Guid keyId)
         {
             var channel = await _dbContext.Channels.FindAsync(keyId);
@@ -94,6 +96,7 @@ namespace Message.Sms.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthFilter]
         public async Task UpdateAsync(UpdateChannelViewModel model)
         {
             var channel = await _dbContext.Channels.FindAsync(model.KeyId);

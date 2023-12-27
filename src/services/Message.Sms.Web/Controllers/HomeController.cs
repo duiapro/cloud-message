@@ -6,7 +6,7 @@ using System.Diagnostics;
 namespace Message.Sms.Web.Controllers
 {
     [AuthFilter]
-    public class HomeController : Controller
+    public class HomeController : ControllerBase
     {
         private readonly ILogger<HomeController> _logger;
 
@@ -17,6 +17,8 @@ namespace Message.Sms.Web.Controllers
 
         public IActionResult Index()
         {
+            if (!LoginUser.IsAdmin.Value)
+                return RedirectToAction("Details", "Users");
             return View();
         }
 

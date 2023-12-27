@@ -1,4 +1,5 @@
-﻿using Message.Sms.Web.Infrastructure.Tools;
+﻿using Message.Sms.Web.Infrastructure;
+using Message.Sms.Web.Infrastructure.Tools;
 using Message.Sms.Web.Models.ViewModel;
 using Message.Sms.Web.OpenSDK;
 using Message.Sms.Web.OpenSDK.Models;
@@ -48,6 +49,7 @@ namespace Message.Sms.Web.Controllers
             return View();
         }
 
+        [AuthFilter]
         public async Task<IActionResult> Create()
         {
             ViewData["ApiServiceProviderId"] = await _dbContext.ApiServiceProviders.ToListAsync();
@@ -100,6 +102,7 @@ namespace Message.Sms.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthFilter]
         public async Task<IActionResult> Create(CreateProjectViewModel model)
         {
             if (ModelState.IsValid)
@@ -139,6 +142,7 @@ namespace Message.Sms.Web.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [AuthFilter]
         public async Task DeleteAsync(Guid keyId)
         {
             var data = await _dbContext.Projects.FindAsync(keyId);

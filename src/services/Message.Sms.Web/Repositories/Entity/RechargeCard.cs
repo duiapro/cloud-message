@@ -29,5 +29,34 @@ namespace Message.Sms.Web.Repositories.Entity
         public RechargeCard()
         {
         }
+
+        public void Verify()
+        {
+            if (this.IsActive)
+            {
+                throw new Exception("cardPassword used! ");
+            }
+
+            if (this.StartTime < DateTime.Now)
+            {
+                throw new Exception("cardPassword Not officially effective! ");
+            }
+
+            if (this.EndTime < DateTime.Now)
+            {
+                throw new Exception("cardPassword expired! ");
+            }
+        }
+
+        public void VerifyAndUse()
+        {
+            this.Verify();
+            this.SetActive();
+        }
+
+        public void SetActive()
+        {
+            IsActive = true;
+        }
     }
 }

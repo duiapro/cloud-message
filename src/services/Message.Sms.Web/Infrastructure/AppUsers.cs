@@ -39,6 +39,11 @@ namespace Message.Sms.Web.Infrastructure
             Session?.Set(SESSION_KEY, loginUser);
         }
 
+        public void Clear()
+        {
+            Session?.Remove(SESSION_KEY);
+        }
+
         public LoginUserModel? User => Session?.Get<LoginUserModel>(SESSION_KEY);
     }
 

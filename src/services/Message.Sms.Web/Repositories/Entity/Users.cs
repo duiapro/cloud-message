@@ -7,11 +7,11 @@ namespace Message.Sms.Web.Repositories.Entity
     [Table("users")]
     public class Users : EntityBase
     {
-        [Required][MaxLength(50)] public string UserName { get; set; }
+        [Required] [MaxLength(50)] public string UserName { get; set; }
 
-        [Required][MaxLength(15)] public string UserMobile { get; set; }
+        [Required] [MaxLength(15)] public string UserMobile { get; set; }
 
-        [Required][MaxLength(15)] public string PassWork { get; set; }
+        [Required] [MaxLength(15)] public string PassWork { get; set; }
 
         public decimal Balance { get; set; }
 
@@ -48,16 +48,18 @@ namespace Message.Sms.Web.Repositories.Entity
             Balance -= price;
             decimal afterBalance = Balance;
             var balanceBill = new UsersBalanceBill(this.KeyId, title, 2, price, beforeBalance, afterBalance, remake);
+            _balanceBill.Add(balanceBill);
             return (balanceBill, Balance);
         }
 
-        public decimal RechargeBalance(decimal price, string title = "", string remake = "")
+        public (UsersBalanceBill, decimal) RechargeBalance(decimal price, string title = "", string remake = "")
         {
             decimal beforeBalance = Balance;
             Balance += price;
             decimal afterBalance = Balance;
-            _balanceBill.Add(new(this.KeyId, title, 1, price, beforeBalance, afterBalance, remake));
-            return Balance;
+            var balanceBill = new UsersBalanceBill(this.KeyId, title, 1, price, beforeBalance, afterBalance, remake);
+            _balanceBill.Add(balanceBill);
+            return (balanceBill, Balance);
         }
 
         public decimal DeductDiscountBalance(decimal salesAmount)

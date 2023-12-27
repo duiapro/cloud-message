@@ -1,6 +1,8 @@
-﻿@{
+﻿@using Message.Sms.Web.Infrastructure
+@{
     Layout = "~/Views/Shared/_LayoutBase.cshtml";
 }
+@inject Message.Sms.Web.Infrastructure.AppUsers AppUsers;
 
 <!-- SIDEBAR -->
 <div class="sidebar">
@@ -15,42 +17,41 @@
     <!-- SIDEBAR MENU -->
     <div class="simlebar-sc" data-simplebar>
         <ul class="sidebar-menu tf">
-            @*             <li class="sidebar-submenu">
-            <a href="index.html" class="sidebar-menu-dropdown">
-            <i class='bx bxs-home'></i>
-            <span>Dashboard</span>
-            <div class="dropdown-icon">
-            <i class='bx bx-chevron-down'></i>
-            </div>
-            </a>
-            <ul class="sidebar-menu sidebar-menu-dropdown-content">
-            <li>
-            <a href="index.html">
-            Dashboard
-            </a>
-            </li>
-            <li>
-            <a href="user-profile.html">
-            User Profile
-            </a>
-            </li>
-            @*                     <li>
-            <a href="user-login.html">
-            User Login
-            </a>
-            </li>
-            <li>
-            <a href="new-account.html">
-            New Account
-            </a>
-            </li>
-            </ul>
-            </li> *@
-            <li class="sidebar-submenu">
+            @foreach (var menu in MenuOptions.Get())
+            {
+@*                 if (AppUsers.IsAdmin == false && menu.IsAdmin)
+                {
+                    continue;
+                } *@
+                <li class="sidebar-submenu">
+                    <a href="@menu.Href" class="sidebar-menu-dropdown">
+                        <i class='@menu.Icon'></i>
+                        <span>@menu.Name</span>
+                        @if (menu.ChildNode.Count>0){
+                            <div class="dropdown-icon">
+                                <i class='bx bx-chevron-down'></i>
+                            </div>
+                        }
+                    </a>
+                    <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                        @foreach (var childNode in menu.ChildNode)
+                        {
+                            <li>
+                                <a href="@childNode.Href">
+                                    @childNode.Name
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+@*             <li class="sidebar-submenu">
                 <a href="project.html" class="sidebar-menu-dropdown">
                     <i class='bx bxs-bolt'></i>
                     <span>Project</span>
-                    <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
+                    <div class="dropdown-icon">
+                        <i class='bx bx-chevron-down'></i>
+                    </div>
                 </a>
                 <ul class="sidebar-menu sidebar-menu-dropdown-content">
                     <li>
@@ -74,7 +75,9 @@
                 <a href="clients.html" class="sidebar-menu-dropdown">
                     <i class='bx bxs-user'></i>
                     <span>Account</span>
-                    <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
+                    <div class="dropdown-icon">
+                        <i class='bx bx-chevron-down'></i>
+                    </div>
                 </a>
                 <ul class="sidebar-menu sidebar-menu-dropdown-content">
                     <li>
@@ -90,7 +93,7 @@
                 </ul>
             </li>
 
-            @*  <li class="sidebar-submenu">
+            <li class="sidebar-submenu">
                 <a href="clients.html" class="sidebar-menu-dropdown">
                     <i class='bx bxs-user'></i>
                     <span>Client</span>
@@ -102,52 +105,54 @@
                             Channel
                         </a>
                     </li>
-                                       <li>
-                    <a href="client-details.html">
-                    Client Details
-                    </a>
-                    </li> 
+                    <li>
+                        <a href="client-details.html">
+                            Client Details
+                        </a>
+                    </li>
                 </ul>
-                    </li>*@
-            @*             <li>
-            <a href="board.html">
-            <i class='bx bxs-dashboard'></i>
-            <span>Board</span>
-            </a>
             </li>
             <li>
-            <a href="calendar.html">
-            <i class='bx bx-calendar'></i>
-            <span>Calendar</span>
-            </a>
+                <a href="board.html">
+                    <i class='bx bxs-dashboard'></i>
+                    <span>Board</span>
+                </a>
+            </li>
+            <li>
+                <a href="calendar.html">
+                    <i class='bx bx-calendar'></i>
+                    <span>Calendar</span>
+                </a>
             </li>
 
             <li>
-            <a href="message.html">
-            <i class='bx bxs-message-rounded-detail'></i>
-            <span>Message</span>
-            </a>
+                <a href="message.html">
+                    <i class='bx bxs-message-rounded-detail'></i>
+                    <span>Message</span>
+                </a>
             </li>
             <li class="sidebar-submenu">
-            <a href="chart-apex.html" class="sidebar-menu-dropdown">
-            <i class='bx bxs-component'></i>
-            <span>Components</span>
-            <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
-            </a>
-            <ul class="sidebar-menu sidebar-menu-dropdown-content">
-            <li>
-            <a href="chart-apex.html">
-            Apex Charts
-            </a>
-            </li>
+                <a href="chart-apex.html" class="sidebar-menu-dropdown">
+                    <i class='bx bxs-component'></i>
+                    <span>Components</span>
+                    <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="chart-apex.html">
+                            Apex Charts
+                        </a>
+                    </li>
 
-            </ul>
-            </li> *@
+                </ul>
+            </li>
             <li class="sidebar-submenu">
                 <a href="project.html" class="sidebar-menu-dropdown">
                     <i class='bx bx-cog mr-10'></i>
                     <span>System Settings</span>
-                    <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
+                    <div class="dropdown-icon">
+                        <i class='bx bx-chevron-down'></i>
+                    </div>
                 </a>
                 <ul class="sidebar-menu sidebar-menu-dropdown-content">
                     <li>
@@ -171,7 +176,7 @@
 
                     <span class="darkmode-switch"></span>
                 </a>
-            </li>
+            </li> *@
         </ul>
     </div>
     <!-- END SIDEBAR MENU -->
@@ -202,13 +207,14 @@
                 <i class='bx bx-search-alt'></i>
             </button>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-search-dropdown">
-
                 <form class="p-3">
                     <div class="form-group m-0">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
                             <div class="input-group-append">
-                                <button class="btn btn-primary h-100" type="submit"><i class='bx bx-search-alt'></i></button>
+                                <button class="btn btn-primary h-100" type="submit">
+                                    <i class='bx bx-search-alt'></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -227,33 +233,33 @@
 
                 <!-- item-->
                 <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="en">
-                    <img src="~/images/flags/us.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">English</span>
+                    <img src="~/images/flags/cn.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Chinese</span>
                 </a>
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp">
-                    <img src="~/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
+                @* <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp">
+                <img src="~/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
                 </a>
 
                 <!-- item-->
                 <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="gr">
-                    <img src="~/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
+                <img src="~/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
                 </a>
 
                 <!-- item-->
                 <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="it">
-                    <img src="~/images/flags/italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
+                <img src="~/images/flags/italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
                 </a>
 
                 <!-- item-->
                 <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ru">
-                    <img src="~/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
-                </a>
+                <img src="~/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
+                </a> *@
             </div>
         </div>
         <!-- <div class="dropdown d-none d-lg-inline-block ms-1">
             <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
-                    <i class="bx bx-fullscreen"></i>
-                </button>
+                <i class="bx bx-fullscreen"></i>
+            </button>
         </div> -->
         <div class="dropdown d-inline-block mt-12">
             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -261,20 +267,22 @@
                      alt="Header Avatar">
                 <span class="pulse-css"></span>
                 <span class="info d-xl-inline-block  color-span">
-                    <span class="d-block fs-20 font-w600">Randy Riley</span>
-                    <span class="d-block mt-7">randy.riley@gmail.com</span>
+                    <span class="d-block fs-20 font-w600">@AppUsers.UserName</span>
+                    <span class="d-block mt-7">@AppUsers.UserMobile</span>
                 </span>
 
                 <i class='bx bx-chevron-down'></i>
             </button>
             <div class="dropdown-menu dropdown-menu-end">
                 <!-- item-->
-                <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span>Profile</span></a>
+                @*                 <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span>Profile</span></a>
                 <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span>My Wallet</span></a>
                 <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span>Settings</span></a>
                 <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span>Lock screen</span></a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item text-danger" href="user-login.html"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span>Logout</span></a>
+                <div class="dropdown-divider"></div> *@
+                <a class="dropdown-item text-danger" href="/users/logout">
+                    <i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span>Logout</span>
+                </a>
             </div>
         </div>
     </div>
@@ -283,4 +291,3 @@
 <div class="main">
     @RenderBody()
 </div>
-

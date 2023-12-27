@@ -83,13 +83,39 @@ document.querySelector('#sidebar-close').onclick = () => {
     overlay.classList.toggle('active')
 }
 
-$(function() {
+window.onload = function () {
+    let path = window.location.href;
+    let dropdown_content = document.querySelector('.sidebar-menu-dropdown-content')
+    let dropdown_content_lis = dropdown_content.querySelectorAll('li')
+
+    console.log(path)
+    console.log(path)
+    console.log(dropdown_content)
+    console.log(dropdown_content_lis)
+
+    let active_height = dropdown_content_lis[0].clientHeight * dropdown_content_lis.length
+
+    console.log(path)
+    console.log(path)
+    $(".sidebar-menu a").each(function () {
+        if (this.href === path) {
+            $(this).addClass("active");
+            dropdown_content.style.height = dropdown_content.classList.contains('active') ? active_height + 'px' : '0'
+        } else {
+            $(this).removeClass("active");
+        }
+    });
+}
+
+$(function () {
     let path = window.location.href;
     let dropdown_content = document.querySelector('.sidebar-menu-dropdown-content')
     let dropdown_content_lis = dropdown_content.querySelectorAll('li')
     let active_height = dropdown_content_lis[0].clientHeight * dropdown_content_lis.length
 
-    $(".sidebar-menu a").each(function() {
+    console.log(path)
+    console.log(path)
+    $(".sidebar-menu a").each(function () {
         if (this.href === path) {
             $(this).addClass("active");
             dropdown_content.style.height = dropdown_content.classList.contains('active') ? active_height + 'px' : '0'
