@@ -234,3 +234,11 @@ D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Debug\net7.0\refint\Mess
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Debug\net7.0\Message.Sms.Web.pdb
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Debug\net7.0\Message.Sms.Web.genruntimeconfig.cache
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Debug\net7.0\ref\Message.Sms.Web.dll
+D:\vsApp\cloud-message\src\services\Message.Sms.Web\bin\Debug\net7.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\vsApp\cloud-message\src\services\Message.Sms.Web\bin\Debug\net7.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+D:\vsApp\cloud-message\src\services\Message.Sms.Web\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\vsApp\cloud-message\src\services\Message.Sms.Web\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\vsApp\cloud-message\src\services\Message.Sms.Web\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+D:\vsApp\cloud-message\src\services\Message.Sms.Web\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+D:\vsApp\cloud-message\src\services\Message.Sms.Web\bin\Debug\net7.0\Pipelines.Sockets.Unofficial.dll
+D:\vsApp\cloud-message\src\services\Message.Sms.Web\bin\Debug\net7.0\StackExchange.Redis.dll

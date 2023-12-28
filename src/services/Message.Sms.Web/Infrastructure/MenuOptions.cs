@@ -2,86 +2,133 @@
 {
     public class MenuOptions
     {
-        public static List<MenuDate> Get()
+        public static List<MenuDate> Get(bool? isAdmin = false)
         {
+            if (isAdmin == false)
+            {
+                return new List<MenuDate>
+                {
+                    new MenuDate
+                    {
+                        Name = "Home",
+                        Icon = "bx bxs-home",
+                        Href = "",
+                        ChildNode = new List<MenuDate>()
+                        {
+                            new MenuDate
+                            {
+                                Name = "Project",
+                                Icon = "",
+                                Href = "/project/index"
+                            },
+                            new MenuDate
+                            {
+                                Name = "User Profile",
+                                Icon = "",
+                                Href = "/users/details"
+                            },
+                        new MenuDate
+                        {
+                            Name = "MobleHistory",
+                            Icon = "",
+                            Href = "/channel/phoneNumberLogs",
+                            IsAdmin = true,
+                        },
+                        }
+                    },
+                    
+                };
+            }
+
+
             return new List<MenuDate>
             {
                 new MenuDate
                 {
-                    Name="Dashboard",
-                    Icon="bx bxs-home",
-                    Href="/Home/Index",
+                    Name = "Dashboard",
+                    Icon = "bx bxs-home",
+                    Href = "/Home/Index",
+                    IsAdmin = true
                 },
                 new MenuDate
                 {
-                    Name="Project",
-                    Icon="bx bxs-bolt",
-                    Href="",
-                    ChildNode=new List<MenuDate>
+                    Name = "Project",
+                    Icon = "bx bxs-bolt",
+                    Href = "",
+                    ChildNode = new List<MenuDate>
                     {
                         new MenuDate
                         {
-                            Name="Project",
-                            Icon="",
-                            Href="/project"
+                            Name = "Project",
+                            Icon = "",
+                            Href = "/project/index"
                         },
                         new MenuDate
                         {
-                            Name="Project Details",
-                            Icon="",
-                            Href="/channel"
+                            Name = "Project Details",
+                            Icon = "",
+                            Href = "/channel/index",
+                            IsAdmin = true,
                         },
                         new MenuDate
                         {
-                            Name="New Project",
-                            Icon="",
-                            Href="/project/create",
-                            IsAdmin=true,
+                            Name = "New Project",
+                            Icon = "",
+                            Href = "/project/create",
+                            IsAdmin = true,
                         },
                     },
                 },
                 new MenuDate
                 {
-                    Name="Account",
-                    Icon="bx bxs-user",
-                    Href="",
-                    ChildNode=new List<MenuDate>
+                    Name = "Account",
+                    Icon = "bx bxs-user",
+                    Href = "",
+                    ChildNode = new List<MenuDate>
                     {
                         new MenuDate
                         {
-                            Name="Users",
-                            Icon="",
-                            Href="/users/index",
-                            IsAdmin=true,
+                            Name = "Users",
+                            Icon = "",
+                            Href = "/users/index",
+                            IsAdmin = true,
                         },
                         new MenuDate
                         {
-                            Name="User Profile",
-                            Icon="",
-                            Href="/users/details"
+                            Name = "PhoneNumberLog",
+                            Icon = "",
+                            Href = "/channel/phoneNumberLogs",
+                            IsAdmin = true,
+                        },
+                        new MenuDate
+                        {
+                            Name = "User Profile",
+                            Icon = "",
+                            Href = "/users/details"
                         },
                     },
                 },
                 new MenuDate
                 {
-                    Name="System Settings",
-                    Icon="bx bx-cog mr-10",
-                    Href="",
-                    ChildNode=new List<MenuDate>
+                    Name = "Settings",
+                    Icon = "bx bx-cog mr-10",
+                    Href = "",
+                    IsAdmin = true,
+                    ChildNode = new List<MenuDate>
                     {
                         new MenuDate
                         {
-                            Name="Open SDK",
-                            Icon="",
-                            Href="/opensdk/index",
-                            IsAdmin=true,
+                            Name = "Open SDK",
+                            Icon = "",
+                            Href = "/opensdk/index",
+                            IsAdmin = true,
                         },
                         new MenuDate
                         {
-                            Name="Recharge Card",
-                            Icon="",
-                            Href="/rechargeCard/index",
-                            IsAdmin=true,
+                            Name = "Recharge Card",
+                            Icon = "",
+                            Href = "/rechargeCard/index",
+                            IsAdmin = true,
                         },
                     },
                 },

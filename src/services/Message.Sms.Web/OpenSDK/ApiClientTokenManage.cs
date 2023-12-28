@@ -2,13 +2,13 @@
 {
     public class ApiClientTokenManage
     {
-        private readonly Dictionary<string, string> _token = new();
+        private readonly Dictionary<string, ApiClientTokenData> _token = new();
 
         public string? GetToken(string type)
         {
             if (_token.ContainsKey(type))
             {
-                return _token[type];
+                return _token[type].Token;
             }
             else
             {
@@ -16,16 +16,41 @@
             }
         }
 
-        public void SetToken(string type, string token)
+        public bool IsTest(string type)
         {
             if (_token.ContainsKey(type))
             {
-                _token[type] = token;
+                return _token[type].IsTest;
             }
             else
             {
-                _token.Add(type, token);
+                return false;
             }
         }
+
+        public void SetToken(string type, ApiClientTokenData data)
+        {
+            if (_token.ContainsKey(type))
+            {
+                _token[type] = data;
+            }
+            else
+            {
+                _token.Add(type, data);
+            }
+        }
+    }
+
+    public class ApiClientTokenData
+    {
+        public ApiClientTokenData(string token, bool isTest = false)
+        {
+            Token = token;
+            IsTest = isTest;
+        }
+
+        public string Token { get; set; }
+
+        public bool IsTest { get; set; }
     }
 }

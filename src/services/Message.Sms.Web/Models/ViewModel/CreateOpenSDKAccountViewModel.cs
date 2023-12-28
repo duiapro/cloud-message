@@ -14,5 +14,6 @@ namespace Message.Sms.Web.Models.ViewModel
         public string Remark { get; set; } = string.Empty;
 
         public string Authority { get; set; } = string.Empty;
+        public bool EnableTest { get; set; } = false;
     }
 }

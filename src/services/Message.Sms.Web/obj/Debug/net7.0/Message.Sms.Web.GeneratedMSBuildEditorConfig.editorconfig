@@ -18,6 +18,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\vsApp\cloud-message\src\services\Message.Sms.Web
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/vsApp/cloud-message/src/services/Message.Sms.Web/Areas/User/Views/Default/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xEZWZhdWx0XExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/vsApp/cloud-message/src/services/Message.Sms.Web/Areas/User/Views/Default/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xEZWZhdWx0XFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/vsApp/cloud-message/src/services/Message.Sms.Web/Areas/User/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/vsApp/cloud-message/src/services/Message.Sms.Web/Areas/User/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/vsApp/cloud-message/src/services/Message.Sms.Web/Views/Channel/Component/_Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhbm5lbFxDb21wb25lbnRcX1VwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -28,6 +44,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/vsApp/cloud-message/src/services/Message.Sms.Web/Views/Channel/Message.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhbm5lbFxNZXNzYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/vsApp/cloud-message/src/services/Message.Sms.Web/Views/Channel/PhoneNumberLogs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhbm5lbFxQaG9uZU51bWJlckxvZ3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/vsApp/cloud-message/src/services/Message.Sms.Web/Views/Error/Index.cshtml]

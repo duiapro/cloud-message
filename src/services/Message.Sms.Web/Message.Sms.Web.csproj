@@ -7,13 +7,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Compile Remove="Areas\**" />
-	  <Content Remove="Areas\**" />
-	  <EmbeddedResource Remove="Areas\**" />
-	  <None Remove="Areas\**" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.2" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.2" />
@@ -21,6 +14,7 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
@@ -28,6 +22,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Include="Areas\User\Views\Default\Login.cshtml" />
+	  <None Include="Areas\User\Views\Default\Register.cshtml" />
+	  <None Include="Areas\User\Views\Home\Index.cshtml" />
+	  <None Include="Areas\User\Views\_ViewImports.cshtml" />
 	  <None Include="Views\Home\Index.cshtml" />
 	  <None Include="Views\Home\Privacy.cshtml" />
 	  <None Include="Views\Shared\Error.cshtml" />
@@ -90,6 +88,11 @@
 		<Content Update="wwwroot\css\style.css">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Areas\User\Data\" />
+	  <Folder Include="Areas\User\Models\" />
 	</ItemGroup>
 
 </Project>

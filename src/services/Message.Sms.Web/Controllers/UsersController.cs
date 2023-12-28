@@ -4,6 +4,7 @@ using Message.Sms.Web.Repositories;
 using Message.Sms.Web.Repositories.Entity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Win32;
 using System.Drawing.Printing;
 using System.Linq;
@@ -13,10 +14,12 @@ namespace Message.Sms.Web.Controllers
     public class UsersController : ControllerBase
     {
         private readonly AppDbContext _dbContext;
+        private readonly IDistributedCache _distributedCache;
 
-        public UsersController(AppDbContext dbContext)
+        public UsersController(AppDbContext dbContext, IDistributedCache distributedCache)
         {
             _dbContext = dbContext;
+            _distributedCache = distributedCache;
         }
 
         [AuthFilter(IsAdmin = true)]
@@ -50,7 +53,8 @@ namespace Message.Sms.Web.Controllers
         public async Task<IActionResult> Details()
         {
             var users = await _dbContext.Users.Where(user => user.KeyId == LoginUser.KeyId).FirstOrDefaultAsync();
-            var usersSmsCodeLogs = _dbContext.UsersSmsCodeLogs.Select(usersSmsCodeLogs =>
+            var usersSmsCodeLogs = _dbContext.UsersSmsCodeLogs.Where(usersSmsCodeLogs => usersSmsCodeLogs.UserId == LoginUser.KeyId)
+                .Select(usersSmsCodeLogs =>
                 new { usersSmsCodeLogs.Status, usersSmsCodeLogs.Code, usersSmsCodeLogs.UserId });
 
             ViewBag.RunningTask = await usersSmsCodeLogs.CountAsync(logs => logs.Status == 2);
@@ -81,6 +85,10 @@ namespace Message.Sms.Web.Controllers
                 if (DateTime.TryParse(entDate, out var endDateTime))
                     filter = item => item.CreateTime < endDateTime;
             }
+            if (!LoginUser.IsAdmin.Value)
+            {
+                filter = item => item.UserKeyId == LoginUser.KeyId;
+            }
 
             var usersBalanceBills = _dbContext.UsersBalanceBills.Where(filter);
             var totalCount = await usersBalanceBills.CountAsync();
@@ -101,7 +109,7 @@ namespace Message.Sms.Web.Controllers
             return PartialView("./Component/_ConsumeBill", data);
         }
 
-        public IActionResult Login()
+        public async Task<IActionResult> Login()
         {
             return View();
         }
@@ -154,7 +162,7 @@ namespace Message.Sms.Web.Controllers
                     {
                         return Redirect("/Users/Details");
                     }
-                    
+
                 }
                 else if (user is null)
                 {

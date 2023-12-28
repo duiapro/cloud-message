@@ -18,14 +18,14 @@ namespace Message.Sms.Web.Controllers
     {
         private readonly AppDbContext _dbContext;
         private readonly SmsApiClientAdapter _smsApiClientAdapter;
-        private readonly IMemoryCache _memoryCache;
+        private readonly IDistributedCache _distributedCache;
 
         public ProjectController(AppDbContext dbContext, SmsApiClientAdapter smsApiClientAdapter,
-            IMemoryCache distributedCache)
+            IDistributedCache distributedCache)
         {
             _dbContext = dbContext;
             _smsApiClientAdapter = smsApiClientAdapter;
-            _memoryCache = distributedCache;
+            _distributedCache = distributedCache;
         }
 
         public async Task<IActionResult> Index(string searchString, bool? status = true)
@@ -58,7 +58,7 @@ namespace Message.Sms.Web.Controllers
 
         public async Task<IActionResult> Details(Guid keyId, string? searchString)
         {
-            var modelCache = await _memoryCache.GetOrCreateAsync<List<ApocalypseGetChanneData>>(keyId.ToString(),
+            var modelCache = await _distributedCache.GetOrCreateAsync<List<ApocalypseGetChanneData>>(keyId.ToString(),
                 async (cacheEnty) =>
                 {
                     cacheEnty.SetAbsoluteExpiration(TimeSpan.FromHours(24));
@@ -86,7 +86,7 @@ namespace Message.Sms.Web.Controllers
                 });
             if (!string.IsNullOrEmpty(searchString))
             {
-                modelCache = modelCache?.FindAll(item => item.province.Contains(searchString));
+                modelCache = modelCache?.FindAll(item => !string.IsNullOrEmpty(item.province) && item.province.Contains(searchString));
             }
 
             ViewBag.KeyId = keyId;
@@ -159,7 +159,7 @@ namespace Message.Sms.Web.Controllers
 
         public async Task<IActionResult> CreateChannel(Guid keyId, int channelId)
         {
-            var modelCache = _memoryCache.Get<List<ApocalypseGetChanneData>>(keyId.ToString());
+            var modelCache = await _distributedCache.GetAsync<List<ApocalypseGetChanneData>>(keyId.ToString());
 
             if (modelCache == null || !modelCache.Any())
             {

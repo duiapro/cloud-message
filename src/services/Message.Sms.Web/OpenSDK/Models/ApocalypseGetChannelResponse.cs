@@ -43,7 +43,7 @@
 
         public string? projectName { get; set; }
 
-        public string? province { get; set; }
+        public string? province { get; set; } = string.Empty;
 
         public string? supplier { get; set; }
 

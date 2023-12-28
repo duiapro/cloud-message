@@ -1,4 +1,5 @@
 ﻿@model List<Message.Sms.Web.OpenSDK.Models.ApocalypseGetChanneData>
+@inject Message.Sms.Web.Infrastructure.AppUsers AppUsers
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,20 +8,23 @@
 
 <div class="main-content client list">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 mb-10">
             <div class="box">
                 <div class="box-body d-flex justify-content-between pt-0 pb-0">
                     <form asp-action="details" method="get">
                         <div class="search-form d-flex">
                             <input type="text" placeholder="Province" value="@ViewBag.SearchString" name="SearchString" class="form-control">
-                            <button type="submit" class="search d-flex"><i class="fas fa-search"></i>Search</button>
+                            <button type="submit" class="col-md-3 col-sm-12 search d-flex"><i class="fas fa-search"></i>Search</button>
                         </div>
                     </form>
-                    <div class="list-action">
-                        <a class="list active" href="#" onclick="liststyle()"><i class='bx bx-menu'></i></a>
-                        <a href="#" class="list-board" onclick="listboard()"><i class='bx bxs-dashboard'></i></a>
-                        <a href="#" class="add disabled" data-toggle="modal" data-target="#add_client">Add Client<i class="fas fa-plus-circle"></i></a>
-                    </div>
+                    @if (AppUsers.IsAdmin.Value)
+                    {
+                        <div class="list-action">
+                            <a class="list active" href="#" onclick="liststyle()"><i class='bx bx-menu'></i></a>
+                            <a href="#" class="list-board" onclick="listboard()"><i class='bx bxs-dashboard'></i></a>
+                            <a href="#" class="add disabled" data-toggle="modal" data-target="#add_client">Add Client<i class="fas fa-plus-circle"></i></a>
+                        </div>
+                    }
                 </div>
 
             </div>
@@ -53,12 +57,12 @@
                         </ul>
                         <div class="group-btn d-flex justify-content-between">
                             <a class="bg-btn-pri color-white" href="/project/createChannel?keyId=@ViewBag.KeyId&channelId=@item.id">Message</a>
-                            <a class="bg-btn-sec color-main" href="user-profile.html">View Profile</a>
+                            <a class="bg-btn-sec color-main" href="javascript:void(0)" onclick="message.info('暂未支持')">View Profile</a>
                         </div>
                         @*<div class="group-btn d-flex justify-content-center">
-                            <a class="bg-btn-pri color-white text-center" style="width:90%" href="/channel/message/">Message</a>
-                             <a class="bg-btn-sec color-main" href="user-profile.html">View Profile</a> 
-                        </div>*@
+                    <a class="bg-btn-pri color-white text-center" style="width:90%" href="/channel/message/">Message</a>
+                    <a class="bg-btn-sec color-main" href="user-profile.html">View Profile</a>
+                    </div>*@
                     </div>
 
                 </div>
@@ -117,7 +121,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="modal custom-modal fade" id="delete_client" role="dialog">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">

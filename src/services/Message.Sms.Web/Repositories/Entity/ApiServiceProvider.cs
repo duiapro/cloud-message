@@ -15,6 +15,8 @@ namespace Message.Sms.Web.Repositories.Entity
 
         public string Remark { get; set; } = string.Empty;
 
+        public bool EnableTest { get; set; } = false;
+
         private List<Channel> _channels = new List<Channel>();
 
         public IReadOnlyCollection<Channel> Channels => _channels;
@@ -23,8 +25,10 @@ namespace Message.Sms.Web.Repositories.Entity
         {
         }
 
-        public ApiServiceProvider(string type, string account, string passWord, string authority, string remark)
+        public ApiServiceProvider(string type, string account, string passWord, string authority, string remark,
+            bool enableTest = false)
         {
+            EnableTest = enableTest;
             Type = type;
             Account = account;
             PassWord = passWord;

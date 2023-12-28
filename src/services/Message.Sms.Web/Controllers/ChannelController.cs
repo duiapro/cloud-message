@@ -56,6 +56,53 @@ namespace Message.Sms.Web.Controllers
             return PartialView("./Component/_Update", await _dbContext.Channels.FindAsync(keyId));
         }
 
+        [AuthFilter(IsAdmin = false)]
+        public async Task<IActionResult> PhoneNumberLogs(int pageIndex = 1, int pageSize = 10, string searchString = "")
+        {
+            pageIndex = pageIndex < 1 ? 1 : pageIndex;
+
+
+            var fromQuery = (from codeLogs in _dbContext.UsersSmsCodeLogs
+                             join channel in _dbContext.Channels on codeLogs.ChannelId equals channel.KeyId
+                             select new UsersSmsCodeLogsViewModel
+                             {
+                                 ChannelId = codeLogs.ChannelId,
+                                 UserId = codeLogs.UserId,
+                                 ChannelCode = codeLogs.ChannelCode,
+                                 ApiServiceProviderType = codeLogs.ApiServiceProviderType,
+                                 Mobile = codeLogs.Mobile,
+                                 Code = codeLogs.Code,
+                                 Context = codeLogs.Context,
+                                 Status = codeLogs.Status,
+                                 CreateTime = codeLogs.CreateTime,
+                                 Price = channel.Price,
+                                 ChannelName = channel.Name,
+                             }
+                         );
+            System.Linq.Expressions.Expression<Func<UsersSmsCodeLogsViewModel, bool>> filter = item => true;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                fromQuery.Where(item => item.Context.Contains(searchString) || item.Mobile.Contains(searchString));
+            }
+            if (!LoginUser.IsAdmin.Value)
+            {
+                filter = item => item.UserId == LoginUser.KeyId;
+            }
+            var totalCount = await fromQuery.CountAsync();
+            var data = await fromQuery.OrderByDescending(user => user.CreateTime).Skip((pageIndex - 1) * pageSize)
+                .Take(pageSize).ToListAsync();
+            ViewData["Data"] = data;
+            ViewBag.PageIndex = pageIndex;
+            ViewBag.PageSize = pageSize;
+            ViewBag.TotalCount = totalCount;
+            ViewBag.TotalPage = (totalCount + pageSize - 1) / pageSize;
+            ;
+            ViewBag.Skip = (pageIndex - 1) * pageSize;
+            ViewBag.SkipLast = ViewBag.Skip + pageSize;
+            ViewBag.SearchString = searchString ?? string.Empty;
+            return View();
+        }
+
         [HttpPost]
         [AuthFilter]
         [ValidateAntiForgeryToken]

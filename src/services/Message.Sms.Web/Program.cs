@@ -3,6 +3,7 @@ using Message.Sms.Web.OpenSDK;
 using Message.Sms.Web.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +20,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     .EnableDetailedErrors();
 });
 builder.Services.AddHostedService<TokenCacheHostedService>();
+builder.Services.AddHostedService<PhoneCodeJobBackgroundService>();
 builder.Services.AddMemoryCache();
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetSection("RedisConnection").Value!;// ?? throw new Exception("redis config is null");
+});
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<AppUsers>();

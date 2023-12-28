@@ -7,7 +7,7 @@
 <!-- SIDEBAR -->
 <div class="sidebar">
     <div class="sidebar-logo">
-        <a href="index.html">
+        <a href="/">
             <img src="~/images/logo.png" alt="Protend logo">
         </a>
         <div class="sidebar-close" id="sidebar-close">
@@ -17,17 +17,18 @@
     <!-- SIDEBAR MENU -->
     <div class="simlebar-sc" data-simplebar>
         <ul class="sidebar-menu tf">
-            @foreach (var menu in MenuOptions.Get())
+            @foreach (var menu in MenuOptions.Get(AppUsers.IsAdmin))
             {
-@*                 if (AppUsers.IsAdmin == false && menu.IsAdmin)
-                {
-                    continue;
-                } *@
+                // if (AppUsers.IsAdmin == false && menu.IsAdmin)
+                // {
+                //     continue;
+                // }
                 <li class="sidebar-submenu">
                     <a href="@menu.Href" class="sidebar-menu-dropdown">
                         <i class='@menu.Icon'></i>
                         <span>@menu.Name</span>
-                        @if (menu.ChildNode.Count>0){
+                        @if (menu.ChildNode.Count > 0)
+                        {
                             <div class="dropdown-icon">
                                 <i class='bx bx-chevron-down'></i>
                             </div>
@@ -36,6 +37,10 @@
                     <ul class="sidebar-menu sidebar-menu-dropdown-content">
                         @foreach (var childNode in menu.ChildNode)
                         {
+                            // if (AppUsers.IsAdmin == false && childNode.IsAdmin)
+                            // {
+                            //     continue;
+                            // }
                             <li>
                                 <a href="@childNode.Href">
                                     @childNode.Name
@@ -45,137 +50,137 @@
                     </ul>
                 </li>
             }
-@*             <li class="sidebar-submenu">
-                <a href="project.html" class="sidebar-menu-dropdown">
-                    <i class='bx bxs-bolt'></i>
-                    <span>Project</span>
-                    <div class="dropdown-icon">
-                        <i class='bx bx-chevron-down'></i>
-                    </div>
-                </a>
-                <ul class="sidebar-menu sidebar-menu-dropdown-content">
-                    <li>
-                        <a href="/project">
-                            Project
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/channel">
-                            Project Details
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/project/create">
-                            New Project
-                        </a>
-                    </li>
-                </ul>
+            @*             <li class="sidebar-submenu">
+            <a href="project.html" class="sidebar-menu-dropdown">
+            <i class='bx bxs-bolt'></i>
+            <span>Project</span>
+            <div class="dropdown-icon">
+            <i class='bx bx-chevron-down'></i>
+            </div>
+            </a>
+            <ul class="sidebar-menu sidebar-menu-dropdown-content">
+            <li>
+            <a href="/project">
+            Project
+            </a>
+            </li>
+            <li>
+            <a href="/channel">
+            Project Details
+            </a>
+            </li>
+            <li>
+            <a href="/project/create">
+            New Project
+            </a>
+            </li>
+            </ul>
             </li>
             <li class="sidebar-submenu">
-                <a href="clients.html" class="sidebar-menu-dropdown">
-                    <i class='bx bxs-user'></i>
-                    <span>Account</span>
-                    <div class="dropdown-icon">
-                        <i class='bx bx-chevron-down'></i>
-                    </div>
-                </a>
-                <ul class="sidebar-menu sidebar-menu-dropdown-content">
-                    <li>
-                        <a href="/users/index">
-                            Users
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/users/details">
-                            User Profile
-                        </a>
-                    </li>
-                </ul>
+            <a href="clients.html" class="sidebar-menu-dropdown">
+            <i class='bx bxs-user'></i>
+            <span>Account</span>
+            <div class="dropdown-icon">
+            <i class='bx bx-chevron-down'></i>
+            </div>
+            </a>
+            <ul class="sidebar-menu sidebar-menu-dropdown-content">
+            <li>
+            <a href="/users/index">
+            Users
+            </a>
+            </li>
+            <li>
+            <a href="/users/details">
+            User Profile
+            </a>
+            </li>
+            </ul>
             </li>
 
             <li class="sidebar-submenu">
-                <a href="clients.html" class="sidebar-menu-dropdown">
-                    <i class='bx bxs-user'></i>
-                    <span>Client</span>
-                    <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
-                </a>
-                <ul class="sidebar-menu sidebar-menu-dropdown-content">
-                    <li>
-                        <a href="/channel">
-                            Channel
-                        </a>
-                    </li>
-                    <li>
-                        <a href="client-details.html">
-                            Client Details
-                        </a>
-                    </li>
-                </ul>
+            <a href="clients.html" class="sidebar-menu-dropdown">
+            <i class='bx bxs-user'></i>
+            <span>Client</span>
+            <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
+            </a>
+            <ul class="sidebar-menu sidebar-menu-dropdown-content">
+            <li>
+            <a href="/channel">
+            Channel
+            </a>
             </li>
             <li>
-                <a href="board.html">
-                    <i class='bx bxs-dashboard'></i>
-                    <span>Board</span>
-                </a>
+            <a href="client-details.html">
+            Client Details
+            </a>
+            </li>
+            </ul>
             </li>
             <li>
-                <a href="calendar.html">
-                    <i class='bx bx-calendar'></i>
-                    <span>Calendar</span>
-                </a>
+            <a href="board.html">
+            <i class='bx bxs-dashboard'></i>
+            <span>Board</span>
+            </a>
+            </li>
+            <li>
+            <a href="calendar.html">
+            <i class='bx bx-calendar'></i>
+            <span>Calendar</span>
+            </a>
             </li>
 
             <li>
-                <a href="message.html">
-                    <i class='bx bxs-message-rounded-detail'></i>
-                    <span>Message</span>
-                </a>
+            <a href="message.html">
+            <i class='bx bxs-message-rounded-detail'></i>
+            <span>Message</span>
+            </a>
             </li>
             <li class="sidebar-submenu">
-                <a href="chart-apex.html" class="sidebar-menu-dropdown">
-                    <i class='bx bxs-component'></i>
-                    <span>Components</span>
-                    <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
-                </a>
-                <ul class="sidebar-menu sidebar-menu-dropdown-content">
-                    <li>
-                        <a href="chart-apex.html">
-                            Apex Charts
-                        </a>
-                    </li>
+            <a href="chart-apex.html" class="sidebar-menu-dropdown">
+            <i class='bx bxs-component'></i>
+            <span>Components</span>
+            <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
+            </a>
+            <ul class="sidebar-menu sidebar-menu-dropdown-content">
+            <li>
+            <a href="chart-apex.html">
+            Apex Charts
+            </a>
+            </li>
 
-                </ul>
+            </ul>
             </li>
             <li class="sidebar-submenu">
-                <a href="project.html" class="sidebar-menu-dropdown">
-                    <i class='bx bx-cog mr-10'></i>
-                    <span>System Settings</span>
-                    <div class="dropdown-icon">
-                        <i class='bx bx-chevron-down'></i>
-                    </div>
-                </a>
-                <ul class="sidebar-menu sidebar-menu-dropdown-content">
-                    <li>
-                        <a href="/opensdk/index">
-                            Open SDK
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/rechargeCard/index">
-                            Recharge Card
-                        </a>
-                    </li>
-                </ul>
+            <a href="project.html" class="sidebar-menu-dropdown">
+            <i class='bx bx-cog mr-10'></i>
+            <span>System Settings</span>
+            <div class="dropdown-icon">
+            <i class='bx bx-chevron-down'></i>
+            </div>
+            </a>
+            <ul class="sidebar-menu sidebar-menu-dropdown-content">
+            <li>
+            <a href="/opensdk/index">
+            Open SDK
+            </a>
             </li>
             <li>
-                <a class="darkmode-toggle" id="darkmode-toggle" onclick="switchTheme()">
-                    <div>
-                        <i class='bx bx-cog mr-10'></i>
-                        <span>darkmode</span>
-                    </div>
+            <a href="/rechargeCard/index">
+            Recharge Card
+            </a>
+            </li>
+            </ul>
+            </li>
+            <li>
+            <a class="darkmode-toggle" id="darkmode-toggle" onclick="switchTheme()">
+            <div>
+            <i class='bx bx-cog mr-10'></i>
+            <span>darkmode</span>
+            </div>
 
-                    <span class="darkmode-switch"></span>
-                </a>
+            <span class="darkmode-switch"></span>
+            </a>
             </li> *@
         </ul>
     </div>
@@ -263,7 +268,7 @@
         </div> -->
         <div class="dropdown d-inline-block mt-12">
             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="rounded-circle header-profile-user" src="~/images/profile/profile.png"
+                <img class="rounded-circle header-profile-user" width="60" src="~/images/profile/yazi.jpg"
                      alt="Header Avatar">
                 <span class="pulse-css"></span>
                 <span class="info d-xl-inline-block  color-span">

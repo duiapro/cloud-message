@@ -13,7 +13,7 @@ using System.Threading.Channels;
 
 namespace Message.Sms.Web.Controllers
 {
-    [AuthFilter]
+    [AuthFilter(IsAdmin = false)]
     public class SmsController : ControllerBase
     {
         private readonly AppDbContext _dbContext;
@@ -46,8 +46,7 @@ namespace Message.Sms.Web.Controllers
             if (thisGetPhoneNumberCount > 100)
                 throw new Exception("Today’s mobile phone number acquisition limit has been reached.");
 
-            await this.VerifyUserBalanceAsync(loginUserKeyId, channel.KeyId);
-
+            var discountPrice = await this.VerifyUserBalanceAsync(loginUserKeyId, channel.KeyId);
             var phone = await _smsApiClientAdapter.GetPhoneAsync(channel.ApiServiceProvider.Type,
                 channel.ApiServiceProvider.Type switch
                 {
@@ -58,7 +57,8 @@ namespace Message.Sms.Web.Controllers
             await _dbContext.UsersUseMobileHistorys.AddAsync(new(loginUserKeyId, channelKeyId,
                 channel.ApiServiceProvider.Type, channel.Name, phone.Mobile));
             var usersSmsCodeLogs = await _dbContext.UsersSmsCodeLogs.AddAsync(new(loginUserKeyId, channelKeyId,
-                channel.ApiServiceProvider.Type, phone.Mobile));
+                channel.Code,
+                channel.ApiServiceProvider.Type, discountPrice, phone.Mobile));
             await _dbContext.SaveChangesAsync();
 
             return Json(new { Mobile = phone.Mobile, TaskKeyId = usersSmsCodeLogs.Entity.KeyId });
@@ -113,9 +113,13 @@ namespace Message.Sms.Web.Controllers
             });
         }
 
-        [HttpPost]
+        #region Obsolete
+
+        //This solution is unsafe and has been deprecated
+        [HttpPost, Obsolete]
         public async Task StartGetCodeThread([FromQuery] Guid taskKeyId)
         {
+            return;
             var loginUser = base.AppUsers;
             var usersSmsCodeLogs =
                 await _dbContext.UsersSmsCodeLogs.FirstOrDefaultAsync(logs =>
@@ -158,6 +162,8 @@ namespace Message.Sms.Web.Controllers
             await _dbContext.SaveChangesAsync();
         }
 
+        //This solution is unsafe and has been deprecated
+        [Obsolete]
         private void GetCodeAsyncThread(dynamic parameter)
         {
             try
@@ -228,6 +234,8 @@ namespace Message.Sms.Web.Controllers
                 Console.Out.WriteLineAsync(ex.Message);
             }
         }
+
+        #endregion
 
         private async Task<decimal> VerifyUserBalanceAsync(Guid userKeyId, Guid channelKeyId)
         {

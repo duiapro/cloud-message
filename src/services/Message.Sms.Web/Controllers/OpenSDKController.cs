@@ -56,13 +56,15 @@ namespace Message.Sms.Web.Controllers
                         Account = model.Account,
                         PassWord = model.PassWord,
                         Remark = model.Remark,
-                        Authority = await LoginAsync(model.Account, model.PassWord)
+                        Authority = await LoginAsync(model.Account, model.PassWord),
+                        EnableTest = model.EnableTest
                     };
 
                     _dbContext.Add(apiAuthoritys);
                 }
                 else
                 {
+                    apiAuthoritys.EnableTest = model.EnableTest;
                     apiAuthoritys.Remark = model.Remark;
                     if (apiAuthoritys.Account != model.Account || apiAuthoritys.PassWord != model.PassWord ||
                         string.IsNullOrEmpty(apiAuthoritys.Authority))
@@ -74,7 +76,7 @@ namespace Message.Sms.Web.Controllers
                 }
 
                 //设置缓存
-                _apiClientTokenManage.SetToken(ApocalypseSmsApiClient.GetServiceType, apiAuthoritys.Authority);
+                _apiClientTokenManage.SetToken(ApocalypseSmsApiClient.GetServiceType, new(apiAuthoritys.Authority, apiAuthoritys.EnableTest));
 
                 await _dbContext.SaveChangesAsync();
             }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Message.Sms.Web.Repositories.Entity
@@ -11,6 +12,13 @@ namespace Message.Sms.Web.Repositories.Entity
 
         [Required]
         public Guid ChannelId { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        public string ChannelCode { get; set; }
+
+        [Precision(18, 2)]
+        public decimal Price { get; set; }
 
         [Required]
         [MaxLength(30)]
@@ -32,8 +40,10 @@ namespace Message.Sms.Web.Repositories.Entity
 
         public virtual Users Users { get; set; }
 
-        public UsersSmsCodeLogs(Guid userId, Guid channelId, string apiServiceProviderType, string mobile)
+        public UsersSmsCodeLogs(Guid userId, Guid channelId, string channelCode, string apiServiceProviderType, decimal price, string mobile)
         {
+            Price = price;
+            ChannelCode = channelCode;
             UserId = userId;
             ChannelId = channelId;
             ApiServiceProviderType = apiServiceProviderType;

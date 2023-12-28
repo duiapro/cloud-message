@@ -1,5 +1,4 @@
-﻿
-using Message.Sms.Web.OpenSDK;
+﻿using Message.Sms.Web.OpenSDK;
 using Message.Sms.Web.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,8 +24,9 @@ namespace Message.Sms.Web.Infrastructure
                 foreach (var item in apiAuthoritys)
                 {
                     await Console.Out.WriteLineAsync($"add token: {item.Type} value:{item.Authority}");
-                    apiClientTokenManage.SetToken(item.Type, item.Authority);
+                    apiClientTokenManage.SetToken(item.Type, new(item.Authority, item.EnableTest));
                 }
+
                 await dbContext.DisposeAsync();
             }
         }

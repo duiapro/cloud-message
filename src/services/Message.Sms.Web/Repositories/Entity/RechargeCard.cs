@@ -37,7 +37,7 @@ namespace Message.Sms.Web.Repositories.Entity
                 throw new Exception("cardPassword used! ");
             }
 
-            if (this.StartTime < DateTime.Now)
+            if (this.StartTime > DateTime.Now)
             {
                 throw new Exception("cardPassword Not officially effective! ");
             }
