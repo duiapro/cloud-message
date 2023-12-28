@@ -290,56 +290,79 @@
                     <!-- /.message-in -->
                     <div class="clearfix"></div>
                 </div>
-                <div class="form-chat">
+                <div class="col-11  mb-0">
                     <form asp-controller="sms" id="get-code-form" asp-action="GetCode" data-ajax="true"
                           data-ajax-method="post"
                           data-ajax-failure="message.error"
                           data-ajax-begin="thisOptions.begin(this)"
                           data-ajax-complete="ajax.complete(this)"
                           data-ajax-success="thisOptions.success">
-                        <div class="message-form-chat">
-                            <!-- /.pin -->
-                            <span class="message-text">
-                                <textarea name="message" id="message-body" placeholder="get verification code..." disabled>get verification code</textarea>
-                            </span>
-                            <!-- /.message-text -->
-                            <span class="camera">
-                                <a href="javascript:void(0)" onclick="message.info('暂未支持')" title="选择表情">
-                                    <i class="fas fa-smile"></i>
-                                </a>
-                            </span>
-                            <!-- /.camera -->
-                            <span class="icon-message">
-                                <a href="javascript:void(0)" onclick="message.error('暂未支持')" title="插入分享">
-                                    <i class="fas fa-paperclip"></i>
-                                </a>
-                            </span>
-                            <!-- /.icon-right -->
-                            <!-- <div class="icon-mobile">
-                                <ul>
-                                    <li>
-                                        <a href="#" title=""><i class="fas fa-smile"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title=""><i class="fas fa-paperclip"></i></a>
-                                    </li>
-                                </ul>
-                            </div> -->
-                            <!-- /.icon-right -->
-                            <span class="btn-send">
+                        <div class="row">
+                            <div class="col-12 mb-0">
                                 <input type="hidden" id="taskKeyId" name="taskKeyId" value="" />
-                                <button style="background:#c1c0c3" onclick="thisOptions.onsubmit();return false;" id="get-mobile-code" disabled>Connect Close<i class="fas fa-paper-plane"></i></button>
-                            </span>
-                            <!-- /.btn-send -->
+                                <button type="submit" style="background:#c1c0c3"
+                                        onclick="thisOptions.onsubmit();return false;"
+                                        id="get-mobile-code"
+                                        disabled
+                                        class=" btn-base btn btn-primary continue-btn">
+                                    Connect Close
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
                         </div>
-                        <!-- /.message-form-chat -->
-                        <div class="clearfix"></div>
                     </form>
-                    <!-- /form -->
                 </div>
+                @*
+                <div class="form-chat">
+                <form asp-controller="sms" id="get-code-form" asp-action="GetCode" data-ajax="true"
+                data-ajax-method="post"
+                data-ajax-failure="message.error"
+                data-ajax-begin="thisOptions.begin(this)"
+                data-ajax-complete="ajax.complete(this)"
+                data-ajax-success="thisOptions.success">
+                <div class="message-form-chat">
+                <!-- /.pin -->
+                <span class="message-text">
+                <textarea name="message" id="message-body" placeholder="get verification code..." disabled>get verification code</textarea>
+                </span>
+                <!-- /.message-text -->
+                <span class="camera">
+                <a href="javascript:void(0)" onclick="message.info('暂未支持')" title="选择表情">
+                <i class="fas fa-smile"></i>
+                </a>
+                </span>
+                <!-- /.camera -->
+                <span class="icon-message">
+                <a href="javascript:void(0)" onclick="message.error('暂未支持')" title="插入分享">
+                <i class="fas fa-paperclip"></i>
+                </a>
+                </span>
+                <!-- /.icon-right -->
+                <!-- <div class="icon-mobile">
+                <ul>
+                <li>
+                <a href="#" title=""><i class="fas fa-smile"></i></a>
+                </li>
+                <li>
+                <a href="#" title=""><i class="fas fa-paperclip"></i></a>
+                </li>
+                </ul>
+                </div> -->
+                <!-- /.icon-right -->
+                <span class="btn-send">
+                <input type="hidden" id="taskKeyId" name="taskKeyId" value="" />
+                <button style="background:#c1c0c3" onclick="thisOptions.onsubmit();return false;" id="get-mobile-code" disabled>Connect Close<i class="fas fa-paper-plane"></i></button>
+                </span>
+                <!-- /.btn-send -->
+                </div>
+                <!-- /.message-form-chat -->
+                <div class="clearfix"></div>
+                </form>*@
+                <!-- /form -->
             </div>
         </div>
     </div>
+</div>
 </div>
 <script type="text/javascript">
 
@@ -389,11 +412,11 @@
         onsubmit: function (e) {
             this.intervalId = setInterval(this.getCode, 3000);
             messageOption.send(`<p>Connection successful, please wait..</p><div class="progress skill-progress mt-15 mb-15" style="height:7px;">
-                                                             <div class="progress-bar progress-animated" style="animation-duration: 300s;width: 100%; height:7px;" role="progressbar">
-                                                             <span class="sr-only">78% Complete</span>
-                                                         </div>
-                                                                                                                    </div>`, false);
-            $('#get-mobile-code').attr('disabled', true).css('background', '#c1c0c3').html('Connecting...<i class="fas fa-paper-plane">');
+                                                                 <div class="progress-bar progress-animated" style="animation-duration: 300s;width: 100%; height:7px;" role="progressbar">
+                                                                 <span class="sr-only">78% Complete</span>
+                                                             </div>
+                                                                                                                        </div>`, false);
+            $('#get-mobile-code').attr('disabled', true).css('background', '#c1c0c3').text('Connecting...');//<i class="fas fa-paper-plane">
             // $.post('/sms/startGetCodeThread?taskKeyId=' + $('#taskKeyId').val())
         }
     };
@@ -404,22 +427,22 @@
                 context = `<p>${context}</p>`
             }
             var message = `<div class="message-${type}">
-                                                           <div class="message-pic">
-                                                             <img width="60px" src="/images/avatar/message-1.png" alt="">
-                                                               <div class="pulse-css-1"></div>
-                                                           </div>
-                                                           <div class="message-body">
-                                                               <div class="message-text">
-                                                                       ${context}
+                                                               <div class="message-pic">
+                                                                 <img width="60px" src="/images/avatar/message-1.png" alt="">
+                                                                   <div class="pulse-css-1"></div>
                                                                </div>
-                                                               <div class="message-meta">
-                                                                   <p class="mt-10">${new Date()}</p>
+                                                               <div class="message-body">
+                                                                   <div class="message-text">
+                                                                           ${context}
+                                                                   </div>
+                                                                   <div class="message-meta">
+                                                                       <p class="mt-10">${new Date()}</p>
+                                                                   </div>
                                                                </div>
+                                                               <div class="clearfix"></div>
                                                            </div>
-                                                           <div class="clearfix"></div>
-                                                       </div>
-                                                       <!-- /.message-in -->
-                                                           <div class="clearfix"></div>`;
+                                                           <!-- /.message-in -->
+                                                               <div class="clearfix"></div>`;
             $('.message-box').append(message);
         },
         send: function (context, isP) { this.command('out', context, isP) },
