@@ -1,0 +1,1 @@
+dotnet E:\wwwroot\sms.duir.top\Message.Sms.Web.exe

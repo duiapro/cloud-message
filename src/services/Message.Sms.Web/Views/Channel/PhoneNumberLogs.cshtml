@@ -1,0 +1,145 @@
+﻿@{
+    ViewData["Title"] = "phone-logs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var Model = (ViewData["Data"] as List<Message.Sms.Web.Models.ViewModel.UsersSmsCodeLogsViewModel>)!;
+}
+
+
+<div class="main-content user">
+    <div class="row">
+        <div class="col-12 col-xl-12">
+            <div class="box">
+                <div class="box-body pb-30">
+                    <div class="row">
+                        <form asp-action="Index" method="get">
+                            <div class="col-md-12 col-xl-10 mb-0">
+                                <div class="search-form d-flex">
+                                    <input type="text" placeholder="Mobile、Context Like" value="@ViewBag.SearchString" name="SearchString" class="form-control">
+                                    <button type="submit" class="search d-flex"><i class="fas fa-search"></i>Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <div id="task-profile_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                            <!-- <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="dataTables_length" id="task-profile_length"><label>Show <select name="task-profile_length" aria-controls="task-profile" class="form-select form-select-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div id="task-profile_filter" class="dataTables_filter"><label><input type="search" class="form-control form-control-sm" placeholder="Search..." aria-controls="task-profile"></label></div>
+                                </div>
+                            </div> -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="table table-vcenter text-nowrap table-bordered dataTable no-footer" id="task-profile" role="grid">
+                                        <thead>
+                                            <tr class="top">
+                                                <th class="border-bottom-0 text-center sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 26.6562px;">No</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 222.312px;">ChannelName</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 84.8281px;">Price</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 87.9844px;">Mobile</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 110.719px;">Status</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 87.9844px;">Code</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 71.875px;">Context</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 110.719px;">Createtime</th>
+                                                @* <th class="border-bottom-0 sorting_disabled fs-14 font-w500" rowspan="1" colspan="1" style="width: 145.391px;">Actions</th> *@
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                int index = ViewBag.PageIndex == 1 ? 1 : ViewBag.PageIndex * 10;
+                                            }
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr class="odd">
+                                                    <td class="text-center">@(index++)</td>
+                                                    <td><a href="#" class="text-decoration-none">@item.ChannelName</a> </td>
+                                                    <td><span class="badge badge-success-light">@Math.Round(item.Price, 2)</span></td>
+                                                    <td><a href="#" title="use again" class="text-decoration-none">@item.Mobile</a> </td>
+                                                    <td>
+                                                        @switch (item.Status)
+                                                        {
+                                                            case 1:
+                                                                <span class="badge badge-secondary-light">Pending</span>
+                                                                break;
+                                                            case 2:
+                                                                <span class="badge badge-warning-light">Runing</span>
+                                                                break;
+                                                            case 3:
+                                                                if (string.IsNullOrEmpty(item.Code))
+                                                                {
+                                                                    <span class="badge badge-danger-light">Fail</span>
+                                                                }else
+                                                                {
+                                                                    <span class="badge badge-success-light">Success</span>
+                                                                }
+                                                                break;
+                                                            default:
+                                                                <span class="badge badge-warning-light">Pending</span>
+                                                                break;
+                                                        }
+                                                    </td>
+
+                                                    <td>@item.Code </td>
+                                                    <td>@item.Context </td>
+                                                    <td>@item.CreateTime</td>
+                                                    @* <td>
+                                                        <div class="dropdown">
+                                                            <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                <i class='bx bx-dots-horizontal-rounded'></i>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_client"><i class="bx bx-trash"></i> Delete</a>
+                                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_client"><i class="bx bx-edit mr-5"></i>Edit</a>
+                                                            </div>
+                                                        </div>
+                                                    </td> *@
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-5">
+                                    <div class="dataTables_info" id="task-profile_info" role="status" aria-live="polite">Showing @ViewBag.Skip to @ViewBag.SkipLast of @ViewBag.TotalCount entries</div>
+                                </div>
+                                <div class="col-sm-12 col-md-7">
+                                    <div class="dataTables_paginate paging_simple_numbers" id="task-profile_paginate">
+                                        <form asp-action="Index" method="get" id="page-form">
+                                            <ul class="pagination">
+                                                <input type="hidden" id="pageIndex" name="pageIndex" />
+                                                <li onclick="option.page(@(ViewBag.PageIndex-1))" class="paginate_button page-item previous @(ViewBag.PageIndex <= 1 ?"disabled":"")" id="task-profile_previous"><a href="#" aria-controls="task-profile" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
+                                                <li class="paginate_button page-item active"><a href="#" aria-controls="task-profile" data-dt-idx="1" tabindex="0" class="page-link">@ViewBag.PageIndex</a></li>
+                                                @if (Model.Count > 0)
+                                                {
+                                                    <li onclick="option.page(@(ViewBag.PageIndex+1))" class="paginate_button page-item next disabled" id="task-profile_next"><a href="#" aria-controls="task-profile" data-dt-idx="2" tabindex="0" class="page-link">Next</a></li>
+                                                }
+                                            </ul>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var option = {
+        page: function (pageIndex) {
+            if (pageIndex <= 0) {
+                return;
+            }
+            $('#pageIndex').val(pageIndex);
+            $('#page-form').submit()
+        },
+    };
+
+</script>
