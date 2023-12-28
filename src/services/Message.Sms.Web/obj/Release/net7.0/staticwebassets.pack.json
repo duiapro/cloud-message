@@ -533,6 +533,14 @@
       "PackagePath": "staticwebassets\\images\\profile\\cover.jpg"
     },
     {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\default.png",
+      "PackagePath": "staticwebassets\\images\\profile\\default.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\gou.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\gou.jpg"
+    },
+    {
       "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\pic1.jpg",
       "PackagePath": "staticwebassets\\images\\profile\\pic1.jpg"
     },
@@ -583,6 +591,14 @@
     {
       "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\user-profile.png",
       "PackagePath": "staticwebassets\\images\\profile\\user-profile.png"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\yazi.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\yazi.jpg"
+    },
+    {
+      "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\profile\\ye.jpg",
+      "PackagePath": "staticwebassets\\images\\profile\\ye.jpg"
     },
     {
       "Id": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\images\\to-do-list\\project-1.png",

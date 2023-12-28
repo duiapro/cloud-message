@@ -25,6 +25,12 @@ D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Ou
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.dll
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.Design.dll
+D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\Microsoft.Extensions.Caching.Abstractions.dll
+D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\Microsoft.Extensions.Logging.Abstractions.dll
+D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\Microsoft.Extensions.Options.dll
+D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\Microsoft.Extensions.Primitives.dll
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\Microsoft.NET.StringTools.dll
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.dll
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -45,8 +51,10 @@ D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Ou
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\NuGet.ProjectModel.dll
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\NuGet.Protocol.dll
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\NuGet.Versioning.dll
+D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\Pipelines.Sockets.Unofficial.dll
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\Pomelo.EntityFrameworkCore.MySql.dll
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\Pomelo.EntityFrameworkCore.MySql.Design.dll
+D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\StackExchange.Redis.dll
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\System.Composition.AttributedModel.dll
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\System.Composition.Convention.dll
 D:\vsApp\cloud-message\src\services\Message.Sms.Web\obj\Release\net7.0\PubTmp\Out\System.Composition.Hosting.dll
