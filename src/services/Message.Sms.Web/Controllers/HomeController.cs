@@ -18,7 +18,7 @@ namespace Message.Sms.Web.Controllers
         public IActionResult Index()
         {
             if (!LoginUser.IsAdmin.Value)
-                return RedirectToAction("Details", "Users");
+                return RedirectToAction("index", "project");
             return View();
         }
 

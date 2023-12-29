@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>D:\vsApp\cloud-message\src\services\Message.Sms.Web\bin\Release\net7.0\publish\</_PublishTargetUrl>
-    <History>True|2023-12-28T09:39:14.1843968Z;True|2023-12-27T16:39:08.0200372+08:00;True|2023-12-27T16:19:00.1706601+08:00;True|2023-12-27T16:05:23.5641324+08:00;</History>
+    <History>True|2023-12-28T10:01:07.3902693Z;True|2023-12-28T17:39:14.1843968+08:00;True|2023-12-27T16:39:08.0200372+08:00;True|2023-12-27T16:19:00.1706601+08:00;True|2023-12-27T16:05:23.5641324+08:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

@@ -23,20 +23,24 @@
                             },
                             new MenuDate
                             {
-                                Name = "User Profile",
+                                Name = "UserCenter",
                                 Icon = "",
                                 Href = "/users/details"
                             },
-                        new MenuDate
-                        {
-                            Name = "MobleHistory",
-                            Icon = "",
-                            Href = "/channel/phoneNumberLogs",
-                            IsAdmin = true,
-                        },
+                            new MenuDate
+                            {
+                                Name = "UserBill",
+                                Icon = "",
+                                Href = "/users/ConsumeBill",
+                            },
+                            new MenuDate
+                            {
+                                Name = "MobileHistory",
+                                Icon = "",
+                                Href = "/channel/phoneNumberLogs",
+                            },
                         }
                     },
-                    
                 };
             }
 

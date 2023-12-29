@@ -31,7 +31,7 @@
         </div>
         @foreach (var item in Model)
         {
-            <div class="col-3 col-md-6 col-sm-12 mb-25">
+            <div class="col-3 col-md-6 col-sm-6 mb-25">
                 <div class="box client">
                     <div class="dropdown">
                         <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,22 +44,22 @@
                     </div>
                     <div class="box-body pt-5 pb-0">
                         <div class="img-box">
-                            <img src="/upload/images/00e0e732-846e-44b9-9157-95a431595ab7.png" style="width:100px" alt="">
+                            <img src="/upload/images/00e0e732-846e-44b9-9157-95a431595ab7.png" style="width:80px" alt="">
                             <div class="pulse-css"></div>
                         </div>
-                        <a href="/project/createChannel?keyId=@ViewBag.KeyId&channelId=@item.id"><h5 class="mt-17">@(item.projectName)</h5></a>
-                        <p class="fs-14 font-w400 font-main"><span class="text-clo-primary font-w500 pl-4">@item.code - @item.id</span></p>
+                        <a href="/project/createChannel?keyId=@ViewBag.KeyId&channelId=@item.id"><h5 class="mt-17">@item.content</h5></a>
+                        @* <p class="fs-14 font-w400 font-main"><span class="text-clo-primary font-w500 pl-4">@item.code - @item.id</span></p> *@
                         <ul class="info">
-                            <li class="fs-14"><i class="bx bxs-phone"></i>Province：@item.province</li>
-                            <li class="fs-14"><i class="bx bxs-phone"></i>Status：@item.content</li>
-                            <li class="fs-14"><i class="bx bxs-phone"></i>Price：@Math.Round(item.userMoney.Value + 1, 2)</li>
-                            <li class="fs-14"><i class="bx bxs-envelope"></i>CostPrice：@Math.Round(item.userMoney.Value, 2)</li>
+                            <li class="fs-14"><i class="bx bxs-phone"></i>@item.province</li>
+                            <li class="fs-14"><i class="bx bxs-phone"></i>@item.content</li>
+                            <li class="fs-14"><i class="bx bxs-money"></i>Price：@Math.Round(item.userMoney.Value + 1, 2)</li>
+                            @* <li class="fs-14"><i class="bx bxs-envelope"></i>CostPrice：@Math.Round(item.userMoney.Value, 2)</li> *@
                         </ul>
-                        <div class="group-btn d-flex justify-content-between">
+                        @*<div class="group-btn d-flex justify-content-between">
                             <a class="bg-btn-pri color-white" href="/project/createChannel?keyId=@ViewBag.KeyId&channelId=@item.id">Message</a>
                             <a class="bg-btn-sec color-main" href="javascript:void(0)" onclick="message.info('暂未支持')">View Profile</a>
                         </div>
-                        @*<div class="group-btn d-flex justify-content-center">
+                        <div class="group-btn d-flex justify-content-center">
                     <a class="bg-btn-pri color-white text-center" style="width:90%" href="/channel/message/">Message</a>
                     <a class="bg-btn-sec color-main" href="user-profile.html">View Profile</a>
                     </div>*@

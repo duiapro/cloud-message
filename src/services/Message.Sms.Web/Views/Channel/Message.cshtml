@@ -8,7 +8,7 @@
 
 <div class="main-content message ">
     <div class="row">
-        <div class="col-4 col-md-12">
+        <div class="col-4 col-md-12  mb-4">
             <div class="row">
                 <div class="col-12 mb-0">
                     <div class="box">
@@ -24,7 +24,7 @@
                                             <h5 class="fs-24">@channel.Name</h5>
                                         </div>
                                         <div class="text">
-                                            <p class="pb-5 mt-9 mb-0">@channel.Description</p>
+                                            <p class="pb-5 mt-9 mb-0 fs-12">@channel.Description</p>
                                         </div>
                                     </div>
                                 </div>
@@ -44,33 +44,53 @@
                                 <div class="table-responsive">
                                     <table class="table mb-0 mw-100 color-span">
                                         <tbody>
+                                            @* <tr>
+                                            <td class="py-2 px-0">
+                                            <span class="w-50">Channel ID </span>
+                                            </td>
+                                            <td>:</td>
+                                            <td class="py-2 px-0">
+                                            <span class="">@channel.Code</span>
+                                            </td>
+                                            </tr> *@
                                             <tr>
-                                                <td class="py-2 px-0"> <span class="w-50">Channel ID </span> </td>
+                                                <td class="py-2 px-0">
+                                                    <span class="w-50">Price</span>
+                                                </td>
                                                 <td>:</td>
-                                                <td class="py-2 px-0"> <span class="">@channel.Code</span> </td>
+                                                <td class="py-2 px-0">
+                                                    <span class="">@Math.Round(channel.Price, 2)</span>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td class="py-2 px-0"> <span class="w-50">Price</span> </td>
+                                                <td class="py-2 px-0">
+                                                    <span class="w-50">Status</span>
+                                                </td>
                                                 <td>:</td>
-                                                <td class="py-2 px-0"> <span class="">@Math.Round(channel.Price, 2)</span> </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="py-2 px-0"> <span class="w-50">Status</span> </td>
-                                                <td>:</td>
-                                                <td class="py-2 px-0"> <span class="badge badge-success">Active</span> </td>
+                                                <td class="py-2 px-0">
+                                                    <span class="badge badge-success">Active</span>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                            <div class="box-footer pt-41">
-                                <div class="btn-list text-center">
-                                    <a href="#history-phonenumber-modal" data-toggle="collapse" title="短信历史记录" class="btn btn-light"><i class="bx bxs-envelope"></i> </a>
-                                    <a href="javascript:void(0)" onclick="message.info('暂未支持')" title="拨打电话" class="btn btn-light"> <i class="bx bxs-phone-call"></i> </a>
-                                    <a href="javascript:void(0)" onclick="message.info('暂未支持')" title="检查号码状态" class="btn btn-light"><i class="bx bxs-error-circle"></i></a>
-                                    <a href="javascript:void(0)" onclick="message.info('暂未支持')" title="异常备注" class="btn btn-light"> <i class="bx bxs-message-alt-edit"></i> </a>
-                                </div>
+                            @* <div class="box-footer pt-41">
+                            <div class="btn-list text-center">
+                            <a href="#history-phonenumber-modal" data-toggle="collapse" title="短信历史记录" class="btn btn-light">
+                            <i class="bx bxs-envelope"></i>
+                            </a>
+                            <a href="javascript:void(0)" onclick="message.info('暂未支持')" title="拨打电话" class="btn btn-light">
+                            <i class="bx bxs-phone-call"></i>
+                            </a>
+                            <a href="javascript:void(0)" onclick="message.info('暂未支持')" title="检查号码状态" class="btn btn-light">
+                            <i class="bx bxs-error-circle"></i>
+                            </a>
+                            <a href="javascript:void(0)" onclick="message.info('暂未支持')" title="异常备注" class="btn btn-light">
+                            <i class="bx bxs-message-alt-edit"></i>
+                            </a>
                             </div>
+                            </div> *@
                         </div>
                     </div>
                 </div>
@@ -96,7 +116,11 @@
                     <div class="col-12 mb-0">
                         <div class="box box-message">
                             <div class="input-group search-area">
-                                <span class="input-group-text"><a href="javascript:void(0)"><i class="bx bx-search"></i></a></span>
+                                <span class="input-group-text">
+                                    <a href="javascript:void(0)">
+                                        <i class="bx bx-search"></i>
+                                    </a>
+                                </span>
                                 <input type="text" class="form-control" placeholder="Search">
                                 <div class="box-header">
                                     <h4 class="card-title">History PhoneNumber</h4>
@@ -251,7 +275,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-8 col-md-12">
+        <div class="col-8 col-md-12  mb-4">
             <div class="box message-info">
                 <div class="box-info-messager">
                     <div class="message-pic">
@@ -263,7 +287,7 @@
                             <h5 class="fs-18" id="this-mobile">No mobile number</h5>
                         </div>
                         <div class="text">
-                            <p class="fs-14">The mobile phone number is free, get the verification code to start billing.</p>
+                            <p class="fs-12">The mobile phone number is free, get the verification code to start billing.</p>
                         </div>
                     </div>
                 </div>
@@ -273,13 +297,12 @@
                 <div class="message-box">
                     <div class="message-in">
                         <div class="message-pic">
-                            <img src="~/images/avatar/message-1.png" alt="">
-                            @* <img src="~/images/flags/cn.jpg" width="60px" alt=""> *@
+                            <img src="~/images/profile/gou.jpg" alt="" width="40">
                             <div class="pulse-css-1"></div>
                         </div>
                         <div class="message-body">
                             <div class="message-text">
-                                <p>For the longest delay for 5 minutes, please wait patiently .. If you can't get it, it means that it has been blocked..</p>
+                                <a href="/channel/phoneNumberLogs"><p class="text-primary">Go to query records. ></p></a>
                             </div>
                             <div class="message-meta">
                                 <p class="mt-10">@DateTime.Now</p>
@@ -363,7 +386,6 @@
         </div>
     </div>
 </div>
-</div>
 <script type="text/javascript">
 
     function getPhoneNumberSuccess(data) {
@@ -405,17 +427,17 @@
                 clearInterval(thisOptions.intervalId);
                 $('.skill-progress').remove();
                 messageOption.receive(e.context);
-                setTimeout(function () { messageOption.receive('The request is over, and the text message will be re -charged again..') }, 1000)
+                // setTimeout(function () { messageOption.receive('The request is over, and the text message will be re -charged again..') }, 1000)
                 $('#get-mobile-code').removeAttr('style').attr('disabled', false).html('Connecting<i class="fas fa-paper-plane">');
             }
         },
         onsubmit: function (e) {
             this.intervalId = setInterval(this.getCode, 3000);
             messageOption.send(`<p>Connection successful, please wait..</p><div class="progress skill-progress mt-15 mb-15" style="height:7px;">
-                                                                 <div class="progress-bar progress-animated" style="animation-duration: 300s;width: 100%; height:7px;" role="progressbar">
-                                                                 <span class="sr-only">78% Complete</span>
-                                                             </div>
-                                                                                                                        </div>`, false);
+                                                                     <div class="progress-bar progress-animated" style="animation-duration: 300s;width: 100%; height:7px;" role="progressbar">
+                                                                     <span class="sr-only">78% Complete</span>
+                                                                 </div>
+                                                                                                                            </div>`, false);
             $('#get-mobile-code').attr('disabled', true).css('background', '#c1c0c3').text('Connecting...');//<i class="fas fa-paper-plane">
             // $.post('/sms/startGetCodeThread?taskKeyId=' + $('#taskKeyId').val())
         }
@@ -427,22 +449,22 @@
                 context = `<p>${context}</p>`
             }
             var message = `<div class="message-${type}">
-                                                               <div class="message-pic">
-                                                                 <img width="60px" src="/images/avatar/message-1.png" alt="">
-                                                                   <div class="pulse-css-1"></div>
-                                                               </div>
-                                                               <div class="message-body">
-                                                                   <div class="message-text">
-                                                                           ${context}
+                                                                   <div class="message-pic">
+                                                                             <img width="40px" src="~/images/profile/gou.jpg" width="40" alt="">
+                                                                       <div class="pulse-css-1"></div>
                                                                    </div>
-                                                                   <div class="message-meta">
-                                                                       <p class="mt-10">${new Date()}</p>
+                                                                   <div class="message-body">
+                                                                       <div class="message-text">
+                                                                               ${context}
+                                                                       </div>
+                                                                       <div class="message-meta">
+                                                                           <p class="mt-10">${new Date()}</p>
+                                                                       </div>
                                                                    </div>
+                                                                   <div class="clearfix"></div>
                                                                </div>
-                                                               <div class="clearfix"></div>
-                                                           </div>
-                                                           <!-- /.message-in -->
-                                                               <div class="clearfix"></div>`;
+                                                               <!-- /.message-in -->
+                                                                   <div class="clearfix"></div>`;
             $('.message-box').append(message);
         },
         send: function (context, isP) { this.command('out', context, isP) },
