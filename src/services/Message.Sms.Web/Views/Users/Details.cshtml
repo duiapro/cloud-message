@@ -6,7 +6,7 @@
 
 <div class="main-content user">
     <div class="row">
-        <div class="col-9 col-xl-12">
+        <div class="col-9 col-xl-12 d-none d-md-block">
             <div class="box card-box mb-20">
                 <div class="icon-box bg-color-1" data-toggle="modal" data-target="#rechargeBalance_modal">
                     <div class="icon bg-icon-1">
@@ -126,29 +126,29 @@
                 </div>
                 <div class="box-body pt-19">
                     <div class="row">
-                        <div class="col-4 text-center mb-0 pd-0">
+                        <div class="col-4 text-center mb-0 pd-0" data-toggle="modal" data-target="#rechargeBalance_modal">
                             <div class="icon-box">
                                 <i class='bx bxs-briefcase'></i>
                             </div>
 
-                            <h5 class="fs-14 font-w400 mb-0">Total Project</h5>
-                            <h5 class="mb-2"> <span class="fs-14 font-w600 ">55 +</span> </h5>
+                            <h5 class="fs-14 font-w400 mb-0">Balance</h5>
+                            <h5 class="mb-2"> <span class="fs-14 font-w600 text-primary">￥ @Model.Balance ></span> </h5>
                         </div>
                         <div class="col-4  text-center mb-0 pd-0">
                             <div class="icon-box">
                                 <i class='bx bxs-shopping-bags'></i>
                             </div>
 
-                            <h5 class="fs-14 font-w400 mb-0">Total Task</h5>
-                            <h5 class="mb-2"> <span class="fs-14 font-w600">35 +</span> </h5>
+                            <h5 class="fs-14 font-w400 mb-0">Waiting to Receive</h5>
+                            <h5 class="mb-2"> <span class="fs-14 font-w600">@ViewBag.RunningTask +</span> </h5>
                         </div>
                         <div class="col-4 text-center mb-0 pd-0">
                             <div class="icon-box">
                                 <i class='bx bxs-trophy'></i>
                             </div>
 
-                            <h5 class="fs-14 font-w400 mb-0">Awards</h5>
-                            <h5 class="mb-2"> <span class="fs-14 font-w600 ">03</span> </h5>
+                            <h5 class="fs-14 font-w400 mb-0">Complete</h5>
+                            <h5 class="mb-2"> <span class="fs-14 font-w600 ">@ViewBag.Complete +</span> </h5>
                         </div>
                     </div>
                 </div>
@@ -156,10 +156,10 @@
                 <div class="box-footer pt-38">
                     <div class="btn-list text-center">
                         <a href="/project/index" class="btn btn-light"><i class='bx bxs-envelope'></i> </a>
-                        <a href="javascript:void(0)" onclick="message.info('暂未支持')" class="btn btn-light"> <i class='bx bxs-phone-call'></i> </a>
+                       @*  <a href="javascript:void(0)" onclick="message.info('暂未支持')" class="btn btn-light"> <i class='bx bxs-phone-call'></i> </a>
                         <a href="javascript:void(0)" onclick="message.info('暂未支持')" class="btn btn-light"><i class='bx bxs-error-circle'></i></a>
                         <a href="javascript:void(0)" onclick="message.info('暂未支持')" class="btn btn-light"> <i class='bx bxs-message-alt-edit'></i> </a>
-                    </div>
+ *@                    </div>
                 </div>
             </div>
             <div class="box left-dot pt-39 mb-30">

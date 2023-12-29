@@ -154,15 +154,7 @@ namespace Message.Sms.Web.Controllers
                 {
                     base.AppUsers.Set(new(user.KeyId, user.UserName, user.UserMobile, user.Balance, user.IsVip,
                         user.Discount, user.IsAdmin));
-                    if (user.IsAdmin)
-                    {
-                        return Redirect("/Home/Index");
-                    }
-                    else
-                    {
-                        return Redirect("/Users/Details");
-                    }
-
+                    return Redirect("/Home/Index");
                 }
                 else if (user is null)
                 {

@@ -14,7 +14,7 @@ using Newtonsoft.Json;
 
 namespace Message.Sms.Web.Controllers
 {
-    public class ProjectController : Controller
+    public class ProjectController : ControllerBase
     {
         private readonly AppDbContext _dbContext;
         private readonly SmsApiClientAdapter _smsApiClientAdapter;
@@ -46,7 +46,18 @@ namespace Message.Sms.Web.Controllers
             ViewData["Data"] = await _dbContext.Projects.Where(filter).OrderByDescending(project => project.CreateTime)
                 .ToListAsync();
 
+            var usersSmsCodeLogs = _dbContext.UsersSmsCodeLogs.Where(usersSmsCodeLogs => usersSmsCodeLogs.UserId == LoginUser.KeyId)
+                .Select(usersSmsCodeLogs =>
+                new { usersSmsCodeLogs.Status, usersSmsCodeLogs.Code, usersSmsCodeLogs.UserId });
+
+            ViewBag.RunningTask = await usersSmsCodeLogs.CountAsync(logs => logs.Status == 2);
+            ViewBag.Failed = await usersSmsCodeLogs.CountAsync(logs => logs.Status == 3 && logs.Code == string.Empty);
+            ViewBag.Complete = await usersSmsCodeLogs.CountAsync(logs => logs.Status == 3 && logs.Code != string.Empty);
+
+            ViewData["User"] = await _dbContext.Users.Where(user => user.KeyId == LoginUser.KeyId).FirstOrDefaultAsync();
+
             return View();
+
         }
 
         [AuthFilter]
