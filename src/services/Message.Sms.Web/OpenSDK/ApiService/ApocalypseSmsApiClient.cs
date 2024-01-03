@@ -51,9 +51,11 @@ namespace Message.Sms.Web.OpenSDK.ApiService
         //(string channelId, string phoneNum, string token = "")
         public async Task<PhoneCodeResponse> GetPhoneCodeAsync(RequestBase? request = null)
         {
+            await Console.Out.WriteLineAsync($"IsTest：{base.IsTest()}");
             if (base.IsTest())
                 return new("10086", $"【测试短信】测试阶段，暂未开通使用。通知时间 {DateTime.Now.ToString()}.");
 
+            return new();
             var parameter = request?.ToParameter();
             var response = await _httpClient.GetAsync(
                 $"/api/getCode?token={this.GetToken(request?.ApiKey)}&{parameter}");

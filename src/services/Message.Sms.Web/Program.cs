@@ -29,6 +29,7 @@ builder.Services.AddStackExchangeRedisCache(options =>
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<AppUsers>();
+builder.Services.AddTransient<ISmsApiClientAdapter, SmsApiClientAdapter>();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromHours(24);

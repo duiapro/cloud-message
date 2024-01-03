@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bX4xn+39Tbf/i7PaQ4T092OtwGCpF9/K80Z4SCDT1vs=",
+  "Hash": "KCOqkiqBIAF52oFWmEfElT4TL7QfesLyYw9Wqmkb/XI=",
   "Source": "Message.Sms.Web",
   "BasePath": "_content/Message.Sms.Web",
   "Mode": "Default",
@@ -5185,6 +5185,25 @@
       "OriginalItemSpec": "wwwroot\\upload\\images\\0a89ca92-f7b5-4d9b-a60a-ce206fb5316c.png"
     },
     {
+      "Identity": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\113bdd24-0a82-42dd-be26-a9744bd5bba3.png",
+      "SourceId": "Message.Sms.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\",
+      "BasePath": "_content/Message.Sms.Web",
+      "RelativePath": "upload/images/113bdd24-0a82-42dd-be26-a9744bd5bba3.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\upload\\images\\113bdd24-0a82-42dd-be26-a9744bd5bba3.png"
+    },
+    {
       "Identity": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\36474e5d-e0a9-417d-bbbd-d925e4136309.jpg",
       "SourceId": "Message.Sms.Web",
       "SourceType": "Discovered",
@@ -5373,6 +5392,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\upload\\images\\9e8a3e3f-e34e-4567-bebb-34fd5a095343.png"
+    },
+    {
+      "Identity": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\a2fc0268-e358-462f-afef-67672a0a9401.png",
+      "SourceId": "Message.Sms.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\",
+      "BasePath": "_content/Message.Sms.Web",
+      "RelativePath": "upload/images/a2fc0268-e358-462f-afef-67672a0a9401.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\upload\\images\\a2fc0268-e358-462f-afef-67672a0a9401.png"
     },
     {
       "Identity": "D:\\vsApp\\cloud-message\\src\\services\\Message.Sms.Web\\wwwroot\\upload\\images\\bd8a48e6-3663-4219-b0b5-238ce62e37a8.png",

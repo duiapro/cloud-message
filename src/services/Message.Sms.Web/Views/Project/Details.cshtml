@@ -31,7 +31,7 @@
         </div>
         @foreach (var item in Model)
         {
-            <div class="col-3 col-md-6 col-sm-6 mb-25">
+            <div class="col-3 col-md-6 col-sm-12 mb-25">
                 <div class="box client">
                     <div class="dropdown">
                         <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="box-body pt-5 pb-0">
                         <div class="img-box">
-                            <img src="/upload/images/00e0e732-846e-44b9-9157-95a431595ab7.png" style="width:80px" alt="">
+                            <img src="@ViewBag.Icon" style="width:80px" alt="">
                             <div class="pulse-css"></div>
                         </div>
                         <a href="/project/createChannel?keyId=@ViewBag.KeyId&channelId=@item.id"><h5 class="mt-17">@item.content</h5></a>

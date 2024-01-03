@@ -5,8 +5,10 @@ using Message.Sms.Web.Repositories.Entity;
 
 namespace Message.Sms.Web.OpenSDK;
 
-public class SmsApiClientAdapter
+public class SmsApiClientAdapter : ISmsApiClientAdapter
 {
+    public Guid Id { get; set; } = Guid.NewGuid();
+
     private readonly IEnumerable<ISmsApiClient> _smsApiClients;
 
     public SmsApiClientAdapter(IEnumerable<ISmsApiClient> serviceProvider)
@@ -37,4 +39,10 @@ public class SmsApiClientAdapter
     public async Task<T> GetChannelAsync<T>(string type, RequestBase? request) => await Get(type).GetChannelAsync<T>(request);
 
     public async Task<ApocalypseGetChannelIdResposne> GetChannelIdAsync(string type, RequestBase? request) => await Get(type).GetChannelIdAsync(request);
+}
+
+public interface ISmsApiClientAdapter
+{
+    Guid Id { get; set; }
+    Task<PhoneCodeResponse> GetPhoneCodeAsync(string type, RequestBase? request = null);
 }

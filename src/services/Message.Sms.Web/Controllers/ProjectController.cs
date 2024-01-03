@@ -69,16 +69,14 @@ namespace Message.Sms.Web.Controllers
 
         public async Task<IActionResult> Details(Guid keyId, string? searchString)
         {
+            var projects = await _dbContext.Projects.FindAsync(keyId);
+            _ = projects ?? throw new Exception("keyId not exists.");
+
             var modelCache = await _distributedCache.GetOrCreateAsync<List<ApocalypseGetChanneData>>(keyId.ToString(),
                 async (cacheEnty) =>
                 {
                     cacheEnty.SetAbsoluteExpiration(TimeSpan.FromHours(24));
 
-                    var projects = await _dbContext.Projects.FindAsync(keyId);
-                    if (projects is null)
-                    {
-                        throw new Exception("keyId ");
-                    }
 
                     var apocalypseProject =
                         await _smsApiClientAdapter.GetProjectAsync<ApocalypseGetProjectResponse>(
@@ -90,7 +88,10 @@ namespace Message.Sms.Web.Controllers
                         var channels = await _smsApiClientAdapter.GetChannelAsync<ApocalypseGetChannelResponse>(
                             projects.ApiServiceProviderType,
                             new ApocalypseGetGetChannelsRequest(item.channelIdList));
-                        model.AddRange(channels.List);
+                        if (channels is not null)
+                        {
+                            model.AddRange(channels.List);
+                        }
                     }
 
                     return model;
@@ -99,7 +100,7 @@ namespace Message.Sms.Web.Controllers
             {
                 modelCache = modelCache?.FindAll(item => !string.IsNullOrEmpty(item.province) && item.province.Contains(searchString));
             }
-
+            ViewBag.Icon = projects.Icon;
             ViewBag.KeyId = keyId;
             ViewBag.SearchString = searchString;
             return View(modelCache);

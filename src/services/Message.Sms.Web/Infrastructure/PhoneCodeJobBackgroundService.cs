@@ -27,6 +27,7 @@ namespace Message.Sms.Web.Infrastructure
             {
                 try
                 {
+
                     using (var dbContext = DbContextFactory.Create())
                     {
                         await Console.Out.WriteLineAsync($"dbContext:{dbContext.ContextId.ToString()}");
@@ -39,6 +40,9 @@ namespace Message.Sms.Web.Infrastructure
                             async (smsCodeLog, cancellationToken) =>
                             {
                                 var user = dbContext.Users.Find(smsCodeLog.UserId);
+
+                                await smsApiClientAdapter.GetPhoneCodeAsync("ApocalypseSmsApiClient");
+                                await Console.Out.WriteLineAsync($"--------------");
 
                                 if (smsCodeLog.CreateTime < DateTime.Now.AddMinutes(-5))
                                 {
